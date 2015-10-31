@@ -1,10 +1,19 @@
 <% provide(:title, "Home") %>
-<div class="center jumbotron">
-    <h1>Social Curve</h1>
-    <p>
-         This is the home page for Social Curve. Welcome! 
-    </p>
-    
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-</div> 
-
+<%# <div class="center jumbotron"> %>
+<h1><strong>SocialCurveManager</strong></h1>
+<p>
+  Welcome to your SocialCurveManager interface! All the tools you need to monetize your content, or earn extra spending cash, all located in one convenient place!
+</p>
+<p>
+    Currently serving over <i>(round(users.count,100))</i> socially marketing companies, and over <i>(round(users.count,100))</i> money-making individuals!
+</p>
+<table>
+    <tr height=70>
+        <td width=250>For our first-time users:<br></td>
+        <td><a class="btn btn-primary btn-lg" href="/signup" role="button">Sign Up!</a></td>
+    </tr>
+    <tr height=70>
+        <td>If you already have an account:</td>
+        <td><a class="btn btn-primary btn-lg" href="/login" role="button">Log In!</a></td>
+    </tr>
+</table>
