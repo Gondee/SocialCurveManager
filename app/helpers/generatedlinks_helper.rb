@@ -1,0 +1,2 @@
+module GeneratedlinksHelper
+end

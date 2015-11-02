@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @generatedlink.url %>
+</p>
+
+<p>
+  <strong>Paidout:</strong>
+  <%= @generatedlink.paidout %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @generatedlink.date %>
+</p>
+
+<%= link_to 'Edit', edit_generatedlink_path(@generatedlink) %> |
+<%= link_to 'Back', generatedlinks_path %>

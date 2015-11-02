@@ -1,0 +1,9 @@
+<% provide(:title, "Help") %>
+<h1><strong>Help!</strong></h1><br>
+<!-- <p>We do not include help documentation, as we believe all of our code is self-documenting.</p> -->
+<h2>My login doesn't work!</h2>
+<p>Have you already tried re-typing your password? All passwords are case-sensitive. Do you have an account yet? If not, <%= link_to "you can sign up now!",signup_url %></p><br>
+<h2>When I try to access <i>X</i> resource, I keep being sent back to the home page!</h2>
+<p>You might have been signed out automatically. <%= link_to "Please log in again!", login_url %> Either that, or you may be trying to access a resource you do not currently have permission to access. Please ensure you use only links that we provide you.</p><br>
+<h2>I keep on receiving errors, and I know I have access to the links!</h2>
+<p>This may be a bug in the system - please <%= link_to "contact us", contact_url %>, and we will look into the problem! Please be as detailed as you can in the report, but for the sake of security, please do not send us your password.</p>

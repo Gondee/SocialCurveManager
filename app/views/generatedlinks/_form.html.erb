@@ -1,0 +1,29 @@
+<%= form_for(@generatedlink) do |f| %>
+  <% if @generatedlink.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@generatedlink.errors.count, "error") %> prohibited this generatedlink from being saved:</h2>
+
+      <ul>
+      <% @generatedlink.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :paidout %><br>
+    <%= f.check_box :paidout %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
