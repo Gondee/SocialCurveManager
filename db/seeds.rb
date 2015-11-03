@@ -12,6 +12,31 @@ User.create!(first:  "Example",
              email: "example@foobar.org",
              password:              "foobar",
              password_confirmation: "foobar",
+             admin:     false,
+             activated: true,
+             activated_at: Time.zone.now,
+             publisher: false)
+             
+User.create!(first:  "Example",
+             last: "Publisher", 
+             adress: "Example Address",
+             url: "example.com", 
+             email: "publisher@foobar.org",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             admin:     false,
+             activated: true,
+             activated_at: Time.zone.now,
+             publisher: true)
+             
+User.create!(first:  "Example",
+             last: "Admin", 
+             adress: "Example Address",
+             url: "example.com", 
+             email: "admin@foobar.org",
+             password:              "foobar",
+             password_confirmation: "foobar",
              admin:     true,
              activated: true,
-             activated_at: Time.zone.now)
+             activated_at: Time.zone.now,
+             publisher: false)

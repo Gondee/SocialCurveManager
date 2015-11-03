@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  get 'dashboard' => 'users#dashboard'
 
   get 'password_resets/new'
 
