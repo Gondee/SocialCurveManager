@@ -1,6 +1,18 @@
 <% provide(:title, "Help") %>
 <h1><strong>Help!</strong></h1><br>
 <!-- <p>We do not include help documentation, as we believe all of our code is self-documenting.</p> -->
+<% if logged_in? %>
+<h2>General logged-in help</h2>
+    <% if current_user.admin? %>
+        <h2>Admin-specific help</h2>
+    <% end %>
+    <% if current_user.publisher? || current_user.admin? %>
+        <h2>Publisher-specific help</h2>
+    <% end %>
+    <% if !current_user.publisher? || current_user.admin? %>
+        <h2>User-specific help</h2>
+    <% end %>
+<% end %>
 <h2>My login doesn't work!</h2>
 <p>Have you already tried re-typing your password? All passwords are case-sensitive. Do you have an account yet? If not, <%= link_to "you can sign up now!",signup_url %></p><br>
 <h2>When I try to access <i>X</i> resource, I keep being sent back to the home page!</h2>
