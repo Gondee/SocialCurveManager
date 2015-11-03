@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20151102233509) do
   create_table "publishers", force: :cascade do |t|
     t.string   "first"
     t.string   "last"
-    t.string   "adresss"
+    t.string   "address"
     t.string   "phone"
     t.string   "company"
     t.string   "position"
