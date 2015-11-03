@@ -3,7 +3,7 @@
 one:
   first: MyString
   last: MyString
-  adress: MyString
+  address: MyString
   phone: MyString
   url: MyString
   note: MyText
@@ -11,7 +11,7 @@ one:
 two:
   first: MyString
   last: MyString
-  adress: MyString
+  address: MyString
   phone: MyString
   url: MyString
   note: MyText

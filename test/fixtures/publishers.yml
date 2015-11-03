@@ -3,7 +3,7 @@
 one:
   first: MyString
   last: MyString
-  adresss: MyString
+  address: MyString
   phone: MyString
   company: MyString
   position: MyString
@@ -12,7 +12,7 @@ one:
 two:
   first: MyString
   last: MyString
-  adresss: MyString
+  address: MyString
   phone: MyString
   company: MyString
   position: MyString

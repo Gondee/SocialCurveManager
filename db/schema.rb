@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20151102233509) do
   create_table "users", force: :cascade do |t|
     t.string   "first"
     t.string   "last"
-    t.string   "adress"
+    t.string   "address"
     t.string   "phone"
     t.string   "url"
     t.text     "note"
