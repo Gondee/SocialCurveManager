@@ -40,7 +40,7 @@
 			<li>Some</li>
 			<li>Important</li>
 			<li>Links</li>
-			<li><%= link_to "User Settings", controller: "users", action: "edit", id: User.find(params[:id]) %></li>
+			<li><%= link_to "User Settings", controller: "users", action: "edit", id: current_user.id %></li>
 		</ul>
 		</div>
     </td>
