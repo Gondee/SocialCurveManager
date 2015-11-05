@@ -1,7 +1,7 @@
 <% if current_user.admin? %>
-<h1>I am an admin.</h1>
+    <%= render 'dash_admin' %>
 <% elsif current_user.publisher %>
-<h1>I am a publisher.</h1>
+    <%= render 'dash_publisher' %>
 <% else %>
-<h1>I am a user.</h1>
+    <%= render 'dash_user' %>
 <% end %>
