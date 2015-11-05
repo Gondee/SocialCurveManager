@@ -10,7 +10,7 @@
       <% if user.admin? %>
         <span style="color:#ff0000"><b><u>Administrator</u></b></span>
       <% elsif user.publisher? %>
-        <span style="color:#0000ff"></b>Publisher</b></span>
+        <span style="color:#0000ff"><b>Publisher</b></span>
       <% elsif !user.publisher? %>
         <span style="color:#ffd700">User</span>
       <% else %>
