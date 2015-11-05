@@ -1,6 +1,43 @@
-<h1>Admin Dashboard</h1>
-<ul>
-    <li><%= link_to "User List", users_path %></li>
-    <li>Post List</li>
-    <li>Generate Link</li>
-</ul>
+<table width="100%" height="100%" border=1><tr>
+	<td rowspan=2 style="sidebar">
+        <div style="text-align:center">
+			<%= gravatar_for(current_user) %><br><br>
+            <h2><%= current_user.first %> <%= current_user.last %></h2>
+		</div>
+		<ul>
+			<li>Some</li>
+			<li>Important</li>
+			<li>Links</li>
+			<li><%= link_to "Admin Settings", controller: "users", action: "edit", id: current_user.id %></li>
+		</ul>
+		</div>
+    </td>
+	<td class="topbar">
+		<h1>Admin Dashboard</h1>
+	</td></tr>
+    <tr>
+    <td>
+        <table border=1 class="main">
+            <tr>
+                <td class="cell">
+                    <div class="top"><h2>User List</h2></div>
+					<div class="bot">0 total users<br>0 users<br>0 publishers<br>0 administrators</div>
+                </td>
+                <td class="cell">
+                    <div class="top"><h2>Post List</h2></div>
+					<div class="bot">0 current posts</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="cell">
+                    <div class="top"><h2>Generate Link</h2></div>
+					<div class="bot">Generate >></div>
+                </td>
+                <td class="cell">
+                    <div class="top"><h2>View Status</h2></div>
+					<div class="bot">View >></div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr></table>
