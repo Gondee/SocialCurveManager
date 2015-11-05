@@ -1,34 +1,55 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
-          <li><%= link_to "Dashboard", dashboard_path %></li>
-        <% else %>
-          <li><%= link_to "Home", root_path %></li>
-        <% end %>
-        <li><%= link_to "Help", help_path %></li>
-        <% if logged_in? %>
-          <% if current_user.admin? %>
-            <li><%= link_to "Users", users_path %></li>
-          <% end %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= "#{current_user.first} #{current_user.last}" %> <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", logout_path, method: "delete" %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
+<header>
+  <nav class="navbar navbar-default">
+ 
+    <!-- application logo -->
+    <a class="navbar-brand" href="index.html">
+      <!-- application logo visible on large screens -->
+      <img width="81" height="21" class="logo" alt="Flatty" src="/assets/flatty/logo.svg">
+      <!-- application logo visible on small screens -->
+      <img width="21" height="21" class="logo-xs" alt="Flatty" src="/assets/flatty/logo_xs.svg">
+    </a>
+ 
+    <!-- main nav toggler (show/hide) -->
+    <a class="toggle-nav btn pull-left" href="#">
+      <i class="icon-reorder"></i>
+    </a>
+ 
+    <!-- dropdowns -->
+    <ul class="nav">
+ 
+      <!-- light dropdown -->
+      <li class="dropdown light only-icon">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <!-- ... -->
+        </a>
+        <!-- ... -->
+      </li>
+ 
+      <!-- medium dropdown & widget -->
+      <li class="dropdown medium only-icon widget">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <!-- ... -->
+        </a>
+        <!-- ... -->
+      </li>
+ 
+      <!-- dark dropdown & user menu -->
+      <li class="dropdown dark user-menu">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <img width="23" height="23" alt="Mila Kunis" src="/assets/flatty/avatar.jpg">
+          <span class="user-name">Mila Kunis</span>
+          <b class="caret"></b>
+        </a>
+        <!-- ... -->
+      </li>
+    </ul>
+ 
+    <!-- search form - hidden on phone -->
+    <form action="search_results.html" class="navbar-form navbar-right hidden-xs" method="get">
+      <button class="btn btn-link icon-search" name="button" type="submit"></button>
+      <div class="form-group">
+        <input value="" class="form-control" placeholder="Search..." autocomplete="off" id="q_header" name="q" type="text">
+      </div>
+    </form>
+  </nav>
 </header>
