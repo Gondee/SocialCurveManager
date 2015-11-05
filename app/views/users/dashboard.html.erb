@@ -1,8 +1,7 @@
-<%= render 'dash_css' %>
 <% if current_user.admin? %>
-    <%= render 'dash_admin' %>
+    <h1>Admin Dashboard</h1>
 <% elsif current_user.publisher %>
-    <%= render 'dash_publisher' %>
+    <h1>Publisher Dashboard</h1>
 <% else %>
-    <%= render 'dash_user' %>
+    <h1>User Dashboard</h1>
 <% end %>

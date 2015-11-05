@@ -18,8 +18,9 @@
       <%= render 'layouts/header' %>
       <div id="wrapper">
         <div id="main-nav-bg"></div>
-        <nav id="main-nav">...</nav>
+        <%= render 'layouts/nav' %>
         <section id="content">
+            DEVELOPER FUNCTIONS while Flatty in infancy: <a href="/login">Log In</a> - <a href="/logout">Log Out</a><br>
             <%= yield %>
         </section>
       </div>
