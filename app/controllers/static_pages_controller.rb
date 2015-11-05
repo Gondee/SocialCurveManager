@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  before_action :already_logged_in, only: [:home]
   
   def home
   end
@@ -11,5 +12,14 @@ class StaticPagesController < ApplicationController
   
   def contact
   end
+  
+  private
+    
+    # Determines whether already logged in.
+    def already_logged_in
+      if logged_in?
+        redirect_to dashboard_url
+      end
+    end
   
 end

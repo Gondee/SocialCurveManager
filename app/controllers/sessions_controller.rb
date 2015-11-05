@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :already_logged_in, only: [:new]
   
   def new
   end
@@ -26,5 +27,14 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to root_url
    end
+  
+  private
+    
+    # Determines whether already logged in.
+    def already_logged_in
+      if logged_in?
+        redirect_to dashboard_url
+      end
+    end
   
 end
