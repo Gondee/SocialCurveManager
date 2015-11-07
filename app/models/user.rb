@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
+  
+  has_one :publisher, dependent: :destroy
   has_many :generatedlinks, dependent: :destroy
   
   validates :first,  presence: true, length: { maximum: 50 }
