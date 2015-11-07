@@ -22,7 +22,7 @@
       <!-- light dropdown -->
       <li class="dropdown light only-icon">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          <!-- ... -->
+          <i class='icon-cog'></i>
         </a>
         <!-- ... -->
       </li>
@@ -30,7 +30,7 @@
       <!-- medium dropdown & widget -->
       <li class="dropdown medium only-icon widget">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          <!-- ... -->
+          <i class="icon-rss"></i>
         </a>
         <!-- ... -->
       </li>
@@ -42,8 +42,25 @@
           <img width="23" height="23" alt="Gravatar" src=<%= gravatar_url(current_user) %> />
           <span class="user-name"><%= current_user.first %> <%= current_user.last %></span>
           <b class="caret"></b>
-          
         </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href=<%= "/users/#{current_user.id}" %>>
+              <i class="icon-user"></i>
+              Profile</a>
+          </li>
+          <li>
+            <a href=<%= "/users/#{current_user.id}/edit" %>>
+              <i class='icon-cog'></i>
+              Settings</a>
+          </li>
+          <li class='divider'></li>
+          <li>
+            <a href="/logout">
+              <i class="icon-remove-circle"></i>
+              Log out</a>
+          </li>
+        </ul>
         <!-- ... -->
       </li>
       <% else %>
