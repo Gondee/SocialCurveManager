@@ -3,7 +3,8 @@
     <head>
       <!-- this enables responsive features in browser -->
       <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
- 
+      <title>SocialCurve</title>
+       
       <!-- your & Flatty stylesheets -->
       <%= stylesheet_link_tag :flatty %>
       
@@ -20,7 +21,6 @@
         <div id="main-nav-bg"></div>
         <%= render 'layouts/nav' %>
         <section id="content">
-            DEVELOPER FUNCTIONS while Flatty in infancy: <a href="/login">Log In</a> - <a href="/logout">Log Out</a><br>
             <%= yield %>
         </section>
       </div>

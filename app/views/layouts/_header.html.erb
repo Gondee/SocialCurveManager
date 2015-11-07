@@ -4,9 +4,11 @@
     <!-- application logo -->
     <a class="navbar-brand" href="/">
       <!-- application logo visible on large screens -->
-      <img width="81" height="21" class="logo" alt="Flatty" src="/assets/flatty/logo.svg">
+      <img width="125" height="21" class="logo" alt="Flatty" src="/assets/icon_lg.png">
       <!-- application logo visible on small screens -->
-      <img width="21" height="21" class="logo-xs" alt="Flatty" src="/assets/flatty/logo_xs.svg">
+      <!-- FIX THIS LATER -->
+      <!--<img width="21" height="21" class="logo-xs" alt="Flatty" src="/assets/socialcurve.svg">-->
+      <img width="125" height="21" class="logo-xs" alt="Flatty" src="/assets/icon_lg.png">
     </a>
  
     <!-- main nav toggler (show/hide) -->
@@ -47,7 +49,7 @@
       <% else %>
       <li class="dropdown dark user-menu">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          <img width="23" height="23" alt="Gravatar" src="" />
+          <img width="23" height="23" alt="Gravatar" src="/assets/blankavatar.png" />
           <span class="user-name">(no user)</span>
           <b class="caret"></b>
         </a>
@@ -55,13 +57,5 @@
       </li>
       <% end %>
     </ul>
- 
-    <!-- search form - hidden on phone -->
-    <form action="search_results.html" class="navbar-form navbar-right hidden-xs" method="get">
-      <button class="btn btn-link icon-search" name="button" type="submit"></button>
-      <div class="form-group">
-        <input value="" class="form-control" placeholder="Search..." autocomplete="off" id="q_header" name="q" type="text">
-      </div>
-    </form>
   </nav>
 </header>
