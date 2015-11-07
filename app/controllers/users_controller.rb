@@ -14,6 +14,9 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    url = createNewShortenedLink("http://www.tickld.com/t/1292521")
+    clicks = getMonthlyClicks(url)
+    flash[:info] = url + " " + clicks.to_s
   end
 
   # GET /users/new
