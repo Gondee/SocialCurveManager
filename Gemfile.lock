@@ -80,7 +80,14 @@ GEM
     ffi (1.9.10)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+<<<<<<< HEAD
     hike (1.2.3)
+=======
+    google_url_shortener (1.0.0)
+      json (>= 1.4.6)
+      rest-client (>= 1.6.7)
+      trollop (= 1.16.2)
+>>>>>>> master
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -140,8 +147,15 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdoc (4.2.0)
+<<<<<<< HEAD
     sass (3.4.19)
     sass-rails (5.0.4)
+=======
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    sass (3.4.14)
+    sass-rails (5.0.3)
+>>>>>>> master
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)
@@ -164,6 +178,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    trollop (1.16.2)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -189,6 +204,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   compass-rails (~> 2.0.4)
   faker (= 1.4.2)
+  google_url_shortener
   jbuilder (~> 2.0)
   jquery-rails (= 4.0.3)
   pg (= 0.17.1)
