@@ -1,12 +1,60 @@
 <% provide(:title, "About") %>
-<h1><strong>About SocialCurveManager</strong></h1>
-<p>SocialCurveManager came from but a single idea for a simple concept. With all the maintenance and messaging that typically needs to take place between a marketer and a common, everyday user, wouldn't it be a lot simpler if everything could be combined in a single platform, where it would not only be easy to communicate back and forth, but to perform such business in a routine, easier manner? SocialCurveManager aims to solve this problem, offering an easy-to-use, informative dashboard-style interface for both marketers and users alike.</p>
-<br>
-<p>Users see an interface similar to this, where they may keep tabs on how much they have earned, if there are any new jobs available, or statistics of how well their advertising is faring.</p>
-<img src="BROKENIMAGEONPURPOSE" width=600 height=250 alt="A set of images to scroll through, each with a caption. Like a carousel? (This image is purposefully broken.)" />
-<br><br>
-<p>Advertisers see an interface like this, where they have the option to start a new campaign, to check on existing campaigns, to check on the amount of funds in their account, or to view how well their campaigns are performing.</p>
-<img src="BROKENIMAGEONPURPOSE" width=600 height=250 alt="A set of images to scroll through, each with a caption. Like a carousel? (This image is purposefully broken.)" />
-<br><br>
-<p>Either way, we have designed this tool to be as powerful, yet user-friendly as possible, for the end benefit of creating a pleasing user interface for both the marketer, and the user. However, if you happen to run into any bugs or have any ideas to help improve this tool, please <%= link_to "contact us by clicking here!",contact_url %> </p>
-<br>
+<div class='col-xs-12'>
+  <div class='row'>
+    <div class='col-sm-12'>
+      <div class='page-header'>
+        <h1 class='pull-left'>
+          <i class='icon-home'></i>
+          <span>About SocialCurveManager</span>
+        </h1>
+        <div class='pull-right'></div>
+      </div>
+    </div>
+  </div>
+    SocialCurveManager came from but a single idea for a simple concept. With all the maintenance and messaging that typically needs to take place between a marketer and a common, everyday user, wouldn't it be a lot simpler if everything could be combined in a single platform, where it would not only be easy to communicate back and forth, but to perform such business in a routine, easier manner? SocialCurveManager aims to solve this problem, offering an easy-to-use, informative dashboard-style interface for both marketers and users alike.
+    <br><br>
+    Users see an interface similar to this, where they may keep tabs on how much they have earned, if there are any new jobs available, or statistics of how well their advertising is faring.
+    <br><br>
+    <div class='carousel slide' id='carouselUsers' style='margin-bottom:0;'>
+      <ol class='carousel-indicators'>
+        <li data-slide-to='0' data-target='#carouselUsers'></li>
+        <li data-slide-to='1' data-target='#carouselUsers'></li>
+        <li class='active' data-slide-to='2' data-target='#carouselUsers'></li>
+      </ol>
+      <div class='carousel-inner'>
+        <div class='active item'><img src="http://placehold.it/460x200&text=1" /></div>
+        <div class='item'><img src="http://placehold.it/460x200/143249/fff&text=2" /></div>
+        <div class='item'><img src="http://placehold.it/460x200/f34541/fff&text=3" /></div>
+      </div>
+      <a class='left carousel-control' data-slide='prev' href='#carouselUsers'>
+        <span class='icon-angle-left icon-prev'></span>
+      </a>
+      <a class='right carousel-control' data-slide='next' href='#carouselUsers'>
+        <span class='icon-angle-right icon-next'></span>
+      </a>
+    </div>
+    <br><br>
+    Advertisers see an interface like this, where they have the option to start a new campaign, to check on existing campaigns, to check on the amount of funds in their account, or to view how well their campaigns are performing.
+    <br><br>
+    <div class='carousel slide' id='carouselPublishers' style='margin-bottom:0;'>
+      <ol class='carousel-indicators'>
+        <li data-slide-to='0' data-target='#carouselPublishers'></li>
+        <li data-slide-to='1' data-target='#carouselPublishers'></li>
+        <li class='active' data-slide-to='2' data-target='#carouselPublishers'></li>
+      </ol>
+      <div class='carousel-inner'>
+        <div class='active item'><img src="http://placehold.it/460x200&text=1" /></div>
+        <div class='item'><img src="http://placehold.it/460x200/143249/fff&text=2" /></div>
+        <div class='item'><img src="http://placehold.it/460x200/f34541/fff&text=3" /></div>
+      </div>
+      <a class='left carousel-control' data-slide='prev' href='#carouselPublishers'>
+        <span class='icon-angle-left icon-prev'></span>
+      </a>
+      <a class='right carousel-control' data-slide='next' href='#carouselPublishers'>
+        <span class='icon-angle-right icon-next'></span>
+      </a>
+    </div>
+    <br><br>
+    Either way, we have designed this tool to be as powerful, yet user-friendly as possible, for the end benefit of creating a pleasing user interface for both the marketer, and the user. However, if you happen to run into any bugs or have any ideas to help improve this tool, please <%= link_to "contact us by clicking here!",contact_url %>
+    <br><br>
+</div>

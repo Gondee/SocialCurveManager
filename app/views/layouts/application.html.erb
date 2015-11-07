@@ -21,7 +21,10 @@
         <div id="main-nav-bg"></div>
         <%= render 'layouts/nav' %>
         <section id="content">
-            <%= yield %>
+            <div class='container'>
+              <%= yield %>
+              <%= render 'layouts/footer' %>
+            </div
         </section>
       </div>
     </body>

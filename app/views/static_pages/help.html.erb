@@ -1,21 +1,223 @@
 <% provide(:title, "Help") %>
-<h1><strong>Help!</strong></h1><br>
 <!-- <p>We do not include help documentation, as we believe all of our code is self-documenting.</p> -->
-<% if logged_in? %>
-<h2>General logged-in help</h2>
-    <% if current_user.admin? %>
-        <h2>Admin-specific help</h2>
-    <% end %>
-    <% if current_user.publisher? || current_user.admin? %>
-        <h2>Publisher-specific help</h2>
-    <% end %>
-    <% if !current_user.publisher? || current_user.admin? %>
-        <h2>User-specific help</h2>
-    <% end %>
-<% end %>
-<h2>My login doesn't work!</h2>
-<p>Have you already tried re-typing your password? All passwords are case-sensitive. Do you have an account yet? If not, <%= link_to "you can sign up now!",signup_url %></p><br>
-<h2>When I try to access <i>X</i> resource, I keep being sent back to the home page!</h2>
-<p>You might have been signed out automatically. <%= link_to "Please log in again!", login_url %> Either that, or you may be trying to access a resource you do not currently have permission to access. Please ensure you use only links that we provide you.</p><br>
-<h2>I keep on receiving errors, and I know I have access to the links!</h2>
-<p>This may be a bug in the system - please <%= link_to "contact us", contact_url %>, and we will look into the problem! Please be as detailed as you can in the report, but for the sake of security, please do not send us your password.</p>
+<div class='row'>
+    <div class='col-sm-12'>
+      <div class='page-header'>
+        <h1 class='pull-left'>
+          <i class='icon-home'></i>
+          <span>Help</span>
+        </h1>
+        <div class='pull-right'></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='faq'>
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='tabbable'>
+      <ul class='nav nav-responsive nav-tabs'>
+        <li class='active'>
+          <a data-toggle='tab' href='#faq1'>
+            <i class='icon-cloud-upload'></i>
+            General Help
+          </a>
+        </li>
+        <% if logged_in? %>
+            <% if current_user.admin? || !current_user.publisher? %>
+            <li class=''>
+              <a data-toggle='tab' href='#faq2'>
+                <i class='icon-angle-left'></i>
+                User-Specific Help
+              </a>
+            </li>
+            <% end %>
+            <% if current_user.admin? || current_user.publisher? %>
+            <li class=''>
+              <a data-toggle='tab' href='#faq3'>
+                <i class='icon-desktop'></i>
+                Publisher-Specific Help
+              </a>
+            </li>
+            <% end %>
+            <% if current_user.admin? %>
+            <li class=''>
+              <a data-toggle='tab' href='#faq4'>
+                <i class='icon-hospital'></i>
+                Admin-Specific Help
+              </a>
+            </li>
+            <% end %>
+        <% end %>
+      </ul>
+      <div class='tab-content'>
+        <div class='tab-pane active' id='faq1'>
+          <div class='panel-group' id='accordion1'>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <a class='accordion-toggle' data-parent='#accordion1' data-toggle='collapse' href='#collapse1-1'>
+                  <div class='text-contrast'>My login doesn't work!</div>
+                </a>
+              </div>
+              <div class='panel-collapse collapse' id='collapse1-1'>
+                <div class='panel-body'>
+                  Have you already tried re-typing your password? All passwords are case-sensitive. Do you have an account yet? If not, <%= link_to "you can sign up now!",signup_url %>
+                </div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <a class='accordion-toggle' data-parent='#accordion1' data-toggle='collapse' href='#collapse1-2'>
+                  <div class='text-contrast'>When I try to access <i>X</i> resource, I keep being sent back to the home page!</div>
+                </a>
+              </div>
+              <div class='panel-collapse collapse' id='collapse1-2'>
+                <div class='panel-body'>
+                  You might have been signed out automatically. <%= link_to "Please log in again!", login_url %> Either that, or you may be trying to access a resource you do not currently have permission to access. Please ensure you use only links that we provide you.
+                </div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <a class='accordion-toggle' data-parent='#accordion1' data-toggle='collapse' href='#collapse1-3'>
+                  <div class='text-contrast'>I keep on receiving errors, and I know I have access to the links!</div>
+                </a>
+              </div>
+              <div class='panel-collapse collapse' id='collapse1-3'>
+                <div class='panel-body'>
+                  This may be a bug in the system - please <%= link_to "contact us", contact_url %>, and we will look into the problem! Please be as detailed as you can in the report, but for the sake of security, please do not send us your password.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% if logged_in? %>
+        <% if current_user.admin? || !current_user.publisher? %>
+        <div class='tab-pane ' id='faq2'>
+          <div class='panel-group' id='accordion2'>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <a class='accordion-toggle' data-parent='#accordion2' data-toggle='collapse' href='#collapse2-1'>
+                  <div class='text-contrast'>Molestiae mollitia ipsum explicabo et id eius nesciunt modi aliquid laborum magnam</div>
+                </a>
+              </div>
+              <div class='panel-collapse collapse' id='collapse2-1'>
+                <div class='panel-body'>
+                  Eum voluptas culpa delectus qui aut et qui nostrum voluptatem quia quo non natus. Expedita deserunt ex sunt omnis et vel sint. Commodi libero similique cum praesentium hic maxime sit mollitia odit. Aliquid harum non minus tempore quia ea nam. Veniam voluptatem vel natus molestiae veniam dolorem. Voluptas esse doloribus enim dolor velit sunt qui voluptas asperiores. Cum molestiae minus incidunt molestiae accusantium odit ea velit nulla ut molestias eveniet. Sit doloremque aliquid quae eos vel a in a natus culpa facilis dolore. Qui sit dolore labore et. Similique quo unde architecto aperiam voluptas pariatur. Et quis quia est id quibusdam iste quis. Fuga ea reiciendis dolorem. Est dolorem nulla consequatur nemo ut ea incidunt dolore architecto sint mollitia temporibus. Voluptatibus inventore accusamus tenetur nisi quae. Repellat eveniet est quod nostrum labore. Ad ut illo at. Rerum laborum molestias molestiae quidem porro qui dolorum laboriosam aut impedit aut quam alias animi. Dignissimos repudiandae vero ea quae facere amet sint magnam aut est accusamus fugit provident. Vel ipsam laudantium at reiciendis. Voluptas qui et aliquam rerum voluptas voluptas repellendus magnam corporis cumque accusamus ea
+                </div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <a class='accordion-toggle' data-parent='#accordion2' data-toggle='collapse' href='#collapse2-2'>
+                  <div class='text-contrast'>Sit qui exercitationem laudantium eligendi dolores</div>
+                </a>
+              </div>
+              <div class='panel-collapse collapse' id='collapse2-2'>
+                <div class='panel-body'>
+                  Delectus molestias qui illo perferendis odit blanditiis rem dignissimos eveniet. Sequi eos dolores dolorem beatae molestiae ea iure natus tempora vel rerum dolor sint. Soluta ea fuga voluptatem id dolore dicta et vitae. Modi autem molestias pariatur voluptatem nihil. Porro neque fugiat iste incidunt quidem esse eum cum aut repudiandae eligendi nulla. Rem dolor odit sit fuga facere quae harum ab eum et. Quod aliquam exercitationem quia ad est distinctio voluptas. Error quia quo est voluptates minima mollitia sed. Tempore occaecati non accusantium enim fuga soluta magni. Eum aliquid sit dolor ut. Illum excepturi consequuntur earum omnis quaerat totam officiis architecto velit eos. Suscipit eos qui enim odit aut beatae hic. Molestias et aliquid voluptas voluptatem dolorem alias perspiciatis voluptas et minima distinctio. Ullam rem doloribus ea impedit quia. Non ut debitis odit ipsam explicabo necessitatibus et magni inventore dolorum eveniet
+                </div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <a class='accordion-toggle' data-parent='#accordion2' data-toggle='collapse' href='#collapse2-3'>
+                  <div class='text-contrast'>In voluptas a facere</div>
+                </a>
+              </div>
+              <div class='panel-collapse collapse' id='collapse2-3'>
+                <div class='panel-body'>
+                  Tempora quisquam deleniti incidunt laborum temporibus repudiandae et quo perspiciatis dolorem iure qui et. Qui tempore soluta sunt. Rerum deleniti et placeat. Reiciendis odio qui est quaerat vel dolorem voluptas ut voluptatem nesciunt ab suscipit. Omnis tempora qui in et sequi ab repellendus nihil dicta praesentium. Enim et sunt ab. Cumque qui provident ut ut dignissimos eveniet sunt. Amet laborum hic aspernatur cum ea neque quidem id. Provident pariatur voluptatem aut quam ratione voluptates molestiae est eos tenetur. Ea tempore omnis libero fuga. Veritatis repellendus vero voluptatibus laboriosam et quae eum suscipit molestiae. Fugit vero eaque cupiditate ut cum dignissimos dolores quidem dolor in dolor magnam. Ipsam facere alias doloribus vel blanditiis. Aspernatur dolorem ea rerum dolores quia dolore cupiditate culpa necessitatibus illum soluta. Qui libero unde quidem voluptate eligendi explicabo autem laboriosam commodi rem rerum nisi. Cumque placeat veritatis qui nihil a pariatur consequatur quia repellat aut laborum rem. Saepe consequatur ipsam fuga provident saepe vel. Quisquam ut sunt hic. Sequi porro minima quo eos repellat totam vel ullam cumque vero
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% if current_user.admin? || current_user.publisher? %>
+        <div class='tab-pane ' id='faq3'>
+          <div class='panel-group' id='accordion3'>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <a class='accordion-toggle' data-parent='#accordion3' data-toggle='collapse' href='#collapse3-1'>
+                  <div class='text-contrast'>Quas pariatur officiis sequi libero quo porro sint</div>
+                </a>
+              </div>
+              <div class='panel-collapse collapse' id='collapse3-1'>
+                <div class='panel-body'>
+                  Accusamus omnis soluta ullam sit hic amet modi accusamus nesciunt. Eius id aliquid rerum maxime quod voluptatibus dolorem sit enim aut sed dolorem at. Expedita vel ratione perspiciatis voluptas non et quia eaque ea. Officia optio est hic autem harum laboriosam id. Quo et facere natus fugiat et corrupti. Exercitationem magni et facere harum. Vitae possimus eius et explicabo quidem laborum occaecati nemo neque. Rerum aut qui omnis. Velit hic velit ratione. Cupiditate vero eum facere consequatur ipsum recusandae ut. Fugit beatae debitis ut nisi ea deserunt est sint est totam quod voluptas. Quam voluptates officiis maxime ex eaque vero molestiae. Qui sed amet quo est laboriosam vitae et voluptatum possimus corporis. Ea quas laboriosam ea ea temporibus. Nisi non quia ut esse deleniti libero est est ipsum et voluptatem enim corrupti
+                </div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <a class='accordion-toggle' data-parent='#accordion3' data-toggle='collapse' href='#collapse3-2'>
+                  <div class='text-contrast'>Quas repudiandae sed qui non perspiciatis est et nobis et ratione ut</div>
+                </a>
+              </div>
+              <div class='panel-collapse collapse' id='collapse3-2'>
+                <div class='panel-body'>
+                  Dicta laudantium natus repellendus. Necessitatibus dolores facilis similique nobis quibusdam esse modi. Qui a esse labore. Aut consequuntur optio quam numquam asperiores nisi quae voluptatem. Enim reiciendis repellat aliquid laborum in fugiat. Laborum id totam voluptatem ut sunt. Et quia aut quo maiores maiores unde rerum sed consequuntur et quisquam non. Asperiores et recusandae a commodi ut sit vel voluptas. Rerum harum suscipit alias rerum quia aut molestiae voluptate explicabo. Ex consequatur omnis illo commodi consequuntur dolorum officia laboriosam et enim
+                </div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <a class='accordion-toggle' data-parent='#accordion3' data-toggle='collapse' href='#collapse3-3'>
+                  <div class='text-contrast'>Ex animi qui quia quia voluptatem voluptatem quia a blanditiis odit quam aspernatur quia eius</div>
+                </a>
+              </div>
+              <div class='panel-collapse collapse' id='collapse3-3'>
+                <div class='panel-body'>
+                  Necessitatibus molestias quia perspiciatis itaque laboriosam suscipit consequuntur nihil et ipsum. Dicta rerum optio earum ut enim et nam blanditiis ipsum dolorum numquam eos. Et nesciunt ut sed velit cum neque optio similique non vitae. Natus quod consectetur porro nisi hic aut enim atque. Error dolor debitis est cumque qui laboriosam sit corporis voluptatem ad cupiditate natus. Quas sunt harum assumenda eum corrupti totam et ut et explicabo. Itaque non et repellendus qui et. Libero voluptatem necessitatibus delectus cum optio ratione voluptatum tempora. Et corporis autem aut. Iste et porro dolores et soluta nostrum enim. Assumenda nam et sit. Mollitia qui placeat ut. Dolorem atque eum deleniti ea unde necessitatibus harum rerum exercitationem incidunt. Magnam eum quidem atque corporis ea eum. Dolorum rerum voluptatum quod sunt quidem qui ab omnis possimus vel nobis. Et dolorum natus rerum qui earum minus quaerat tempora deleniti qui illo porro dolore accusantium. Occaecati soluta et qui facere maxime. Similique dolores distinctio sit cum pariatur quasi quod maiores sunt in quidem qui id optio. Ullam eum temporibus unde veniam sunt eos. Placeat et voluptas corporis. Aperiam qui non ipsum dolor. Doloremque eum amet facere expedita. Voluptatem est est illo deleniti ut. Id assumenda voluptatem eos porro sed doloremque qui mollitia ratione et possimus. Dignissimos et aut ratione asperiores illo sit ut beatae numquam officiis ea quia harum. Sint vero eum necessitatibus. Commodi qui omnis in ipsam adipisci assumenda omnis dicta velit doloremque aut et possimus voluptate. Ducimus molestias et rerum occaecati illum nemo beatae ipsam dignissimos autem veniam dolorem. Inventore quo et ullam eaque doloribus consequuntur quia fugiat consequatur itaque. Qui perferendis qui non vel sit reprehenderit consectetur enim et perspiciatis vel culpa deleniti fuga
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% if current_user.admin? %>
+        <div class='tab-pane ' id='faq4'>
+          <div class='panel-group' id='accordion4'>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <a class='accordion-toggle' data-parent='#accordion4' data-toggle='collapse' href='#collapse4-1'>
+                  <div class='text-contrast'>Consequuntur nihil aut magnam et sunt et placeat neque inventore ut maiores pariatur saepe</div>
+                </a>
+              </div>
+              <div class='panel-collapse collapse' id='collapse4-1'>
+                <div class='panel-body'>
+                  Doloremque vel deleniti in aut porro consectetur quod illum repudiandae sed aliquam eos earum consequuntur. Dolorem dolores reiciendis est sit et quidem ut maiores minus repellendus cum qui voluptatem. Illo error sunt libero. Expedita expedita alias sed omnis quia repellat. Quos et ex quia. Cumque asperiores incidunt ipsum distinctio cum voluptatibus sequi praesentium delectus hic soluta. Ut fugiat vero rerum eos corrupti. Ut nobis blanditiis ut nobis dolor voluptate doloremque rerum. Qui ut error dolorem at qui. Voluptatibus perspiciatis corporis optio exercitationem. Voluptatum omnis exercitationem doloremque velit sint voluptatem omnis animi sit est. Blanditiis reprehenderit et quidem eveniet magni similique dolorum pariatur. Aut aut est ut omnis sint fugit adipisci id et possimus in. Excepturi temporibus deleniti accusamus. Reiciendis qui velit et. Tempore aperiam doloribus eum nulla accusamus eius facere et. Est rerum itaque rerum. A non ipsa similique quasi occaecati. Incidunt nihil nostrum aspernatur consequatur voluptatem illo deserunt provident illum est mollitia aperiam. Qui tenetur rerum enim ducimus voluptas error quos quia dicta et sint. Et libero nam repellat repellat ut fugiat magni accusantium aspernatur. Similique velit sunt consequuntur tenetur molestiae sunt fugit. Voluptatum laborum pariatur suscipit. Tenetur aut velit et odit veritatis esse enim qui occaecati nihil corporis dolor rem. Adipisci dolores officiis quis sit et et officia est repellendus. Quia qui dolore nulla id officiis vero laborum temporibus provident aliquid labore
+                </div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <a class='accordion-toggle' data-parent='#accordion4' data-toggle='collapse' href='#collapse4-2'>
+                  <div class='text-contrast'>Hic expedita eum est qui</div>
+                </a>
+              </div>
+              <div class='panel-collapse collapse' id='collapse4-2'>
+                <div class='panel-body'>
+                  Qui a doloribus quis ullam reiciendis qui ea aperiam rerum accusantium non. Molestiae neque rerum pariatur delectus sit. Quas sit sed consequatur omnis eveniet voluptates in soluta. Et doloribus sit incidunt quos vero aut aut voluptatem totam rerum commodi neque eius magnam. Sunt inventore ducimus similique sunt dicta nihil aspernatur et neque. Aspernatur consequuntur in suscipit ut nam voluptatem quos alias iste voluptatum minima doloremque dicta. Eveniet consequatur aperiam qui. Qui repudiandae voluptatibus saepe recusandae et consequatur et in quis pariatur eos ut ea. Sint illum praesentium optio et vero consectetur. Voluptatem facere iusto corporis officia debitis modi qui excepturi ad est. Sit inventore delectus libero. Placeat consequatur quisquam illum exercitationem porro iusto unde velit rerum enim magni ipsa possimus. Quibusdam dolor sapiente cupiditate omnis sit officia. Similique eos deleniti voluptate quidem aut quod laudantium modi autem fugiat possimus aperiam nesciunt nulla. Error voluptatem quidem ullam excepturi quis quia laudantium quia incidunt laudantium saepe libero eos consectetur
+                </div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <a class='accordion-toggle' data-parent='#accordion4' data-toggle='collapse' href='#collapse4-3'>
+                  <div class='text-contrast'>Occaecati sunt aut iste</div>
+                </a>
+              </div>
+              <div class='panel-collapse collapse' id='collapse4-3'>
+                <div class='panel-body'>
+                  Aliquam est aut nam saepe voluptatum non aut rerum et sunt neque officia dolorum porro. Repudiandae harum maiores in accusamus laudantium consequatur aliquid sunt omnis consequatur expedita dicta maiores. Perspiciatis non aut eveniet omnis perspiciatis beatae itaque quia neque sunt fugit voluptatem. Omnis est cupiditate provident sunt atque facere accusantium quibusdam ipsum harum voluptatem velit impedit. At non quia nemo fugiat qui vel ipsum atque qui animi quia earum pariatur. Eum nihil magnam aut et nisi reiciendis error corrupti dolorem eaque animi facere nam. Quia necessitatibus laborum accusantium temporibus. Aliquid eum totam et odio voluptas voluptatem dignissimos eaque. Accusantium molestiae neque laboriosam illum dolore qui. Ea autem ut quam sunt. Non et et aliquam animi voluptate et vitae dignissimos. Tenetur quidem optio minima sed et quidem vel in alias distinctio molestiae. Quaerat eos perferendis maxime a repellendus. Et sapiente facere et laborum nihil iusto eveniet quo dolores sit provident corrupti aut. Nemo ratione aut voluptatibus. Voluptatem pariatur facilis magnam aut ab aut voluptatem totam iusto enim. Quae nam ullam libero corporis repellendus dolorum consectetur quo soluta exercitationem. Sed rem dignissimos dolorum consequatur. Et officiis dolorum tempore. Laboriosam velit culpa saepe eos assumenda animi nisi qui vel. Minima voluptas aut dolor quos culpa dolores quisquam ipsa veritatis voluptas omnis. Labore iusto modi magni. Blanditiis aspernatur ipsam voluptate eum. Deserunt eaque similique quas. Fugiat nisi tempora suscipit eaque et aut minima et nisi qui veniam. Corporis molestiae laborum occaecati consequuntur necessitatibus. Non corrupti non nihil dolores neque similique illo ipsum quisquam dignissimos consequatur odio est aut. Ut cum voluptatem voluptatem eos repudiandae consequatur officiis ut modi incidunt
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
