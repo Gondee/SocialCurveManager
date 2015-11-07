@@ -6,7 +6,16 @@
 <ul class="users">
   <% @users.each do |user| %>
     <li>
-      <%= link_to user.email, user %>
+      <%= link_to user.email, user %> -
+      <% if user.admin? %>
+        <span style="color:#ff0000"><b><u>Administrator</u></b></span>
+      <% elsif user.publisher? %>
+        <span style="color:#0000ff"><b>Publisher</b></span>
+      <% elsif !user.publisher? %>
+        <span style="color:#ffd700">User</span>
+      <% else %>
+        <span style="color:#000000">UNKNOWN - INVESTIGATE</span>
+      <% end %>
     </li>
   <% end %>
 </ul>

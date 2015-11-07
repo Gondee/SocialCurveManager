@@ -1,34 +1,78 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
-          <li><%= link_to "Dashboard", dashboard_path %></li>
-        <% else %>
-          <li><%= link_to "Home", root_path %></li>
-        <% end %>
-        <li><%= link_to "Help", help_path %></li>
-        <% if logged_in? %>
-          <% if current_user.admin? %>
-            <li><%= link_to "Users", users_path %></li>
-          <% end %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", logout_path, method: "delete" %>
-              </li>
-            </ul>
+<header>
+  <nav class="navbar navbar-default">
+ 
+    <!-- application logo -->
+    <a class="navbar-brand" href="/">
+      <!-- application logo visible on large screens -->
+      <img width="125" height="21" class="logo" alt="Flatty" src="/assets/icon_lg.png">
+      <!-- application logo visible on small screens -->
+      <!-- FIX THIS LATER -->
+      <!--<img width="21" height="21" class="logo-xs" alt="Flatty" src="/assets/socialcurve.svg">-->
+      <img width="125" height="21" class="logo-xs" alt="Flatty" src="/assets/icon_lg.png">
+    </a>
+ 
+    <!-- main nav toggler (show/hide) -->
+    <a class="toggle-nav btn pull-left" href="#">
+      <i class="icon-reorder"></i>
+    </a>
+ 
+    <!-- dropdowns -->
+    <ul class="nav">
+ 
+      <!-- light dropdown -->
+      <li class="dropdown light only-icon">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class='icon-cog'></i>
+        </a>
+        <!-- ... -->
+      </li>
+ 
+      <!-- medium dropdown & widget -->
+      <li class="dropdown medium only-icon widget">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="icon-rss"></i>
+        </a>
+        <!-- ... -->
+      </li>
+ 
+      <!-- dark dropdown & user menu -->
+      <% if logged_in? %>
+      <li class="dropdown dark user-menu">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <img width="23" height="23" alt="Gravatar" src=<%= gravatar_url(current_user) %> />
+          <span class="user-name"><%= current_user.first %> <%= current_user.last %></span>
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href=<%= "/users/#{current_user.id}" %>>
+              <i class="icon-user"></i>
+              Profile</a>
           </li>
-        <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
+          <li>
+            <a href=<%= "/users/#{current_user.id}/edit" %>>
+              <i class='icon-cog'></i>
+              Settings</a>
+          </li>
+          <li class='divider'></li>
+          <li>
+            <a href="/logout">
+              <i class="icon-remove-circle"></i>
+              Log out</a>
+          </li>
+        </ul>
+        <!-- ... -->
+      </li>
+      <% else %>
+      <li class="dropdown dark user-menu">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <img width="23" height="23" alt="Gravatar" src="/assets/blankavatar.png" />
+          <span class="user-name">(no user)</span>
+          <b class="caret"></b>
+        </a>
+        <!-- ... -->
+      </li>
+      <% end %>
+    </ul>
+  </nav>
 </header>

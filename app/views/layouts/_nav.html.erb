@@ -1,0 +1,219 @@
+<nav id="main-nav">
+  <div class="navigation">
+ 
+    <!-- search form visible on phone -->
+    <div class="search">
+      <form action="search_results.html" method="get">
+        <div class="search-wrapper">
+          <input value="" class="search-query form-control" placeholder="Search..." autocomplete="off" name="q" type="text">
+          <button class="btn btn-link icon-search" name="button" type="submit"></button>
+        </div>
+      </form>
+    </div>
+ 
+    <!-- navigation items -->
+    <ul class="nav nav-stacked">
+ 
+      <!-- single navigation item -->
+      <% if logged_in? %>
+          <li class="active">
+            <a href="/dashboard">
+              <i class="icon-dashboard"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+        <% if current_user.admin? %>
+          <li class="active">
+            <a href="/dashboard">
+              <i class="icon-user"></i>
+              <span>User List</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="/dashboard">
+              <i class="icon-th-list"></i>
+              <span>Post List</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="/dashboard">
+              <i class="icon-edit"></i>
+              <span>Generate Link</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="/dashboard">
+              <i class="icon-hdd"></i>
+              <span>View Status</span>
+            </a>
+          </li>
+        <% elsif current_user.publisher? %>
+          <li class="active">
+            <a href="/dashboard">
+              <i class="icon-edit"></i>
+              <span>Create Post</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="/dashboard">
+              <i class="icon-th-list"></i>
+              <span>View Posts</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="/dashboard">
+              <i class="icon-signal"></i>
+              <span>User Statistics</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="/dashboard">
+              <i class="icon-usd"></i>
+              <span>Payments</span>
+            </a>
+          </li>
+        <% else %>
+          <li class="active">
+            <a href="/dashboard">
+              <i class="icon-certificate"></i>
+              <span>Available Links</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="/dashboard">
+              <i class="icon-tasks"></i>
+              <span>Your Links</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="/dashboard">
+              <i class="icon-signal"></i>
+              <span>Your Statistics</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="/dashboard">
+              <i class="icon-usd"></i>
+              <span>Payments</span>
+            </a>
+          </li>
+        <% end %>
+        <li class="active">
+          <a href="/logout">
+            <i class="icon-remove-circle"></i>
+            <span>Log Out</span>
+          </a>
+        </li>
+      <% end %>
+      
+      
+      <% if logged_in? %>
+      <li>
+        <a class="dropdown-collapse" href="#">
+          <i class="icon-folder-open-alt"></i>
+          <span>SocialCurve</span>
+          <i class="icon-angle-down angle-down"></i>
+        </a>
+        <ul class="nav nav-stacked">
+          <li>
+            <a href="/about">
+              <i class="icon-info-sign"></i>
+              <span>About SocialCurve</span>
+            </a>
+          </li>
+          <li>
+            <a href="/help">
+              <i class="icon-question-sign"></i>
+              <span>Help</span>
+            </a>
+          </li>
+          <li>
+            <a href="/contact">
+              <i class="icon-phone"></i>
+              <span>Contact Us</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <% else %>
+      <li class="active">
+        <a href="/">
+          <i class="icon-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="/about">
+          <i class="icon-info-sign"></i>
+          <span>About SocialCurve</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="/help">
+          <i class="icon-question-sign"></i>
+          <span>Help</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="/contact">
+          <i class="icon-phone"></i>
+          <span>Contact Us</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="/login">
+          <i class="icon-ok-circle"></i>
+          <span>Log In</span>
+        </a>
+      </li>
+      <% end %>
+      <!-- four level dropdown -->
+      <!-- <li>
+        <a class="dropdown-collapse" href="#">
+          <i class="icon-folder-open-alt"></i>
+          <span>Four level dropdown</span>
+          <i class="icon-angle-down angle-down"></i>
+        </a>
+        <ul class="nav nav-stacked">
+          <li>
+            <a class="dropdown-collapse" href="#">
+              <i class="icon-caret-right"></i>
+              <span>Second level</span>
+              <i class="icon-angle-down angle-down"></i>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-collapse" href="#">
+              <i class="icon-caret-right"></i>
+              <span>Second level</span>
+              <i class="icon-angle-down angle-down"></i>
+            </a>
+            <ul class="nav nav-stacked">
+              <li>
+                <a class="dropdown-collapse" href="#">
+                  <i class="icon-caret-right"></i>
+                  <span>Third level</span>
+                  <i class="icon-angle-down angle-down"></i>
+                </a>
+                <ul class="nav nav-stacked">
+                  <li>
+                    <a href="#">
+                      <i class="icon-caret-right"></i>
+                      <span>Fourth level</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="icon-caret-right"></i>
+                      <span>Another fourth level</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>-->
+    </ul>
+  </div>
+</nav>
