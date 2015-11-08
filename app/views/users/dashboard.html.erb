@@ -1,5 +1,6 @@
 <% if current_user.admin? %>
 <h1>I am an admin.</h1>
+<%= link_to "Assign Links", linkdistribution_path, class: "btn btn-lg btn-primary" %>
 <% elsif current_user.publisher %>
 <h1>I am a publisher.</h1>
 <% else %>

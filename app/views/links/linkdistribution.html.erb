@@ -1,0 +1,15 @@
+<h1>Link Distributor</h1>
+
+<%= will_paginate %>
+
+<ul class="links">
+  <% @links.each do |link| %>
+  <% @link = link %>
+    <li>
+      <%= link_to link.url, link %>
+      <%= link_to "Create Generated Link", new_generatedlink_path(:url => link.url) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

@@ -14,12 +14,16 @@ class GeneratedlinksController < ApplicationController
 
   # GET /generatedlinks/new
   def new
-    @generatedlink = Generatedlink.new
+     @generatedlink = Generatedlink.new(:url => params[:url])
   end
 
   # GET /generatedlinks/1/edit
   def edit
   end
+  
+  def linkdistribution 
+    @generatedlink = Generatedlink.new
+  end 
 
   # POST /generatedlinks
   # POST /generatedlinks.json

@@ -1,5 +1,27 @@
-<h1>New Generatedlink</h1>
+<% provide(:title, 'Create Generated Link') %>
+<h1>New Generated Link</h1>
 
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@generatedlink) do |f| %>
+      
+      <%= f.label :Url %>
+      <%= f.text_field :url , class: 'form-control' %>
+      <%= f.hidden_field :url %>
+      
+      <%= f.label :Date %>
+      <%= f.date_select :date, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2050}, class: 'form-control' %>
+      
+       <%= f.label :Paidout? %>
+      <%= f.check_box :paidout, class: 'form-control' %> <br /> 
+      
+      <%= f.submit "Create Generated Link", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<!--
 <%= render 'form' %>
 
 <%= link_to 'Back', generatedlinks_path %>
+-->

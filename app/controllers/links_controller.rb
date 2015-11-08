@@ -6,6 +6,10 @@ class LinksController < ApplicationController
   def index
     @links = Link.all
   end
+  
+  def linkdistribution 
+    @links = Link.paginate(page: params[:page])
+  end 
 
   # GET /links/1
   # GET /links/1.json
@@ -20,6 +24,16 @@ class LinksController < ApplicationController
   # GET /links/1/edit
   def edit
   end
+  
+  def generatenew
+    @generatedlink = Generatedlink.new(:url => params[:url])
+   # link = Link.find(params)
+   # @generatedlink = Generatedlink.new 
+   # @generatedlink.url = link.url 
+   # @generatedlink.date = Date.now
+   # @generatedlink.paidout = false 
+   # @generatedlink.save 
+  end 
 
   # POST /links
   # POST /links.json
