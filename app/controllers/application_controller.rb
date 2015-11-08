@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def contact
     
   end
-  def login
+  def signin
     
   end
   # Prevent CSRF attacks by raising an exception.

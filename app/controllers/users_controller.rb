@@ -92,7 +92,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first, :last, :email, :address, :url, :password, :password_confirmation)
+    #  params.require(:user).permit(:first, :last, :email, :address, :url, :password, :password_confirmation, :company, :position)
+      params.permit(:first, :last, :email, :address, :url, :password, :password_confirmation, :company, :position)
     end
     
      # Confirms a logged-in user.
@@ -100,7 +101,7 @@ class UsersController < ApplicationController
       unless logged_in?
         store_location
         flash[:danger] = "Please sign in."
-        redirect_to login_url
+        redirect_to signin_url
       end
     end
     
