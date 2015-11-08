@@ -3,7 +3,7 @@
     <head>
       <!-- this enables responsive features in browser -->
       <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-      <title>SocialCurve</title>
+      <title><%= yield :title %> - SocialCurve</title>
        
       <!-- your & Flatty stylesheets -->
       <%= stylesheet_link_tag :flatty %>
@@ -21,7 +21,38 @@
         <div id="main-nav-bg"></div>
         <%= render 'layouts/nav' %>
         <section id="content">
-            <%= yield %>
+            <div class='container'>
+              <div class='col-xs-12'>
+                <div class='row'>
+                  <div class='col-sm-12'>
+                    <div class='page-header'>
+                      <h1 class='pull-left'>
+                        <i class='icon-<%= yield :icon %>'></i>
+                        <span><%= yield :headline %></span>
+                      </h1>
+                      <div class='pull-right'></div>
+                    </div>
+                  </div>
+                </div>
+                <% flash.each do |message_type, message| %>
+                <% if message_type == "danger" %>
+                  <div class='alert alert-danger alert-dismissable'>
+                <% elsif message_type == "success" %>
+                  <div class='alert alert-success alert-dismissable'>
+                <% elsif message_type == "info" %>
+                  <div class='alert alert-info alert-dismissable'>
+                <% else %>
+                  <div class='alert alert-warn alert-dismissable'>
+                <% end %>
+                <a class='close' data-dismiss='alert' href='#'>&times;</a>
+                <ul><li><%= message %></li></ul>
+                </div>
+              <% end %>
+              <%= yield %>
+              <br>
+              <%= render 'layouts/footer' %>
+            </div>
+            </div>
         </section>
       </div>
     </body>

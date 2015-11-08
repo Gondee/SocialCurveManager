@@ -1,8 +1,0 @@
-<%= render 'dash_css' %>
-<% if current_user.admin? %>
-    <%= render 'dash_admin' %>
-<% elsif current_user.publisher %>
-    <%= render 'dash_publisher' %>
-<% else %>
-    <%= render 'dash_user' %>
-<% end %>
