@@ -1,104 +1,85 @@
 <% provide(:title, "Log in") %>
-<!--<h1>Log in</h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-      <%= f.label :password %>
-      <%= link_to "(forgot password)", new_password_reset_path %>
-      <%= f.password_field :password, class: 'form-control' %>
-      
-      <%= f.label :remember_me, class: "checkbox inline" do %>
-        <%= f.check_box :remember_me %>
-        <span>Remember me on this computer</span>
-      <% end %>
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
-  <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-  </div>
-</div>-->
-
-<%= form_for(:session, url: login_path) do |f| %>
-<body class='contrast-red login contrast-background'>
-    <div class='middle-container'>
-      <div class='middle-row'>
-        <div class='middle-wrapper'>
-          <div class='login-container-header'>
-            <div class='container'>
-              <div class='row'>
-                <div class='col-sm-12'>
-                  <div class='text-center'>
-                    <%= image_tag 'flatty/SocialCurve_logo_lg.png' %>
-                    <!--<img width="121" height="31" src="/assets/images/flatty/logo_lg.svg" />-->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class='login-container'>
-            <div class='container'>
-              <div class='row'>
-                <div class='col-sm-4 col-sm-offset-4'>
-                  <h1 class='text-center title'>Sign in</h1>
-                  <form action='index.html' class='validate-form' method='get'>
-                    <div class='form-group'>
-                      <div class='controls with-icon-over-input'>
-                         
-
-                        <%= f.email_field :email, class: 'form-control' %>  
-                        
-                        <!--<input value="" placeholder="E-mail" class="form-control" data-rule-required="true" name="email" type="text" />-->
-                        
-                        <i class='icon-user text-muted'></i>
-                      
-                      </div>
-                    </div>
-                    <div class='form-group'>
-                      <div class='controls with-icon-over-input'>
-                        <%= f.password_field :password, class: 'form-control'%>
-                        <!--<input value="" placeholder="Password" class="form-control" data-rule-required="true" name="password" type="password" />-->
-                        <i class='icon-lock text-muted'></i>
-                      </div>
-                    </div>
-                    <div class='checkbox'>
-                      <label for='remember_me'>
-                        <%= f.label :remember_me, class: "checkbox inline" do %>
-                        <%= f.check_box :remember_me%>
-                        <!--<input id='remember_me' name='remember_me' type='checkbox' value='1'>-->
-                        <span>Remember me</span>
-                        <% end %>
-                      </label>
-                    </div>
-                    <%= f.submit "Sign in", class: "btn btn-block" %>
-                    <!--<button class='btn btn-block'>Sign in</button>-->
-                  </form>
-                  <div class='text-center'>
-                    <hr class='hr-normal'>
-                    <!--<a href='forgot_password.html'>Forgot your password?</a>-->
-                    <%= link_to "(forgot password)", new_password_reset_path %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class='login-container-footer'>
-            <div class='container'>
-              <div class='row'>
-                <div class='col-sm-12'>
-                  <div class='text-center'>
-                    <a href='sign_up.html'>
-                      <i class='icon-user'></i>
-                       <strong>
-                         <p><%= link_to "New To Social Curve?", signup_path %></p>
-                        </strong>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<div class='col-xs-12'>
+  <div class='row'>
+    <div class='col-sm-12'>
+      <div class='page-header'>
+        <h1 class='pull-left'>
+          <i class='icon-home'></i>
+          <span>Sign In</span>
+        </h1>
+        <div class='pull-right'></div>
       </div>
     </div>
-    <% end %>
+  </div>
+  <%= form_for(:session, url: login_path) do |f| %>
+  <!--<body class='login'>-->
+  <div class='middle-container'>
+	<div class='middle-row'>
+	  <div class='middle-wrapper'>
+		<div class='login-container'>
+		  <div class='container'>
+			<div class='row'>
+			  <div class='col-sm-4 col-sm-offset-4'>
+				<form action='index.html' class='validate-form' method='get'>
+				  <div class='form-group'>
+					<div class='controls with-icon-over-input' style="position:relative;">
+					   
+
+					  <%= f.email_field :email, class: 'form-control' %>  
+					  
+					  <!--<input value="" placeholder="E-mail" class="form-control" data-rule-required="true" name="email" type="text" />-->
+					  
+					  <i class='icon-user text-muted' style="position: absolute; right: 10px; top: 9px;"></i>
+					
+					</div>
+				  </div>
+				  <div class='form-group'>
+					<div class='controls with-icon-over-input' style="position:relative;">
+					  <%= f.password_field :password, class: 'form-control'%>
+					  <!--<input value="" placeholder="Password" class="form-control" data-rule-required="true" name="password" type="password" />-->
+					  <i class='icon-lock text-muted' style="position: absolute; right: 12px; top: 9px;"></i>
+					</div>
+				  </div>
+				  <div class='checkbox'>
+					<label for='remember_me'>
+					  <%= f.label :remember_me, class: "checkbox inline" do %>
+					  <%= f.check_box :remember_me%>
+					  <!--<input id='remember_me' name='remember_me' type='checkbox' value='1'>-->
+					  <span>Remember me</span>
+					  <% end %>
+					</label>
+				  </div>
+				  <%= f.submit "Sign in", class: "btn btn-block" %>
+				  <!--<button class='btn btn-block'>Sign in</button>-->
+				</form>
+				<div class='text-center'>
+				  <hr class='hr-normal'>
+				  <!--<a href='forgot_password.html'>Forgot your password?</a>-->
+				  <%= link_to "(forgot password)", new_password_reset_path %>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div><br>
+		<div class='login-container-footer'>
+		  <div class='container'>
+			<div class='row'>
+			  <div class='col-sm-12'>
+				<div class='text-center'>
+				  <a href='sign_up.html'>
+					<i class='icon-user'></i>
+					 <strong>
+					   <%= link_to "New To Social Curve?", signup_path %>
+					  </strong>
+				  </a>
+				  <br><br>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <% end %>
+</div>

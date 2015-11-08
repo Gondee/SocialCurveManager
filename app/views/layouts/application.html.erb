@@ -22,6 +22,20 @@
         <%= render 'layouts/nav' %>
         <section id="content">
             <div class='container'>
+              <% flash.each do |message_type, message| %>
+                <% if message_type == :danger %>info success danger
+                  <div class='alert alert-danger alert-dismissable'>
+                <% elsif message_type == :success %>
+                  <div class='alert alert-success alert-dismissable'>
+                <% elsif message_type == :info %>
+                  <div class='alert alert-info alert-dismissable'>
+                <% else %>
+                  <div class='alert alert-warn alert-dismissable'>
+                <% end %>
+                <a class='close' data-dismiss='alert' href='#'>&times;</a>
+                <ul><li><%= message %></li></ul>
+                </div>
+              <% end %>
               <%= yield %>
               <%= render 'layouts/footer' %>
             </div

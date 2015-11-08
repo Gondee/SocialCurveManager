@@ -1,13 +1,47 @@
 <% provide(:title, "Forgot Password") %>
-<h1>Forgot password</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:password_reset, url: password_resets_path) do |f| %>
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.submit "Submit", class: "btn btn-primary" %>
-    <% end %>
+<div class='col-xs-12'>
+  <div class='row'>
+    <div class='col-sm-12'>
+      <div class='page-header'>
+        <h1 class='pull-left'>
+          <i class='icon-home'></i>
+          <span>Forgot Password</span>
+        </h1>
+        <div class='pull-right'></div>
+      </div>
+    </div>
   </div>
+  <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+  <!--<body class='login'>-->
+  <div class='middle-container'>
+	<div class='middle-row'>
+	  <div class='middle-wrapper'>
+		<div class='login-container'>
+		  <div class='container'>
+			<div class='row'>
+			  <div class='col-sm-4 col-sm-offset-4'>
+				<form action='index.html' class='validate-form' method='get'>
+				  <div class='form-group'>
+			    Please enter the email address associated with your account.<br><br>
+					<div class='controls with-icon-over-input' style="position:relative;">
+					   
+
+					  <%= f.email_field :email, class: 'form-control' %>  
+					  
+					  <i class='icon-user text-muted' style="position: absolute; right: 10px; top: 9px;"></i>
+					
+					</div>
+				  </div>
+				  <%= f.submit "Submit", class: "btn btn-block" %>
+				  <!--<button class='btn btn-block'>Sign in</button>-->
+				</form>
+			  </div>
+			</div>
+		  </div>
+		</div><br>
+	  </div>
+	</div>
+  </div>
+  <% end %>
 </div>
