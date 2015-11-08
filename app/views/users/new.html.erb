@@ -1,125 +1,114 @@
-<% provide(:title, 'Sign up') %>
+<% provide(:title, "Sign Up") %>
+<% provide(:headline, "Sign Up") %>
+<% provide(:icon, "ok-circle") %>
 
-<div class='col-xs-12'>
-  <div class='row'>
-    <div class='col-sm-12'>
-      <div class='page-header'>
-        <h1 class='pull-left'>
-          <i class='icon-home'></i>
-          <span>Sign Up</span>
-        </h1>
-        <div class='pull-right'></div>
-      </div>
-    </div>
-  </div>
- <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
+<%= form_for(@user) do |f| %>
+<%= render 'shared/error_messages' %>
 
-    <div class='middle-container'>
-      <div class='middle-row'>
-        <div class='middle-wrapper'>
-          <div class='login-container'>
-            <div class='container'>
-              <div class='row'>
-                <div class='col-sm-4 col-sm-offset-4'>
-                  <form action='index.html' method='get'>
-                    <div class='form-group'>
-                      <div class='controls with-icon-over-input' style="position:relative;">
-                        <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
-                        <i class='icon-user text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
-                      </div>
-                    </div>
-                    <div class='form-group'>
-                      <div class='controls with-icon-over-input' style="position:relative;">
-                        <%= f.text_field :first , class: 'form-control', placeholder: 'First Name' %>
-                        <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
-                      </div>
-                    </div>
-                    <div class='form-group'>
-                      <div class='controls with-icon-over-input' style="position:relative;">
-                        <%= f.text_field :last, class: 'form-control', placeholder: 'Last Name' %>
-                        <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
-                      </div>
-                    </div>
-                    <div class='form-group'>
-                      <div class='controls with-icon-over-input' style="position:relative;">
-                        <%= f.text_field :address, class: 'form-control', placeholder: 'Mailing Address' %>
-                        <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
-                      </div>
-                    </div>
-                    <div class='form-group'>
-                      <div class='controls with-icon-over-input' style="position:relative;">
-                        <%= f.text_field :phone, class: 'form-control', placeholder: 'Phone' %>
-                        <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
-                      </div>
-                    </div>
-                    <div class='form-group'>
-                      <div class='controls with-icon-over-input' style="position:relative;">
-                        <%= f.text_field :url, class: 'form-control', placeholder: 'Social Media URL' %>
-                        <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
-                      </div>
-                    </div>
-                    <div class='form-group'>
-                      <div class='controls with-icon-over-input' style="position:relative;">
-                        <%= f.label :publisher, "Publisher", :value => "true"  %>
-                        <%= f.radio_button :publisher, true %>
-                        <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
-                      </div>
-                      <div class='controls with-icon-over-input' style="position:relative;">
-                        <%= f.label :publisher, "Influencer", :value => "false" %>
-                        <%= f.radio_button :publisher, false, :checked => true %>
-                        <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
-                      </div>
-                    </div>
-                    <div class='form-group'>
-                      <div class='controls with-icon-over-input' style="position:relative;">
-                        <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
-                        <i class='icon-lock text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
-                      </div>
-                    </div>
-                    <div class='form-group'>
-                      <div class='controls with-icon-over-input' style="position:relative;">
-                        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm Password' %>
-                        <i class='icon-lock text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
-                      </div>
-                    </div>
-                    <div class='checkbox'>
-                      <label for='agreement'>
-                        <input id='agreement' name='agreement' type='checkbox' value='1'>
-                        I accept
-                        <a class='text-contrast' href='#'>user agreements</a>
-                      </label>
-                    </div>
-                    <!--<button class='btn btn-block'>Sign up</button>-->
-                    <%= f.submit "Sign Up!", class: "btn btn-block" %>
-                  </form>
-                  <div class='text-center'>
-                    <hr class='hr-normal'>
-                    <a href='sign_in.html'>
-                      <i class='icon-chevron-left'></i>
-                      Go back to sign in
-                    </a>
+<div class='middle-container'>
+  <div class='middle-row'>
+    <div class='middle-wrapper'>
+      <div class='login-container'>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-sm-4 col-sm-offset-4'>
+              <form action='index.html' method='get'>
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                    <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
+                    <i class='icon-user text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
                   </div>
                 </div>
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                    <%= f.text_field :first , class: 'form-control', placeholder: 'First Name' %>
+                    <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                  </div>
+                </div>
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                    <%= f.text_field :last, class: 'form-control', placeholder: 'Last Name' %>
+                    <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                  </div>
+                </div>
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                    <%= f.text_field :address, class: 'form-control', placeholder: 'Mailing Address' %>
+                    <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                  </div>
+                </div>
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                    <%= f.text_field :phone, class: 'form-control', placeholder: 'Phone' %>
+                    <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                  </div>
+                </div>
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                    <%= f.text_field :url, class: 'form-control', placeholder: 'Social Media URL' %>
+                    <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                  </div>
+                </div>
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                    <%= f.label :publisher, "Publisher", :value => "true"  %>
+                    <%= f.radio_button :publisher, true %>
+                    <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                  </div>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                    <%= f.label :publisher, "Influencer", :value => "false" %>
+                    <%= f.radio_button :publisher, false, :checked => true %>
+                    <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                  </div>
+                </div>
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                    <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+                    <i class='icon-lock text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                  </div>
+                </div>
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                    <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm Password' %>
+                    <i class='icon-lock text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                  </div>
+                </div>
+                <div class='checkbox'>
+                  <label for='agreement'>
+                    <input id='agreement' name='agreement' type='checkbox' value='1'>
+                    I accept
+                    <a class='text-contrast' href='#'>user agreements</a>
+                  </label>
+                </div>
+                <!--<button class='btn btn-block'>Sign up</button>-->
+                <%= f.submit "Sign Up!", class: "btn btn-block" %>
+              </form>
+              <div class='text-center'>
+                <hr class='hr-normal'>
+                <a href='/login'>
+                  <i class='icon-chevron-left'></i>
+                  Go back to sign in
+                </a>
               </div>
             </div>
           </div>
-          <div class='login-container-footer'>
-            <div class='container'>
-              <div class='row'>
-                <div class='col-sm-12'>
-                  <div class='text-center'>
-                    <a href='forgot_password.html'>
-                      <i class='icon-lock'></i>
-                      Forgot your password?
-                    </a>
-                    <br><br>
-                  </div>
-                </div>
+        </div>
+      </div>
+      <div class='login-container-footer'>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-sm-12'>
+              <div class='text-center'>
+                <a href='/password_resets/new'>
+                  <i class='icon-lock'></i>
+                  Forgot your password?
+                </a>
+                <br><br>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <% end %>
+  </div>
+<% end %>

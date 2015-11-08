@@ -1,48 +1,38 @@
-<% provide(:title, 'Reset Password') %>
-<div class='col-xs-12'>
-  <div class='row'>
-    <div class='col-sm-12'>
-      <div class='page-header'>
-        <h1 class='pull-left'>
-          <i class='icon-home'></i>
-          <span>Reset Password</span>
-        </h1>
-        <div class='pull-right'></div>
-      </div>
-    </div>
-  </div>
-  <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
-  <!--<body class='login'>-->
-  <%= render 'shared/error_messages' %>
-  <div class='middle-container'>
-	<div class='middle-row'>
-	  <div class='middle-wrapper'>
-		<div class='login-container'>
-		  <div class='container'>
-			<div class='row'>
-			  <div class='col-sm-4 col-sm-offset-4'>
-				<form action='index.html' class='validate-form' method='get'>
-          <%= hidden_field_tag :email, @user.email %>
-				  <div class='form-group'>
-					<div class='controls with-icon-over-input' style="position:relative;">
-					  <%= f.password_field :password, class: 'form-control'%>
-					  <i class='icon-lock text-muted' style="position: absolute; right: 12px; top: 9px;"></i>
-					</div>
-				  </div>
-				  <div class='form-group'>
-					<div class='controls with-icon-over-input' style="position:relative;">
-					  <%= f.password_field :password_confirmation, class: 'form-control'%>
-					  <i class='icon-lock text-muted' style="position: absolute; right: 12px; top: 9px;"></i>
-					</div>
-				  </div>
-				  <%= f.submit "Update Password", class: "btn btn-block" %>
-				</form>
+<% provide(:title, "Reset Password") %>
+<% provide(:headline, "Reset Password") %>
+<% provide(:icon, "ok-sign") %>
+
+<%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+<!--<body class='login'>-->
+<%= render 'shared/error_messages' %>
+<div class='middle-container'>
+<div class='middle-row'>
+  <div class='middle-wrapper'>
+	<div class='login-container'>
+	  <div class='container'>
+		<div class='row'>
+		  <div class='col-sm-4 col-sm-offset-4'>
+			<form action='index.html' class='validate-form' method='get'>
+        <%= hidden_field_tag :email, @user.email %>
+			  <div class='form-group'>
+				<div class='controls with-icon-over-input' style="position:relative;">
+				  <%= f.password_field :password, class: 'form-control'%>
+				  <i class='icon-lock text-muted' style="position: absolute; right: 12px; top: 9px;"></i>
+				</div>
 			  </div>
-			</div>
+			  <div class='form-group'>
+				<div class='controls with-icon-over-input' style="position:relative;">
+				  <%= f.password_field :password_confirmation, class: 'form-control'%>
+				  <i class='icon-lock text-muted' style="position: absolute; right: 12px; top: 9px;"></i>
+				</div>
+			  </div>
+			  <%= f.submit "Update Password", class: "btn btn-block" %>
+			</form>
 		  </div>
 		</div>
 	  </div>
 	</div>
   </div>
-  <% end %>
 </div>
+</div>
+<% end %>

@@ -1,31 +1,20 @@
 <% provide(:title, "Home") %>
-<div class='col-xs-12'>
-  <div class='row'>
-    <div class='col-sm-12'>
-      <div class='page-header'>
-        <h1 class='pull-left'>
-          <i class='icon-home'></i>
-          <span>Welcome to SocialCurveManager!</span>
-        </h1>
-        <div class='pull-right'></div>
-      </div>
-    </div>
-  </div>
-  Welcome to your SocialCurveManager interface! All the tools you need to monetize your content, or earn extra spending cash, all located in one convenient place!
-  <br>
-  <br>
-  Currently serving <b><%= User.where(:publisher => true, :admin => false).count %></b> socially marketing companies, and <b><%= User.where(:publisher => false, :admin => false).count %></b> money-making individuals!
-  <br>
-  <br>
-  <table>
-    <tr height=70>
-        <td width=250>For our first-time users:<br></td>
-        <td><a class="btn btn-primary btn-lg" href="/signup" role="button">Sign Up!</a></td>
-    </tr>
-    <tr height=70>
-        <td>If you already have an account:</td>
-        <td><a class="btn btn-primary btn-lg" href="/login" role="button">Log In!</a></td>
-    </tr>
-</table>
+<% provide(:headline, "Welcome to SocialCurveManager!") %>
+<% provide(:icon, "home") %>
+
+Welcome to your SocialCurveManager interface! All the tools you need to monetize your content, or earn extra spending cash, all located in one convenient place!
 <br>
-</div>
+<br>
+Currently serving <b><%= User.where(:publisher => true, :admin => false).count %></b> socially marketing companies, and <b><%= User.where(:publisher => false, :admin => false).count %></b> money-making individuals!
+<br>
+<br>
+<table>
+  <tr height=70>
+      <td width=250>For our first-time users:<br></td>
+      <td><a class="btn btn-primary btn-lg" href="/signup" role="button">Sign Up!</a></td>
+  </tr>
+  <tr height=70>
+      <td>If you already have an account:</td>
+      <td><a class="btn btn-primary btn-lg" href="/login" role="button">Log In!</a></td>
+  </tr>
+</table>
