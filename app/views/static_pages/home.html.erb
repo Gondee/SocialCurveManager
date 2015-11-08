@@ -1,14 +1,4 @@
 <% provide(:title, "Home") %>
-<<<<<<< HEAD
-<%# <div class="center jumbotron"> %>
-<h1><strong>SocialCurveManager</strong></h1>
-<p>
-  Welcome to your SocialCurveManager interface! All the tools you need to monetize your content, or earn extra spending cash, all located in one convenient place!
-</p>
-<p>
-    
-</p>
-=======
 <% provide(:headline, "Welcome to SocialCurveManager!") %>
 <% provide(:icon, "home") %>
 
@@ -18,7 +8,6 @@ Welcome to your SocialCurveManager interface! All the tools you need to monetize
 Currently serving <b><%= User.where(:publisher => true, :admin => false).count %></b> socially marketing companies, and <b><%= User.where(:publisher => false, :admin => false).count %></b> money-making individuals!
 <br>
 <br>
->>>>>>> flatty_integration
 <table>
   <tr height=70>
       <td width=250>For our first-time users:<br></td>
