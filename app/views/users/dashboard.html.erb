@@ -1,7 +1,6 @@
 <% provide(:title, "Dashboard") %>
 <% provide(:headline, "My Dashboard") %>
 <% provide(:icon, "dashboard") %>
-
 <% if current_user.admin? %>
     <%= render 'dashboard/admin' %>
 <% elsif current_user.publisher %>

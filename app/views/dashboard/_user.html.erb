@@ -1,0 +1,392 @@
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='box'>
+      <div class='box-header'>
+        <div class='title'>
+          Basic
+        </div>
+        <div class='actions'>
+          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+          </a>
+          
+          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+          </a>
+        </div>
+      </div>
+      <div class='box-content'>
+        <div id='stats-chart1' style='height:220px;'> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+      var data, dataset, gd, options, previousLabel, previousPoint, showTooltip, ticks;
+      var blue, data, datareal, getRandomData, green, i, newOrders, options, orange, orders, placeholder, plot, purple, randNumber, randSmallerNumber, red, series, totalPoints, update, updateInterval;
+      var red = "#f34541";
+      var orange = "#f8a326";
+      var blue = "#00acec";
+      var purple = "#9564e2";
+      var green = "#49bf67";
+      randNumber = function() {
+        return ((Math.floor(Math.random() * (1 + 50 - 20))) + 20) * 800;
+      };
+      randSmallerNumber = function() {
+        return ((Math.floor(Math.random() * (1 + 40 - 20))) + 10) * 200;
+      };
+      if ($("#stats-chart1").length !== 0) {
+        orders = [[1, randNumber() - 10], [2, randNumber() - 10], [3, randNumber() - 10], [4, randNumber()], [5, randNumber()], [6, 4 + randNumber()], [7, 5 + randNumber()], [8, 6 + randNumber()], [9, 6 + randNumber()], [10, 8 + randNumber()], [11, 9 + randNumber()], [12, 10 + randNumber()], [13, 11 + randNumber()], [14, 12 + randNumber()], [15, 13 + randNumber()], [16, 14 + randNumber()], [17, 15 + randNumber()], [18, 15 + randNumber()], [19, 16 + randNumber()], [20, 17 + randNumber()], [21, 18 + randNumber()], [22, 19 + randNumber()], [23, 20 + randNumber()], [24, 21 + randNumber()], [25, 14 + randNumber()], [26, 24 + randNumber()], [27, 25 + randNumber()], [28, 26 + randNumber()], [29, 27 + randNumber()], [30, 31 + randNumber()]];
+        newOrders = [[1, randSmallerNumber() - 10], [2, randSmallerNumber() - 10], [3, randSmallerNumber() - 10], [4, randSmallerNumber()], [5, randSmallerNumber()], [6, 4 + randSmallerNumber()], [7, 5 + randSmallerNumber()], [8, 6 + randSmallerNumber()], [9, 6 + randSmallerNumber()], [10, 8 + randSmallerNumber()], [11, 9 + randSmallerNumber()], [12, 10 + randSmallerNumber()], [13, 11 + randSmallerNumber()], [14, 12 + randSmallerNumber()], [15, 13 + randSmallerNumber()], [16, 14 + randSmallerNumber()], [17, 15 + randSmallerNumber()], [18, 15 + randSmallerNumber()], [19, 16 + randSmallerNumber()], [20, 17 + randSmallerNumber()], [21, 18 + randSmallerNumber()], [22, 19 + randSmallerNumber()], [23, 20 + randSmallerNumber()], [24, 21 + randSmallerNumber()], [25, 14 + randSmallerNumber()], [26, 24 + randSmallerNumber()], [27, 25 + randSmallerNumber()], [28, 26 + randSmallerNumber()], [29, 27 + randSmallerNumber()], [30, 31 + randSmallerNumber()]];
+        plot = $.plot($("#stats-chart1"), [
+          {
+            data: orders,
+            label: "Orders"
+          }, {
+            data: newOrders,
+            label: "New rders"
+          }
+        ], {
+          series: {
+            lines: {
+              show: true,
+              lineWidth: 3
+            },
+            shadowSize: 0
+          },
+          legend: {
+            show: false
+          },
+          grid: {
+            clickable: true,
+            hoverable: true,
+            borderWidth: 0,
+            tickColor: "#f4f7f9"
+          },
+          colors: ["#00acec", "#f8a326"]
+        });
+      }
+</script>
+
+<div class='row recent-activity'>
+<div class='col-sm-12'>
+  <div class='box'>
+    <div class='box-header'>
+      <div class='title'>
+        <i class='icon-refresh'></i>
+        Recent activity
+      </div>
+      <div class='actions'>
+        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+        </a>
+        
+        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+        </a>
+      </div>
+    </div>
+    <div class='box-content box-no-padding'>
+      <ul class='nav nav-tabs nav-tabs-simple'>
+        <li class='active'>
+                      <a data-toggle="tab" class="green-border" href="#users"><i class='icon-user text-green'></i>
+          Users
+          </a>
+
+        </li>
+        <li>
+                      <a data-toggle="tab" class="purple-border" href="#comments"><i class='icon-comments text-purple'></i>
+          Comments
+          </a>
+
+        </li>
+        <li class='dropdown'>
+                      <a data-toggle="dropdown" class="dropdown-toggle orange-border" href="#">Dropdown
+          <i class='icon-caret-down text-contrast'></i>
+          </a>
+
+          <ul class='dropdown-menu'>
+            <li><a href="#">Hi there!</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class='tab-content'>
+        <div class='tab-pane fade in active' id='users'>
+          <ul class='list-unstyled users list-hover list-striped'>
+            <li>
+              <div class='avatar pull-left'>
+                <div class='icon-user'></div>
+              </div>
+              <div class='action pull-left'>
+                <a class="text-contrast" href="#">Jean</a>
+                signed in
+              </div>
+              <small class='date pull-right text-muted'>
+                <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 17:34:37 +0200'>September 15, 2013 - 17:34</span>
+                <i class='icon-time'></i>
+              </small>
+            </li>
+            <li>
+              <div class='avatar pull-left'>
+                <img alt='Avatar' height='23' src='assets/images/avatar.jpg' width='23'>
+              </div>
+              <div class='action pull-left'>
+                <a class="text-contrast" href="#">Kendrick</a>
+                uploaded photo
+              </div>
+              <small class='date pull-right text-muted'>
+                <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 17:35:37 +0200'>September 15, 2013 - 17:35</span>
+                <i class='icon-time'></i>
+              </small>
+            </li>
+            <li>
+              <div class='avatar pull-left'>
+                <div class='icon-user'></div>
+              </div>
+              <div class='action pull-left'>
+                <a class="text-contrast" href="#">Jason</a>
+                signed in
+              </div>
+              <small class='date pull-right text-muted'>
+                <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 17:36:37 +0200'>September 15, 2013 - 17:36</span>
+                <i class='icon-time'></i>
+              </small>
+            </li>
+            <li>
+              <div class='avatar pull-left'>
+                <img alt='Avatar' height='23' src='assets/images/avatar.jpg' width='23'>
+              </div>
+              <div class='action pull-left'>
+                <a class="text-contrast" href="#">inley</a>
+                signed up
+              </div>
+              <small class='date pull-right text-muted'>
+                <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 17:37:37 +0200'>September 15, 2013 - 17:37</span>
+                <i class='icon-time'></i>
+              </small>
+            </li>
+            <li>
+              <div class='avatar pull-left'>
+                <img alt='Avatar' height='23' src='assets/images/avatar.jpg' width='23'>
+              </div>
+              <div class='action pull-left'>
+                <a class="text-contrast" href="#">Allen</a>
+                signed in
+              </div>
+              <small class='date pull-right text-muted'>
+                <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 17:38:37 +0200'>September 15, 2013 - 17:38</span>
+                <i class='icon-time'></i>
+              </small>
+            </li>
+            <li>
+              <div class='avatar pull-left'>
+                <img alt='Avatar' height='23' src='assets/images/avatar.jpg' width='23'>
+              </div>
+              <div class='action pull-left'>
+                <a class="text-contrast" href="#">Alexis</a>
+                signed in
+              </div>
+              <small class='date pull-right text-muted'>
+                <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 17:39:37 +0200'>September 15, 2013 - 17:39</span>
+                <i class='icon-time'></i>
+              </small>
+            </li>
+            <li>
+              <div class='avatar pull-left'>
+                <div class='icon-user'></div>
+              </div>
+              <div class='action pull-left'>
+                <a class="text-contrast" href="#">Johnnie</a>
+                commented
+              </div>
+              <small class='date pull-right text-muted'>
+                <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 17:40:37 +0200'>September 15, 2013 - 17:40</span>
+                <i class='icon-time'></i>
+              </small>
+            </li>
+            <li>
+              <div class='avatar pull-left'>
+                <div class='icon-user'></div>
+              </div>
+              <div class='action pull-left'>
+                <a class="text-contrast" href="#">Alma</a>
+                commented
+              </div>
+              <small class='date pull-right text-muted'>
+                <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 17:41:37 +0200'>September 15, 2013 - 17:41</span>
+                <i class='icon-time'></i>
+              </small>
+            </li>
+            <li>
+              <div class='avatar pull-left'>
+                <div class='icon-user'></div>
+              </div>
+              <div class='action pull-left'>
+                <a class="text-contrast" href="#">Brock</a>
+                uploaded photo
+              </div>
+              <small class='date pull-right text-muted'>
+                <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 17:42:37 +0200'>September 15, 2013 - 17:42</span>
+                <i class='icon-time'></i>
+              </small>
+            </li>
+          </ul>
+          <div class='load-more'>
+                          <a id="users-more-activity" class="btn btn-block" data-loading-text="&lt;i class='icon-spinner icon-spin'&gt;&lt;/i&gt; Loading more..." href="#"><i class='icon-circle-arrow-down'></i>
+            Load more
+            </a>
+
+          </div>
+        </div>
+        <div class='tab-pane fade' id='comments'>
+          <ul class='list-unstyled comments list-hover list-striped'>
+            <li>
+              <div class='avatar pull-left'>
+                <div class='icon-user'></div>
+              </div>
+              <div class='body'>
+                <div class='name'><a class="text-contrast" href="#">Kellie</a></div>
+                <div class='actions'>
+                                      <a class="btn btn-link ok has-tooltip" title="Approve" href="#"><i class='icon-thumbs-up'></i>
+                  </a>
+
+                                      <a class="btn btn-link remove has-tooltip" title="Remove" href="#"><i class='icon-thumbs-down'></i>
+                  </a>
+
+                </div>
+                <div class='text'>Qui vel omnis quia ea quasi voluptate rerum cum sit. Corporis qui ducimus quidem</div>
+              </div>
+              <div class='text-right'>
+                <small class='date text-muted'>
+                  <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 18:33:37 +0200'>September 15, 2013 - 18:33</span>
+                  <i class='icon-time'></i>
+                </small>
+              </div>
+            </li>
+            <li>
+              <div class='avatar pull-left'>
+                <div class='icon-user'></div>
+              </div>
+              <div class='body'>
+                <div class='name'><a class="text-contrast" href="#">Jerald</a></div>
+                <div class='actions'>
+                                      <a class="btn btn-link ok has-tooltip" title="Approve" href="#"><i class='icon-thumbs-up'></i>
+                  </a>
+
+                                      <a class="btn btn-link remove has-tooltip" title="Remove" href="#"><i class='icon-thumbs-down'></i>
+                  </a>
+
+                </div>
+                <div class='text'>Hic aut earum blanditiis sit culpa in saepe reiciendis. Alias expedita officia magnam possimus et possimus culpa assumenda consequatur qui aut vel</div>
+              </div>
+              <div class='text-right'>
+                <small class='date text-muted'>
+                  <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 19:33:37 +0200'>September 15, 2013 - 19:33</span>
+                  <i class='icon-time'></i>
+                </small>
+              </div>
+            </li>
+            <li>
+              <div class='avatar pull-left'>
+                <div class='icon-user'></div>
+              </div>
+              <div class='body'>
+                <div class='name'><a class="text-contrast" href="#">Cathleen</a></div>
+                <div class='actions'>
+                                      <a class="btn btn-link ok has-tooltip" title="Approve" href="#"><i class='icon-thumbs-up'></i>
+                  </a>
+
+                                      <a class="btn btn-link remove has-tooltip" title="Remove" href="#"><i class='icon-thumbs-down'></i>
+                  </a>
+
+                </div>
+                <div class='text'>Eum pariatur quod sapiente nulla. Minima modi cumque necessitatibus quam dolor corrupti fugiat impedit voluptas nobis nisi consequatur aut</div>
+              </div>
+              <div class='text-right'>
+                <small class='date text-muted'>
+                  <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 20:33:37 +0200'>September 15, 2013 - 20:33</span>
+                  <i class='icon-time'></i>
+                </small>
+              </div>
+            </li>
+            <li>
+              <div class='avatar pull-left'>
+                <div class='icon-user'></div>
+              </div>
+              <div class='body'>
+                <div class='name'><a class="text-contrast" href="#">Zoe</a></div>
+                <div class='actions'>
+                                      <a class="btn btn-link ok has-tooltip" title="Approve" href="#"><i class='icon-thumbs-up'></i>
+                  </a>
+
+                                      <a class="btn btn-link remove has-tooltip" title="Remove" href="#"><i class='icon-thumbs-down'></i>
+                  </a>
+
+                </div>
+                <div class='text'>Ut quibusdam debitis eaque et quis sapiente eos tempore distinctio quia et deleniti. Quae libero ullam harum mollitia non sunt placeat temporibus consequatur</div>
+              </div>
+              <div class='text-right'>
+                <small class='date text-muted'>
+                  <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 21:33:37 +0200'>September 15, 2013 - 21:33</span>
+                  <i class='icon-time'></i>
+                </small>
+              </div>
+            </li>
+            <li>
+              <div class='avatar pull-left'>
+                <div class='icon-user'></div>
+              </div>
+              <div class='body'>
+                <div class='name'><a class="text-contrast" href="#">Toby</a></div>
+                <div class='actions'>
+                                      <a class="btn btn-link ok has-tooltip" title="Approve" href="#"><i class='icon-thumbs-up'></i>
+                  </a>
+
+                                      <a class="btn btn-link remove has-tooltip" title="Remove" href="#"><i class='icon-thumbs-down'></i>
+                  </a>
+
+                </div>
+                <div class='text'>Dolorem id consequatur quod dolor natus. Optio fugiat qui qui debitis</div>
+              </div>
+              <div class='text-right'>
+                <small class='date text-muted'>
+                  <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 22:33:37 +0200'>September 15, 2013 - 22:33</span>
+                  <i class='icon-time'></i>
+                </small>
+              </div>
+            </li>
+            <li>
+              <div class='avatar pull-left'>
+                <img alt='Avatar' height='23' src='assets/images/avatar.jpg' width='23'>
+              </div>
+              <div class='body'>
+                <div class='name'><a class="text-contrast" href="#">Lynette</a></div>
+                <div class='actions'>
+                                      <a class="btn btn-link ok has-tooltip" title="Approve" href="#"><i class='icon-thumbs-up'></i>
+                  </a>
+
+                                      <a class="btn btn-link remove has-tooltip" title="Remove" href="#"><i class='icon-thumbs-down'></i>
+                  </a>
+
+                </div>
+                <div class='text'>Et aliquam et et. Nemo natus est sint modi occaecati</div>
+              </div>
+              <div class='text-right'>
+                <small class='date text-muted'>
+                  <span class='timeago fade has-tooltip' data-placement='top' title='2013-09-15 23:33:37 +0200'>September 15, 2013 - 23:33</span>
+                  <i class='icon-time'></i>
+                </small>
+              </div>
+            </li>
+          </ul>
+          <div class='load-more'>
+                          <a id="comments-more-activity" class="btn btn-block" data-loading-text="&lt;i class='icon-spinner icon-spin'&gt;&lt;/i&gt; Loading more..." href="#"><i class='icon-circle-arrow-down'></i>
+            Load more
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
