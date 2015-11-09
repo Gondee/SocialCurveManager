@@ -3,9 +3,9 @@
 <% provide(:icon, "dashboard") %>
 
 <% if current_user.admin? %>
-    <h1>Admin Dashboard</h1>
+    <%= render 'dashboard/admin' %>
 <% elsif current_user.publisher %>
-    <h1>Publisher Dashboard</h1>
+    <%= render 'dashboard/publisher' %>
 <% else %>
-    <h1>User Dashboard</h1>
+    <%= render 'dashboard/user' %>
 <% end %>
