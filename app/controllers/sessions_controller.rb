@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :already_logged_in, only: [:new]
   
   def new
   end
@@ -9,7 +10,7 @@ class SessionsController < ApplicationController
       if user.activated?
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-        redirect_back_or user
+        redirect_back_or dashboard_path
       else
         message  = "Account not activated. "
         message += "Check your email for the activation link."
@@ -26,5 +27,14 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to root_url
    end
+  
+  private
+    
+    # Determines whether already logged in.
+    def already_logged_in
+      if logged_in?
+        redirect_to dashboard_url
+      end
+    end
   
 end

@@ -1,44 +1,79 @@
+<% provide(:title, "User") %>
+<% provide(:headline, "User") %>
+<% provide(:icon, "unchecked") %>
 <p id="notice"><%= notice %></p>
+ <div class='row'>
+            <div class='col-sm-3 col-lg-2'>
+              <div class='box'>
+                <div class='box-content'>
+                  <img class="img-responsive" src="http://placehold.it/230x230&text=Photo" />
+                </div>
+              </div>
+            </div>
+            <div class='col-sm-9 col-lg-10'>
+              <div class='box'>
+                <div class='box-content box-double-padding'>
+                  <form class='form' style='margin-bottom: 0;'>
+                    <fieldset>
+                      <div class='col-sm-4'>
+                        <div class='lead'>
+                          <i class='icon-github text-contrast'></i>
+                          Sign In Information
+                        </div>
+                        <small class='text-muted'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl est, vulputate at porttitor non, interdum a mauris. Phasellus imperdiet gravida pulvinar.</small>
+                      </div>
+                      <div class='col-sm-7 col-sm-offset-1'>
+                        <div class='form-group'>
+                          <label>E-mail:</label>
+                          <%= @user.email %>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <hr class='hr-normal'>
+                    <fieldset>
+                      <div class='col-sm-4'>
+                        <div class='lead'>
+                          <i class='icon-user text-contrast'></i>
+                          Contact Information
+                        </div>
+                        <small class='text-muted'>Proin eu nibh ut urna tristique rhoncus. Sed euismod, quam sed dignissim imperdiet, nulla leo vehicula mi, a sagittis lacus augue nec sapien.</small>
+                      </div>
+                      <div class='col-sm-7 col-sm-offset-1'>
+                        <div class='form-group'>
+                          <label>First name:</label>
+                          <%= @user.first %>
+                        </div>
+                        <div class='form-group'>
+                          <label>Last name:</label>
+                          <%= @user.last %>
+                        </div>
+                        <div class='form-group'>
+                          <label>Address:</label>
+                          <%= @user.address %>
+                        </div>
+                        <div class='form-group'>
+                          <label>Contact Phone:</label>
+                          <%= @user.phone %>
+                        </div>
+                        <div class='form-group'>
+                          <label>Social Media UR:L</label>
+                          <%= @user.url %>
+                        </div>
+                        <!-- IF ADMIN SEE FLAGS -->
+                      </div>
+                    </fieldset>
+                    <div class='form-actions form-actions-padding' style='margin-bottom: 0;'>
+                      <div class='text-right'>
+                        <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary btn-lg" %>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<p>
-  <strong>First:</strong>
-  <%= @user.first %>
-</p>
 
-<p>
-  <strong>Last:</strong>
-  <%= @user.last %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @user.url %>
-</p>
-
-<p>
-  <strong>Publisher:</strong>
-  <%= @user.publisher %>
-</p>
-
-<p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
-</p>
-
-<p>
-  <strong>Note:</strong>
-  <%= @user.note %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

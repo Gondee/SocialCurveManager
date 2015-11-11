@@ -1,8 +1,15 @@
+<% provide(:title, "Dashboard") %>
+<% provide(:headline, "My Dashboard") %>
+<% provide(:icon, "dashboard") %>
+
 <% if current_user.admin? %>
-<h1>I am an admin.</h1>
+
 <%= link_to "Assign Links", linkdistribution_path, class: "btn btn-lg btn-primary" %>
+
+    <%= render 'dashboard/admin' %>
+
 <% elsif current_user.publisher %>
-<h1>I am a publisher.</h1>
+    <%= render 'dashboard/publisher' %>
 <% else %>
-<h1>I am a user.</h1>
+    <%= render 'dashboard/user' %>
 <% end %>
