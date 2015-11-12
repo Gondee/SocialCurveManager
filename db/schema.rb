@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107213609) do
+ActiveRecord::Schema.define(version: 20151111233252) do
 
   create_table "generatedlinks", force: :cascade do |t|
     t.string   "url"
@@ -33,13 +33,8 @@ ActiveRecord::Schema.define(version: 20151107213609) do
   end
 
   create_table "publishers", force: :cascade do |t|
-    t.string   "first"
-    t.string   "last"
-    t.string   "address"
-    t.string   "phone"
     t.string   "company"
     t.string   "position"
-    t.text     "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
@@ -64,7 +59,6 @@ ActiveRecord::Schema.define(version: 20151107213609) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.boolean  "publisher"
-    t.integer  "publisher_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
