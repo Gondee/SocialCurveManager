@@ -30,6 +30,7 @@ class LinksController < ApplicationController
     #Adding the current publisher to the newly added link. 
     @pub = Publisher.find_by user_id: current_user_id
     @link.publisher_id = @pub.id
+    @link.date = Date.today
     respond_to do |format|
       if @link.save
         format.html { redirect_to @link, notice: 'Link was successfully created.' }
