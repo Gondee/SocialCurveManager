@@ -24,76 +24,76 @@
           </li>
         <% if current_user.admin? %>
           <li class="active">
-            <a href="/dashboard">
+            <a href="/users">
               <i class="icon-user"></i>
               <span>User List</span>
             </a>
           </li>
           <li class="active">
-            <a href="/dashboard">
+            <a href="/links">
               <i class="icon-th-list"></i>
-              <span>Post List</span>
+              <span>Link List</span>
             </a>
           </li>
           <li class="active">
-            <a href="/dashboard">
+            <a href="/linkdistribution">
               <i class="icon-edit"></i>
-              <span>Generate Link</span>
+              <span>Assign Link</span>
             </a>
           </li>
           <li class="active">
             <a href="/dashboard">
-              <i class="icon-hdd"></i>
+              <i class="icon-hdd"></i> <i class="icon-remove-circle"></i>
               <span>View Status</span>
             </a>
           </li>
         <% elsif current_user.publisher? %>
           <li class="active">
             <a href="/dashboard">
-              <i class="icon-edit"></i>
+              <i class="icon-edit"></i> <i class="icon-remove-circle"></i>
               <span>Create Post</span>
             </a>
           </li>
           <li class="active">
             <a href="/dashboard">
-              <i class="icon-th-list"></i>
+              <i class="icon-th-list"></i> <i class="icon-remove-circle"></i>
               <span>View Posts</span>
             </a>
           </li>
           <li class="active">
             <a href="/dashboard">
-              <i class="icon-signal"></i>
+              <i class="icon-signal"></i> <i class="icon-remove-circle"></i>
               <span>User Statistics</span>
             </a>
           </li>
           <li class="active">
             <a href="/dashboard">
-              <i class="icon-usd"></i>
+              <i class="icon-usd"></i> <i class="icon-remove-circle"></i>
               <span>Payments</span>
             </a>
           </li>
         <% else %>
           <li class="active">
             <a href="/dashboard">
-              <i class="icon-certificate"></i>
+              <i class="icon-certificate"></i> <i class="icon-remove-circle"></i>
               <span>Available Links</span>
             </a>
           </li>
           <li class="active">
             <a href="/dashboard">
-              <i class="icon-tasks"></i>
+              <i class="icon-tasks"></i> <i class="icon-remove-circle"></i>
               <span>Your Links</span>
             </a>
           </li>
           <li class="active">
             <a href="/dashboard">
-              <i class="icon-signal"></i>
+              <i class="icon-signal"></i> <i class="icon-remove-circle"></i>
               <span>Your Statistics</span>
             </a>
           </li>
           <li class="active">
             <a href="/dashboard">
-              <i class="icon-usd"></i>
+              <i class="icon-usd"></i> <i class="icon-remove-circle"></i>
               <span>Payments</span>
             </a>
           </li>

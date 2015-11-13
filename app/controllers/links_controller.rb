@@ -1,7 +1,7 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
-  before_action :isPublisher?, only: [:destroy, :index, :edit, :update, :show ]
+  before_action :is_validated, only: [:destroy, :index, :edit, :update, :show ]
   # GET /linkss
   # GET /links.json
   def index
@@ -106,9 +106,8 @@ class LinksController < ApplicationController
       redirect_to(root_url) unless current_user?(@user)
     end
     
-    def isPublisher?
-       @user = current_user
-       if(!@user.publisher)
+    def is_validated
+       unless(current_user.publisher?||current_user.admin?)
          redirect_to(root_url)
        end
     end
