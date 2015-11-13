@@ -6,7 +6,7 @@
                 <div class='col-sm-12'>
                   <div class='box bordered-box blue-border' style='margin-bottom:0;'>
                     <div class='box-header blue-background'>
-                      <div class='title'>Links To Content</div>
+                      <div class='title'>Links To Used Content</div>
                       <div class='actions'>
                         <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
                         </a>
@@ -62,6 +62,79 @@
                                 <% if is_user_admin? %>
                                   <td><%= link_to 'Edit', edit_link_path(link) %></td>
                                   <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                <% end %> 
+                                
+                              </tr>
+                              <% end %>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<br>
+      <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='box bordered-box blue-border' style='margin-bottom:0;'>
+                    <div class='box-header blue-background'>
+                      <div class='title'>Links To Unused Content</div>
+                      <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class='box-content box-no-padding'>
+                      <div class='responsive-table'>
+                        <div class='scrollable-area'>
+                          <table class='table' style='margin-bottom:0;'>
+                            <thead>
+                              <tr>
+                                <th>
+                                  URL
+                                </th>
+                                <th>
+                                  Date
+                                </th>
+                                <th>
+                                  Used
+                                </th>
+                                <% if is_user_admin? %>
+                                  <th>
+                                    Publisher ID
+                                  </th>
+                                <% end %>
+                                <th>
+                                  Actions
+                                </th>
+                                
+                                <% if is_user_admin? %>
+                                  <th>Edit</th>
+                                  <th>Delete</th>
+                                <% end %>
+                                
+                                
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <% @unusedlinks.each do |unusedlink| %>
+                                <td><%= unusedlink.url %></td>
+                                <td><%= unusedlink.date %></td>
+                                <td><%= unusedlink.used %></td>
+                                <% if is_user_admin? %>
+                                  <td><%= unusedlink.publisher_id %> </td>
+                                <% end %> 
+                                <td><%= link_to 'Show', unusedlink %></td>
+                                
+                                <% if is_user_admin? %>
+                                  <td><%= link_to 'Edit', edit_link_path(unusedlink) %></td>
+                                  <td><%= link_to 'Destroy', unusedlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                                 <% end %> 
                                 
                               </tr>

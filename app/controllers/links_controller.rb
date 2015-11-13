@@ -7,11 +7,14 @@ class LinksController < ApplicationController
   def index
     
     if(is_user_admin?)
-      @links = Link.all
+      @links = Link.where("used = ?",true)
+      @unusedlinks = Link.where("used = ?",false)
     elsif(is_user_publisher?)
-      @links = Link.where("publisher_id ="+user_publisher_id.to_s)
+      @links = Link.where("publisher_id = ? AND used = ?",user_publisher_id.to_s,true)
+      @unusedlinks = Link.where("publisher_id = ? AND used = ?",user_publisher_id.to_s,false)
     else
-      @links = Link.all
+      @links = Link.where("used = ?",true)
+      @unusedlinks = Link.where("used = ?",false)
     end
   end
   
@@ -52,6 +55,7 @@ class LinksController < ApplicationController
     @pub = Publisher.find_by user_id: current_user_id
     @link.publisher_id = @pub.id
     @link.date = Date.today
+    @link.used = false
     respond_to do |format|
       if @link.save
         format.html { redirect_to @link, notice: 'Link was successfully created.' }
