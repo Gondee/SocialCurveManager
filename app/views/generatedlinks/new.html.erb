@@ -7,13 +7,19 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@generatedlink) do |f| %>
       
-      <%= f.label :Url %>
-      <%= f.text_field :url , class: 'form-control' %>
+      <%= f.label :Url %> <br /> <br /> 
+      <%= f.text_field :url , class: 'form-control' %> <br />
       <%= f.hidden_field :url %>
       
-      <%= f.label :Date %>
-      <%= f.date_select :date, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2050}, class: 'form-control' %>
+      <%= f.label :Date %> <br /> <br /> 
+      <%= f.date_select :date, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2050}, class: 'form-control' %> <br />
       
+      <div class="control-group">
+        <%= f.label :user, class: 'control-label' %> 
+        <div class="controls">
+          <%= collection_select(:generatedlink, :user_id, User.all, :id, :email, {}, {:multiple => false} ) %> 
+        </div> 
+      </div> 
        <%= f.label :Paidout? %>
       <%= f.check_box :paidout, class: 'form-control' %> <br /> 
       

@@ -66,13 +66,13 @@ class GeneratedlinksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Use callbacks to share common setup or constraints between actions. user_id 
     def set_generatedlink
       @generatedlink = Generatedlink.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def generatedlink_params
-      params.require(:generatedlink).permit(:url, :paidout, :date)
+      params.require(:generatedlink).permit(:url, :paidout, :user_id, :date)
     end
 end
