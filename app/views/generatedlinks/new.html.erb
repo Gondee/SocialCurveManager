@@ -12,12 +12,12 @@
       <%= f.hidden_field :url %>
       
       <%= f.label :Date %> <br /> <br /> 
-      <%= f.date_select :date, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2050}, class: 'form-control' %> <br />
+      <%= f.date_select :date, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2050, selected: Date.today}, class: 'form-control' %> <br />
       
       <div class="control-group">
-        <%= f.label :user, class: 'control-label' %> 
+        <%= f.label :user, class: 'control-label' %> <br /> <br /> 
         <div class="controls">
-          <%= collection_select(:generatedlink, :user_id, User.all, :id, :email, {}, {:multiple => false} ) %> 
+          <%= collection_select(:generatedlink, :user_id, User.all, :id, :email, {}, {:multiple => false} ) %> <br /> <br />
         </div> 
       </div> 
        <%= f.label :Paidout? %>
