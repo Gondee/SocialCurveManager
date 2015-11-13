@@ -30,6 +30,15 @@ module SessionsHelper
     end
   end
   
+  def is_user_admin?
+    @current_user ||= User.find_by(id: session[:user_id])
+    if(@current_user.admin)
+      true
+    else
+      false
+    end
+  end
+  
   def current_user_id
     @current_user ||= User.find_by(id: session[:user_id])
     @current_user.id
