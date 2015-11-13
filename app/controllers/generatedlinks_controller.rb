@@ -14,17 +14,23 @@ class GeneratedlinksController < ApplicationController
 
   # GET /generatedlinks/new
   def new
-    @generatedlink = Generatedlink.new
+     @generatedlink = Generatedlink.new(:url => params[:url])
   end
 
   # GET /generatedlinks/1/edit
   def edit
   end
+  
+  def linkdistribution 
+    @generatedlink = Generatedlink.new
+  end 
 
   # POST /generatedlinks
   # POST /generatedlinks.json
   def create
-    @generatedlink = Generatedlink.new(generatedlink_params)
+    @modified_generatedlink_params = generatedlink_params
+    @modified_generatedlink_params[:url] = createNewShortenedLink(@modified_generatedlink_params[:url])
+    @generatedlink = Generatedlink.new(@modified_generatedlink_params)
 
     respond_to do |format|
       if @generatedlink.save
@@ -62,13 +68,13 @@ class GeneratedlinksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Use callbacks to share common setup or constraints between actions. user_id 
     def set_generatedlink
       @generatedlink = Generatedlink.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def generatedlink_params
-      params.require(:generatedlink).permit(:url, :paidout, :date)
+      params.require(:generatedlink).permit(:url, :paidout, :user_id, :date)
     end
 end

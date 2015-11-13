@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post'signin'    => 'sessions#create'
   get 'signout'   => 'sessions#destroy'
   get 'dashboard' => 'users#dashboard'
+  get 'linkdistribution' => 'links#linkdistribution' 
+  get 'links/generatenew' => 'links#generatenew'
 
   get 'password_resets/new'
 
