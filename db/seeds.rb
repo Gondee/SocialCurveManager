@@ -40,3 +40,7 @@ User.create!(first:  "Example",
              activated: true,
              activated_at: Time.zone.now,
              publisher: false)
+             
+Publisher.create!(company: "ACME Corporation",
+                  position: "Bricklayer",
+                  user_id: 2)

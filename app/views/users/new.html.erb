@@ -2,6 +2,7 @@
 <% provide(:headline, "Sign Up") %>
 <% provide(:icon, "ok-circle") %>
 
+
 <%= form_for(@user) do |f| %>
 <%= render 'shared/error_messages' %>
 
@@ -52,28 +53,43 @@
                 <div class='form-group'>
                   <div class='controls with-icon-over-input' style="position:relative;">
                     <%= f.label :publisher, "Publisher", :value => "true"  %>
-                    <%= f.radio_button :publisher, true %>
+                    <%= f.radio_button :publisher, true, onclick:"javascript:chg_publisher();" %>
                     <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
                   </div>
                   <div class='controls with-icon-over-input' style="position:relative;">
                     <%= f.label :publisher, "Influencer", :value => "false" %>
-                    <%= f.radio_button :publisher, false, :checked => true %>
+                    <%= f.radio_button :publisher, false, :checked => true, onclick:"javascript:chg_publisher();" %>
                     <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
                   </div>
                 </div>
                 
-                <%#
-                <div class='form-group' id="hidden_reqs" style='display:none;'>
-                  <div class='controls with-icon-over-input' style="position:relative;">
-                    <= f.text_field :company, class: 'form-control', placeholder: 'Company' >
-                    <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                <script>
+                  function chg_publisher(){
+                    if(document.getElementById('user_publisher_true').checked){
+                      document.getElementById('publisherfields').style.display = '';
+                      console.info("user publisher visible");
+                    } else{
+                      document.getElementById('publisherfields').style.display = 'none';
+                      console.info("user publisher hidden");
+                    }
+                  }
+                </script>
+                
+                <span id="publisherfields" style="display:none;">
+                  <div class='form-group'>
+                    <div class='controls with-icon-over-input' style="position:relative;">
+                      <%= text_field(:publisher,:company, class: 'form-control', placeholder: 'Company') %>
+                      <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                    </div>
                   </div>
-                  <div class='controls with-icon-over-input' style="position:relative;">
-                    <= f.text_field :position, class: 'form-control', placeholder: 'Position' >
-                    <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                  <div class='form-group'>
+                    <div class='controls with-icon-over-input' style="position:relative;">
+                      <%= text_field(:publisher,:position, class: 'form-control', placeholder: 'Position') %>
+                      <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                    </div>
                   </div>
-                </div>
-                %>
+                </span>
+                
                 <div class='form-group'>
                   <div class='controls with-icon-over-input' style="position:relative;">
                     <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>

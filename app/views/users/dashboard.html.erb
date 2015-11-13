@@ -1,7 +1,6 @@
 <% provide(:title, "Dashboard") %>
 <% provide(:headline, "My Dashboard") %>
 <% provide(:icon, "dashboard") %>
-
 <% if current_user.admin? %>
 
 <%= link_to "Assign Links", linkdistribution_path, class: "btn btn-lg btn-primary" %>
