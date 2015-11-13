@@ -6,6 +6,7 @@ module LinksHelper
     
     #Turn normal link into shortened link
     def createNewShortenedLink(originalURL)
+        originalURL = originalURL + "##{SecureRandom.hex(6)}"
         Google::UrlShortener::Base.api_key = "AIzaSyDAT2500mxvTeoAVStBL5LebEfgqpDU8vw"
         url = Google::UrlShortener::Url.new(:long_url => originalURL)
         return url.shorten!

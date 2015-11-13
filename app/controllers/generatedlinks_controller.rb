@@ -28,7 +28,9 @@ class GeneratedlinksController < ApplicationController
   # POST /generatedlinks
   # POST /generatedlinks.json
   def create
-    @generatedlink = Generatedlink.new(generatedlink_params)
+    @modified_generatedlink_params = generatedlink_params
+    @modified_generatedlink_params[:url] = createNewShortenedLink(@modified_generatedlink_params[:url])
+    @generatedlink = Generatedlink.new(@modified_generatedlink_params)
 
     respond_to do |format|
       if @generatedlink.save
