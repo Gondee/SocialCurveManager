@@ -44,3 +44,7 @@ User.create!(first:  "Example",
 Publisher.create!(company: "ACME Corporation",
                   position: "Bricklayer",
                   user_id: 2)
+                
+Link.create!(url: "http://www.google.com/",
+             publisher_id: 1,
+             used: false)

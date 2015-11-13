@@ -49,15 +49,15 @@
           </li>
         <% elsif current_user.publisher? %>
           <li class="active">
-            <a href="/dashboard">
-              <i class="icon-edit"></i> <i class="icon-remove-circle"></i>
-              <span>Create Post</span>
+            <a href="/links/new">
+              <i class="icon-edit"></i>
+              <span>Create Links</span>
             </a>
           </li>
           <li class="active">
-            <a href="/dashboard">
-              <i class="icon-th-list"></i> <i class="icon-remove-circle"></i>
-              <span>View Posts</span>
+            <a href="/links">
+              <i class="icon-th-list"></i>
+              <span>View Links</span>
             </a>
           </li>
           <li class="active">
@@ -74,14 +74,14 @@
           </li>
         <% else %>
           <li class="active">
-            <a href="/dashboard">
-              <i class="icon-certificate"></i> <i class="icon-remove-circle"></i>
+            <a href="/generatedlinks">
+              <i class="icon-certificate"></i>
               <span>Available Links</span>
             </a>
           </li>
           <li class="active">
-            <a href="/dashboard">
-              <i class="icon-tasks"></i> <i class="icon-remove-circle"></i>
+            <a href="/generatedlinks">
+              <i class="icon-tasks"></i>
               <span>Your Links</span>
             </a>
           </li>
