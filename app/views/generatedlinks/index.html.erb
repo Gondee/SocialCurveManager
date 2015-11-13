@@ -43,9 +43,16 @@
                               </tr>
                             </thead>
                             <tbody>
+                              <% @generatedlinks.each do |generatedlink| %>
                               <tr>
-                                <% @generatedlinks.each do |generatedlink| %>
-                                <td><%= generatedlink.url %></td>
+                                
+                                <td>
+                                  <button class='my_clip_button' data-clipboard-target='fe_text' data-clipboard-text='Default clipboard text from attribute' id='d_clip_button' title='Click me to copy to clipboard.'>
+                                    <b>Copy To Clipboard...</b>
+                                  </button>
+                                  <textarea cols='50' id='fe_text' rows='3'><%= generatedlink.url %></textarea>
+                                  
+                                  </td>
                                 <td><%= generatedlink.paidout %></td>
                                 <td><%= generatedlink.date %></td>
                                 <td><%= link_to 'Show', generatedlink %></td>
@@ -53,8 +60,9 @@
                                     <td><%= link_to 'Edit', edit_generatedlink_path(generatedlink) %></td>
                                     <td><%= link_to 'Destroy', generatedlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                                   <% end %> 
-                                <% end %>
+                                
                               </tr>
+                              <% end %>
                             </tbody>
                           </table>
                         </div>
@@ -65,7 +73,31 @@
               </div>
 <br>
 
+  <button class='my_clip_button' data-clipboard-target='fe_text' data-clipboard-text='Default clipboard text from attribute' id='d_clip_button' title='Click me to copy to clipboard.'>
+    <b>Copy To Clipboard...</b>
+  </button>
+  <h4>
+    <label for='fe_text'>Change Copy Text Here</label>
+  </h4>
+  <textarea cols='50' id='fe_text' rows='3'>Copy me!</textarea>
+  <h4>
+    <label for='testarea'>Paste Text Here</label>
+  </h4>
+  <textarea cols='50' id='testarea' rows='3'></textarea>
+  <p>
+    <button id='clear-test'>Clear Test Area</button>
+  </p>
+</div>
+<script>
+  $(document).ready(function() {
+    var clip = new ZeroClipboard($("#d_clip_button"))
+  });
 
+  $("#clear-test").on("click", function(){
+    $("#fe_text").val("Copy me!");
+    $("#testarea").val("");
+  });
+</script>
 
 
 <br>
