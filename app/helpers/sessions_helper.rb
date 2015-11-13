@@ -39,6 +39,23 @@ module SessionsHelper
     end
   end
   
+  def is_user_publisher?
+     @current_user ||= User.find_by(id: session[:user_id])
+    if(@current_user.publisher)
+      true
+    else
+      false
+    end
+  end
+  
+  def user_publisher_id
+    if(is_user_publisher?)
+      @current_user ||= User.find_by(id: session[:user_id])
+      @pub = Publisher.find_by user_id: @current_user.id
+      return @pub.id
+    end
+  end
+  
   def current_user_id
     @current_user ||= User.find_by(id: session[:user_id])
     @current_user.id

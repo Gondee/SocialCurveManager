@@ -5,7 +5,14 @@ class LinksController < ApplicationController
   # GET /linkss
   # GET /links.json
   def index
-    @links = Link.all
+    
+    if(is_user_admin?)
+      @links = Link.all
+    elsif(is_user_publisher?)
+      @links = Link.where("publisher_id ="+user_publisher_id.to_s)
+    else
+      @links = Link.all
+    end
   end
   
   def linkdistribution 
