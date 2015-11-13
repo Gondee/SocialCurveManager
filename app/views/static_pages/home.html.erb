@@ -2,7 +2,7 @@
 <% provide(:headline, "Welcome to SocialCurveManager!") %>
 <% provide(:icon, "home") %>
 
-Welcome to your SocialCurveManager interface! All the tools you need to monetize your content, or earn extra spending cash, all located in one convenient place!
+<!--Welcome to your SocialCurveManager interface! All the tools you need to monetize your content, or earn extra spending cash, all located in one convenient place!
 <br>
 <br>
 Currently serving <b><%= User.where(:publisher => true, :admin => false).count %></b> socially marketing companies, and <b><%= User.where(:publisher => false, :admin => false).count %></b> money-making individuals!<br>
@@ -16,4 +16,28 @@ Currently serving <b><%= User.where(:publisher => true, :admin => false).count %
       <td>If you already have an account:</td>
       <td><a class="btn btn-primary btn-lg" href="/signin" role="button">Sign In!</a></td>
   </tr>
+</table> -->
+
+<div>
+  <h2>Manager Services</h2>
+</div>
+
+<div>
+  <table style="width:100%">
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>		
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>		
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>		
+    <td>80</td>
+  </tr>
 </table>
+</div>
