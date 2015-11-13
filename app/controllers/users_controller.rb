@@ -31,24 +31,24 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @publisher = 0
+    if(@user.publisher)
+      @publisher = Publisher.new
+      @publisher.company = publisher_params[:company]
+      @publisher.position = publisher_params[:position]
+    end
     
       if @user.save
+        
+        if @user.publisher
+          @publisher.user_id = @user.id
+          @publisher.save
+        end
+        
         @user.send_activation_email
   
         #log_in @user
         #redirect_to @user
-        
-        if(@user.publisher)
-          @publisher = Publisher.new
-          @publisher.first = @user.first
-          @publisher.last = @user.last
-          @publisher.address = @user.address
-          @publisher.phone = @user.phone
-          #@publisher.company = 
-          #@publisher.position = 
-          @publisher.user_id = @user.id
-          @publisher.save
-        end
         
         flash[:info] = "Please check your email to activate your account."
         redirect_to root_url
@@ -94,6 +94,10 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first, :last, :email, :address, :url, :publisher, :password, :password_confirmation)
       #params.permit(:first, :last, :email, :address, :url, :password, :password_confirmation, :company, :position)
+    end
+    
+    def publisher_params
+      params.require(:publisher).permit(:company, :position)
     end
     
      # Confirms a logged-in user.
