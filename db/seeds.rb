@@ -42,5 +42,5 @@ User.create!(first:  "Example",
              publisher: false)
              
 Publisher.create!(company: "ACME Corporation",
-                  position: "Bricklayer"
+                  position: "Bricklayer",
                   user_id: 2)
