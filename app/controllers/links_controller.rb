@@ -1,7 +1,8 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
-
-  # GET /links
+  before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
+  before_action :isPublisher?, only: [:destroy, :index, :edit, :update, :show ]
+  # GET /linkss
   # GET /links.json
   def index
     @links = Link.all
@@ -25,7 +26,10 @@ class LinksController < ApplicationController
   # POST /links.json
   def create
     @link = Link.new(link_params)
-
+    
+    #Adding the current publisher to the newly added link. 
+    @pub = Publisher.find_by user_id: current_user_id
+    @link.publisher_id = @pub.id
     respond_to do |format|
       if @link.save
         format.html { redirect_to @link, notice: 'Link was successfully created.' }
@@ -69,6 +73,34 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:url, :date, :used)
+      params.require(:link).permit(:url, :date, :used, :publisher_id)
     end
+    
+     # Confirms a logged-in user.
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please sign in."
+        redirect_to signin_url
+      end
+    end
+    
+     # Confirms the correct user.
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
+    
+    def isPublisher?
+       @user = current_user
+       if(!@user.publisher)
+         redirect_to(root_url)
+       end
+    end
+    
+     # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
+    
 end

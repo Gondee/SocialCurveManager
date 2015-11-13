@@ -31,6 +31,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.activated = true
     @publisher = 0
     if(@user.publisher)
       @publisher = Publisher.new
