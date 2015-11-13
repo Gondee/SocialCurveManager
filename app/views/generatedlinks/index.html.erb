@@ -1,36 +1,74 @@
-<% provide(:title, "Listing GeneratedLinks") %>
-<% provide(:headline, "Listing GeneratedLinks") %>
+<% provide(:title, "Personal Links") %>
+<% provide(:headline, "Personal Links") %>
 <% provide(:icon, "unchecked") %>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Generatedlinks</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Url</th>
-      <th>Paidout</th>
-      <th>Date</th>
-      <th>User</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @generatedlinks.each do |generatedlink| %>
-      <tr>
-        <td><%= generatedlink.url %></td>
-        <td><%= generatedlink.paidout %></td>
-        <td><%= generatedlink.date %></td>
-         <td><%= generatedlink.user_id %></td>
-        <td><%= link_to 'Show', generatedlink %></td>
-        <td><%= link_to 'Edit', edit_generatedlink_path(generatedlink) %></td>
-        <td><%= link_to 'Destroy', generatedlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class='row'>
+                <div class='col-sm-12'>
+                  <div class='box bordered-box blue-border' style='margin-bottom:0;'>
+                    <div class='box-header blue-background'>
+                      <div class='title'>Links To Content</div>
+                      <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class='box-content box-no-padding'>
+                      <div class='responsive-table'>
+                        <div class='scrollable-area'>
+                          <table class='table' style='margin-bottom:0;'>
+                            <thead>
+                              <tr>
+                                <th>
+                                  URL
+                                </th>
+                                <th>
+                                  Paid?
+                                </th>
+                                <th>
+                                  Date
+                                </th>
+                                <th>
+                                  Actions
+                                </th>
+                                <% if is_user_admin? %>
+                                  <th>Edit</th>
+                                  <th>Delete</th>
+                                <% end %>
+                                
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <% @generatedlinks.each do |generatedlink| %>
+                                <td><%= generatedlink.url %></td>
+                                <td><%= generatedlink.paidout %></td>
+                                <td><%= generatedlink.date %></td>
+                                <td><%= link_to 'Show', generatedlink %></td>
+                                  <% if is_user_admin? %>
+                                    <td><%= link_to 'Edit', edit_generatedlink_path(generatedlink) %></td>
+                                    <td><%= link_to 'Destroy', generatedlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                  <% end %> 
+                                <% end %>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 <br>
 
+
+
+
+<br>
+<% if is_user_admin? %>
 <%= link_to 'New Generatedlink', new_generatedlink_path %>
+<% end %>
