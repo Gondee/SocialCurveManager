@@ -87,13 +87,21 @@
       <div class='tab-content'>
         <div class='tab-pane fade in active' id='users'>
           <ul class='list-unstyled users list-hover list-striped'>
+            <li>
+                <div class='avatar pull-left'>
+                    <div class='icon-plus-sign-alt'></div>
+                </div>
+                <div class='action pull-left'>
+                    <a class="text-contrast" href="/links/new">Add New Link</a>
+                </div>
+            </li>
             <% @links.each do |link| %>
                 <li>
                     <div class='avatar pull-left'>
                         <img width=16 height=16 src="http://www.google.com/s2/favicons?domain=<%= link.url %>" />
                     </div>
                     <div class='action pull-left'>
-                        <a class="text-contrast" href="#"><%= link.url %></a>
+                        <a class="text-contrast" href="/links/<%= link.id %>"><%= link.url %></a> - <a class="text-contrast" href="/links/<%= link.id %>/edit">Edit</a>
                     </div>
                     <small class='date pull-right text-muted'>
                       <span class='timeago fade has-tooltip' data-placement='top' title='<%= link.date %>'><%= link.date %></span>
