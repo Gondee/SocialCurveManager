@@ -7,3 +7,4 @@
 //= require flatty/plugins/plugins
 //= require flatty/theme
 //= require flatty/demo
+//= require zeroclipboard
