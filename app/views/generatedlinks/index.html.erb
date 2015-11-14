@@ -45,14 +45,16 @@
                             <tbody>
                               <% @generatedlinks.each do |generatedlink| %>
                               <tr>
-                                
                                 <td>
-                                  <button class='my_clip_button' data-clipboard-target='fe_text' data-clipboard-text='Default clipboard text from attribute' id='d_clip_button' title='Click me to copy to clipboard.'>
-                                    <b>Copy To Clipboard...</b>
+                                  <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= generatedlink.url %> data-clipboard-text=<%= generatedlink.url %> id="<%= generatedlink.id %>" title='Click me to copy to clipboard.'>
+                                    <i class='icon-copy'></i>
+                                    <b>Copy To Clipboard</b>
                                   </button>
-                                  <textarea cols='50' id='fe_text' rows='3'><%= generatedlink.url %></textarea>
-                                  
-                                  </td>
+                                  <a href="<%= generatedlink.url %>" class='btn btn-sm' style='margin-bottom:5px' target="_blank">
+                                    <i class='icon-eye-open'></i>
+                                    Visit Content
+                                  </a>
+                                </td>
                                 <td><%= generatedlink.paidout %></td>
                                 <td><%= generatedlink.date %></td>
                                 <td><%= link_to 'Show', generatedlink %></td>
@@ -62,6 +64,11 @@
                                   <% end %> 
                                 
                               </tr>
+                              <script>
+                                    $(document).ready(function() {
+                                      var clip = new ZeroClipboard($("#<%= generatedlink.id %>"))
+                                    });
+                                  </script>
                               <% end %>
                             </tbody>
                           </table>
@@ -73,31 +80,6 @@
               </div>
 <br>
 
-  <button class='my_clip_button' data-clipboard-target='fe_text' data-clipboard-text='Default clipboard text from attribute' id='d_clip_button' title='Click me to copy to clipboard.'>
-    <b>Copy To Clipboard...</b>
-  </button>
-  <h4>
-    <label for='fe_text'>Change Copy Text Here</label>
-  </h4>
-  <textarea cols='50' id='fe_text' rows='3'>Copy me!</textarea>
-  <h4>
-    <label for='testarea'>Paste Text Here</label>
-  </h4>
-  <textarea cols='50' id='testarea' rows='3'></textarea>
-  <p>
-    <button id='clear-test'>Clear Test Area</button>
-  </p>
-</div>
-<script>
-  $(document).ready(function() {
-    var clip = new ZeroClipboard($("#d_clip_button"))
-  });
-
-  $("#clear-test").on("click", function(){
-    $("#fe_text").val("Copy me!");
-    $("#testarea").val("");
-  });
-</script>
 
 
 <br>
