@@ -43,9 +43,18 @@
                               </tr>
                             </thead>
                             <tbody>
+                              <% @generatedlinks.each do |generatedlink| %>
                               <tr>
-                                <% @generatedlinks.each do |generatedlink| %>
-                                <td><%= generatedlink.url %></td>
+                                <td>
+                                  <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= generatedlink.url %> data-clipboard-text=<%= generatedlink.url %> id="<%= generatedlink.id %>" title='Click me to copy to clipboard.'>
+                                    <i class='icon-copy'></i>
+                                    <b>Copy To Clipboard</b>
+                                  </button>
+                                  <a href="<%= generatedlink.url %>" class='btn btn-sm' style='margin-bottom:5px' target="_blank">
+                                    <i class='icon-eye-open'></i>
+                                    Visit Content
+                                  </a>
+                                </td>
                                 <td><%= generatedlink.paidout %></td>
                                 <td><%= generatedlink.date %></td>
                                 <td><%= link_to 'Show', generatedlink %></td>
@@ -53,8 +62,14 @@
                                     <td><%= link_to 'Edit', edit_generatedlink_path(generatedlink) %></td>
                                     <td><%= link_to 'Destroy', generatedlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                                   <% end %> 
-                                <% end %>
+                                
                               </tr>
+                              <script>
+                                    $(document).ready(function() {
+                                      var clip = new ZeroClipboard($("#<%= generatedlink.id %>"))
+                                    });
+                                  </script>
+                              <% end %>
                             </tbody>
                           </table>
                         </div>
@@ -64,7 +79,6 @@
                 </div>
               </div>
 <br>
-
 
 
 

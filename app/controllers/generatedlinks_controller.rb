@@ -4,7 +4,12 @@ class GeneratedlinksController < ApplicationController
   # GET /generatedlinks
   # GET /generatedlinks.json
   def index
-    @generatedlinks = Generatedlink.all
+    #@generatedlinks = Generatedlink.all
+    if(is_user_admin?)
+      @generatedlinks = Generatedlink.all
+    else
+      @generatedlinks = Generatedlink.where("user_id =?", current_user_id)
+    end
   end
 
   # GET /generatedlinks/1

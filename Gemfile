@@ -18,7 +18,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'google_url_shortener'
+gem 'google_url_shortener' #pull stats from google/create new links
+gem 'zeroclipboard-rails' #copy links to clipboard
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.0.3' #
