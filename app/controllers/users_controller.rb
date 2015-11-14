@@ -82,6 +82,8 @@ class UsersController < ApplicationController
   
   # GET /dashboard
   def dashboard
+    @links = Link.all 
+    @generatedlinks = Generatedlink.where("user_id = ?", current_user_id)
     if(is_user_publisher?)
       @links = Link.where("publisher_id = ?",user_publisher_id.to_s)
     end

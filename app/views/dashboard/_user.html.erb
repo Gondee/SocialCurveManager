@@ -86,11 +86,12 @@
     <div class='box-content box-no-padding'>
       <ul class='nav nav-tabs nav-tabs-simple'>
         <li class='active'>
-                      <a data-toggle="tab" class="green-border" href="#users"><i class='icon-user text-green'></i>
-          Users
+                      <a data-toggle="tab" class="green-border" href="#users"><i class='icon-user text-green'></i> 
+          Links
           </a>
 
         </li>
+        <!--
         <li>
                       <a data-toggle="tab" class="purple-border" href="#comments"><i class='icon-comments text-purple'></i>
           Comments
@@ -106,10 +107,20 @@
             <li><a href="#">Hi there!</a></li>
           </ul>
         </li>
+        -->
       </ul>
       <div class='tab-content'>
         <div class='tab-pane fade in active' id='users'>
           <ul class='list-unstyled users list-hover list-striped'>
+            <ul class="links">
+                <% @links.each do |link| %>
+                <% @link = link %>
+                  <li>
+                    <%= link_to link.url, link %>
+                  </li>
+                <% end %>
+            </ul>
+            <!--
             <li>
               <div class='avatar pull-left'>
                 <div class='icon-user'></div>
@@ -227,6 +238,7 @@
                 <i class='icon-time'></i>
               </small>
             </li>
+            -->
           </ul>
           <div class='load-more'>
                           <a id="users-more-activity" class="btn btn-block" data-loading-text="&lt;i class='icon-spinner icon-spin'&gt;&lt;/i&gt; Loading more..." href="#"><i class='icon-circle-arrow-down'></i>
@@ -408,10 +420,11 @@
       <ul class='nav nav-tabs nav-tabs-simple'>
         <li class='active'>
                       <a data-toggle="tab" class="green-border" href="#users"><i class='icon-user text-green'></i>
-          Users
+          My Links 
           </a>
 
         </li>
+        <!--
         <li>
                       <a data-toggle="tab" class="purple-border" href="#comments"><i class='icon-comments text-purple'></i>
           Comments
@@ -427,10 +440,20 @@
             <li><a href="#">Hi there!</a></li>
           </ul>
         </li>
+        -->
       </ul>
       <div class='tab-content'>
         <div class='tab-pane fade in active' id='users'>
           <ul class='list-unstyled users list-hover list-striped'>
+            <ul class="generatedlinks">
+                <% @generatedlinks.each do |link| %>
+                <% @generatedlink = link %>
+                  <li>
+                    <%= link_to link.url, link %>
+                  </li>
+                <% end %>
+            </ul>
+            <!--
             <li>
               <div class='avatar pull-left'>
                 <div class='icon-user'></div>
@@ -548,6 +571,7 @@
                 <i class='icon-time'></i>
               </small>
             </li>
+            --> 
           </ul>
           <div class='load-more'>
                           <a id="users-more-activity" class="btn btn-block" data-loading-text="&lt;i class='icon-spinner icon-spin'&gt;&lt;/i&gt; Loading more..." href="#"><i class='icon-circle-arrow-down'></i>
@@ -729,10 +753,11 @@
       <ul class='nav nav-tabs nav-tabs-simple'>
         <li class='active'>
                       <a data-toggle="tab" class="green-border" href="#users"><i class='icon-user text-green'></i>
-          Users
+          My Paid Links 
           </a>
 
         </li>
+        <!--
         <li>
                       <a data-toggle="tab" class="purple-border" href="#comments"><i class='icon-comments text-purple'></i>
           Comments
@@ -748,10 +773,25 @@
             <li><a href="#">Hi there!</a></li>
           </ul>
         </li>
+        --> 
       </ul>
       <div class='tab-content'>
         <div class='tab-pane fade in active' id='users'>
           <ul class='list-unstyled users list-hover list-striped'>
+             <ul class="generatedlinks">
+                <% @generatedlinks.each do |link| %>
+                <% @generatedlink = link %>
+                  
+                    <% if link.paidout %> 
+                      <li>
+                      <%= link_to link.url, link %>
+                      </li> 
+                    <% end %> 
+                  
+                <% end %>
+            </ul>
+            
+            <!--
             <li>
               <div class='avatar pull-left'>
                 <div class='icon-user'></div>
@@ -869,6 +909,7 @@
                 <i class='icon-time'></i>
               </small>
             </li>
+            -->
           </ul>
           <div class='load-more'>
                           <a id="users-more-activity" class="btn btn-block" data-loading-text="&lt;i class='icon-spinner icon-spin'&gt;&lt;/i&gt; Loading more..." href="#"><i class='icon-circle-arrow-down'></i>
