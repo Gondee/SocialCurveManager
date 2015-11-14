@@ -4,6 +4,8 @@ class LinksController < ApplicationController
   before_action :is_validated, only: [:destroy, :index, :edit, :update, :show ]
   # GET /linkss
   # GET /links.json
+  helper :all 
+  
   def index
     
     if(is_user_admin?)
@@ -21,6 +23,10 @@ class LinksController < ApplicationController
   def linkdistribution 
     @links = Link.paginate(page: params[:page])
   end 
+  
+  def _user
+    @links = Link.all
+  end
 
   # GET /links/1
   # GET /links/1.json

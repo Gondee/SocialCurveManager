@@ -82,7 +82,8 @@ class UsersController < ApplicationController
   
   # GET /dashboard
   def dashboard
-    
+    @links = Link.all 
+    @generatedlinks = Generatedlink.where("user_id = ?", current_user_id)
   end
 
   private
