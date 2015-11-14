@@ -47,4 +47,5 @@ Publisher.create!(company: "ACME Corporation",
                 
 Link.create!(url: "http://www.google.com/",
              publisher_id: 1,
-             used: false)
+             used: false,
+             date: "2015-11-14")

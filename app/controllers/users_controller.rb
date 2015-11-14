@@ -82,7 +82,9 @@ class UsersController < ApplicationController
   
   # GET /dashboard
   def dashboard
-    
+    if(is_user_publisher?)
+      @links = Link.where("publisher_id = ?",user_publisher_id.to_s)
+    end
   end
 
   private

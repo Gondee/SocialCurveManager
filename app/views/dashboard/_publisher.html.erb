@@ -1,0 +1,116 @@
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='box'>
+      <div class='box-header'>
+        <div class='title'>
+          My Clicks
+        </div>
+        <div class='actions'>
+          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+          </a>
+          
+          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+          </a>
+        </div>
+      </div>
+      <div class='box-content'>
+        <div id='stats-chart1' style='height:220px;'> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+      var data, dataset, gd, options, previousLabel, previousPoint, showTooltip, ticks;
+      var blue, data, datareal, getRandomData, green, i, newOrders, options, orange, orders, placeholder, plot, purple, randNumber, randSmallerNumber, red, series, totalPoints, update, updateInterval;
+      var red = "#f34541";
+      var orange = "#f8a326";
+      var blue = "#00acec";
+      var purple = "#9564e2";
+      var green = "#49bf67";
+      randNumber = function() {
+        return ((Math.floor(Math.random() * (1 + 50 - 20))) + 20) * 800;
+      };
+      randSmallerNumber = function() {
+        return ((Math.floor(Math.random() * (1 + 40 - 20))) + 10) * 200;
+      };
+      if ($("#stats-chart1").length !== 0) {
+        orders = [[1, randNumber() - 10], [2, randNumber() - 10], [3, randNumber() - 10], [4, randNumber()], [5, randNumber()], [6, 4 + randNumber()], [7, 5 + randNumber()], [8, 6 + randNumber()], [9, 6 + randNumber()], [10, 8 + randNumber()], [11, 9 + randNumber()], [12, 10 + randNumber()], [13, 11 + randNumber()], [14, 12 + randNumber()], [15, 13 + randNumber()], [16, 14 + randNumber()], [17, 15 + randNumber()], [18, 15 + randNumber()], [19, 16 + randNumber()], [20, 17 + randNumber()], [21, 18 + randNumber()], [22, 19 + randNumber()], [23, 20 + randNumber()], [24, 21 + randNumber()], [25, 14 + randNumber()], [26, 24 + randNumber()], [27, 25 + randNumber()], [28, 26 + randNumber()], [29, 27 + randNumber()], [30, 31 + randNumber()]];
+        newOrders = [[1, randSmallerNumber() - 10], [2, randSmallerNumber() - 10], [3, randSmallerNumber() - 10], [4, randSmallerNumber()], [5, randSmallerNumber()], [6, 4 + randSmallerNumber()], [7, 5 + randSmallerNumber()], [8, 6 + randSmallerNumber()], [9, 6 + randSmallerNumber()], [10, 8 + randSmallerNumber()], [11, 9 + randSmallerNumber()], [12, 10 + randSmallerNumber()], [13, 11 + randSmallerNumber()], [14, 12 + randSmallerNumber()], [15, 13 + randSmallerNumber()], [16, 14 + randSmallerNumber()], [17, 15 + randSmallerNumber()], [18, 15 + randSmallerNumber()], [19, 16 + randSmallerNumber()], [20, 17 + randSmallerNumber()], [21, 18 + randSmallerNumber()], [22, 19 + randSmallerNumber()], [23, 20 + randSmallerNumber()], [24, 21 + randSmallerNumber()], [25, 14 + randSmallerNumber()], [26, 24 + randSmallerNumber()], [27, 25 + randSmallerNumber()], [28, 26 + randSmallerNumber()], [29, 27 + randSmallerNumber()], [30, 31 + randSmallerNumber()]];
+        plot = $.plot($("#stats-chart1"), [
+          {
+            data: orders,
+            label: "Orders"
+          }, {
+            data: newOrders,
+            label: "New rders"
+          }
+        ], {
+          series: {
+            lines: {
+              show: true,
+              lineWidth: 3
+            },
+            shadowSize: 0
+          },
+          legend: {
+            show: false
+          },
+          grid: {
+            clickable: true,
+            hoverable: true,
+            borderWidth: 0,
+            tickColor: "#f4f7f9"
+          },
+          colors: ["#00acec", "#f8a326"]
+        });
+      }
+</script>
+
+<div class='row recent-activity'>
+<div class='col-sm-12'>
+  <div class='box'>
+    <div class='box-header'>
+      <div class='title'>
+        <i class='icon-refresh'></i>
+        Link History
+      </div>
+      <div class='actions'>
+        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+        </a>
+        
+        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+        </a>
+      </div>
+    </div>
+    <div class='box-content box-no-padding'>
+      <div class='tab-content'>
+        <div class='tab-pane fade in active' id='users'>
+          <ul class='list-unstyled users list-hover list-striped'>
+            <% @links.each do |link| %>
+                <li>
+                    <div class='avatar pull-left'>
+                        <img width=16 height=16 src="http://www.google.com/s2/favicons?domain=<%= link.url %>" />
+                    </div>
+                    <div class='action pull-left'>
+                        <a class="text-contrast" href="#"><%= link.url %></a>
+                    </div>
+                    <small class='date pull-right text-muted'>
+                      <span class='timeago fade has-tooltip' data-placement='top' title='<%= link.date %>'><%= link.date %></span>
+                      <i class='icon-time'></i>
+                    </small>
+                </li>
+            <% end %>
+          </ul>
+          <div class='load-more'>
+                          <a id="users-more-activity" class="btn btn-block" data-loading-text="&lt;i class='icon-spinner icon-spin'&gt;&lt;/i&gt; Loading more..." href="#"><i class='icon-circle-arrow-down'></i>
+            Load more
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
