@@ -279,15 +279,15 @@ header {
 
         &.medium {
           > a {
-            background: darken($headerBackground, 15%);
+            background: darken($headerBackground, 10%);
 
             .label {
-              color: darken($headerBackground, 20%);
+              color: darken($headerBackground, 15%);
             }
 
-            &:hover, &:active, &:focus {
-              background-color: darken($headerBackground, 20%);
-            }
+            //&:hover, &:active, &:focus {
+            //  background-color: darken($headerBackground, 15%);
+            //}
           }
         }
 
@@ -299,9 +299,9 @@ header {
               color: darken($headerBackground, 25%);
             }
 
-            &:hover, &:active, &:focus {
-              background-color: darken($headerBackground, 25%);
-            }
+            //&:hover, &:active, &:focus {
+            //  background-color: darken($headerBackground, 25%);
+            //}
           }
         }
       }
