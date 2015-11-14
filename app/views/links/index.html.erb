@@ -115,8 +115,8 @@
                                 <% if is_user_admin? %>
                                   <th>Edit</th>
                                   <th>Delete</th>
+                                  <th> Assign Link</th>
                                 <% end %>
-                                
                                 
                                 <th></th>
                               </tr>
@@ -135,6 +135,7 @@
                                 <% if is_user_admin? %>
                                   <td><%= link_to 'Edit', edit_link_path(unusedlink) %></td>
                                   <td><%= link_to 'Destroy', unusedlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                  <td><%= link_to "Create Generated Link", new_generatedlink_path(:url => unusedlink.url) %></td>
                                 <% end %> 
                                 
                               </tr>
