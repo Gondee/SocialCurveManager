@@ -39,21 +39,19 @@
                   </div>
                 </div>
                 <% flash.each do |message_type, message| %>
-                <% if message_type == "danger" %>
-                  <div class='alert alert-danger alert-dismissable'>
-                <% elsif message_type == "success" %>
-                  <div class='alert alert-success alert-dismissable'>
-                <% elsif message_type == "info" %>
-                  <div class='alert alert-info alert-dismissable'>
-                <% else %>
-                  <div class='alert alert-warn alert-dismissable'>
+                  <% @content = "<a class='close' data-dismiss='alert' href='#'>&times;</a><ul><li>#{message}</li></ul>" %>
+                  <% if message_type == "danger" %>
+                    <div class='alert alert-danger alert-dismissable'><%= @content %></div>
+                  <% elsif message_type == "success" %>
+                    <div class='alert alert-success alert-dismissable'><%= @content %></div>
+                  <% elsif message_type == "info" %>
+                    <div class='alert alert-info alert-dismissable'><%= @content %></div>
+                  <% else %>
+                    <div class='alert alert-warn alert-dismissable'></div><%= @content %></div>
+                  <% end %>
                 <% end %>
-                <a class='close' data-dismiss='alert' href='#'>&times;</a>
-                <ul><li><%= message %></li></ul>
-                </div>
-              <% end %>
-              <%= yield %>
-              <br>
+                <%= yield %>
+              <br><br>
               <%= render 'layouts/footer' %>
             </div>
             </div>
