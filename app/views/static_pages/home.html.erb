@@ -19,7 +19,8 @@ Currently serving <b><%= User.where(:publisher => true, :admin => false).count %
 </table> -->
 
 <div>
-  <h2>Manager Services</h2>
+  <h2 style="text-align:center">Manager Services</h2>
+  <h3 style="text-align:center;  margin-top: 50px">Customer Metrics</h3>
 </div>
 
 <div>
@@ -35,10 +36,14 @@ Currently serving <b><%= User.where(:publisher => true, :admin => false).count %
 </div>
 
 <div style="margin-top: 150px">
-  <table style="width:75%">
+  <p style="text-align:center">________________________________________________________________________________________________</p>
+</div>
+
+<div>
+  <table style="width:75%; margin-top: 150px; margin-left: 300px">
     <tr>
-      <td><center>IMAGE</center></td>
-      <td style="text-align:center">INFORMATION</td>		
+      <td style="text-align:center">INFORMATION</td>
+      <td><img src="/assets/graph.png" align="center"></td>
     </tr>
   </table>
 </div>
