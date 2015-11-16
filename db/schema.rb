@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116001945) do
+ActiveRecord::Schema.define(version: 20151116011652) do
 
   create_table "generatedlinks", force: :cascade do |t|
     t.string   "url"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20151116001945) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "publisher_id"
+    t.float    "cpm"
   end
 
   create_table "publishers", force: :cascade do |t|
