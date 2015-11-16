@@ -29,6 +29,9 @@
                                   Clicks
                                 </th>
                                 <th>
+                                  Profit
+                                </th>
+                                <th>
                                   Paid?
                                 </th>
                                 <th>
@@ -59,6 +62,7 @@
                                   </a>
                                 </td>
                                 <td><%= getTotalClicks(generatedlink.url) %></td>
+                                <td>$<%= ((getTotalClicks(generatedlink.url).to_d)/1000) * getlinkcpm(generatedlink) %></td>
                                 <td><%= generatedlink.paidout %></td>
                                 <td><%= generatedlink.date %></td>
                                 <td><%= link_to 'Show', generatedlink %></td>

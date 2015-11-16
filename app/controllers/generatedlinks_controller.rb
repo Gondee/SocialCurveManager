@@ -34,8 +34,12 @@ class GeneratedlinksController < ApplicationController
   # POST /generatedlinks.json
   def create
     @modified_generatedlink_params = generatedlink_params
+    patchbacklinkid= Link.where("url = ?",@modified_generatedlink_params[:url]).first
     @modified_generatedlink_params[:url] = createNewShortenedLink(@modified_generatedlink_params[:url])
     @generatedlink = Generatedlink.new(@modified_generatedlink_params)
+    @generatedlink.link_id = patchbacklinkid.id
+    
+    
 
     respond_to do |format|
       if @generatedlink.save

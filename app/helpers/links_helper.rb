@@ -23,7 +23,6 @@ module LinksHelper
     #def giveGeneratedLinkToUser()
         #Not sure if this functionality can go here. 
     #end
-
     
    
     #total clicks in each country, tuple <string, int> #Need to set the countries
@@ -35,6 +34,11 @@ module LinksHelper
 
     # end
     
+    def getlinkcpm(genlink)
+        go = Link.where("id = ?",genlink.link_id).first
+        go.cpm
+    
+    end
     
     #Getting Stats By Time
     def getTwoHoursClicks(shortURL)
