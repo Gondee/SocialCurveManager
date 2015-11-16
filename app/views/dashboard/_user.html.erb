@@ -38,17 +38,17 @@
       <div class='row'>
         <div class='col-sm-12'>
           <div class='box-content box-statistic text-right'>
-            <h3 class='title text-error'>9100</h3>
+            <h3 class='title text-error'><%= @todaysclicks %></h3>
             <small>Clicks Today</small>
             <div class='text-error icon-user align-left'></div>
           </div>
           <div class='box-content box-statistic text-right'>
-            <h3 class='title text-warning'>41 000</h3>
+            <h3 class='title text-warning'><%= @weeklyclicks %></h3>
             <small>Clicks This Week</small>
             <div class='text-warning icon-book align-left'></div>
           </div>
           <div class='box-content box-statistic text-right'>
-            <h3 class='title text-primary'>300 000</h3>
+            <h3 class='title text-primary'><%= @monthyclicks %></h3>
             <small>Clicks This Month</small>
             <div class='text-primary icon-time align-left'></div>
           </div>
@@ -57,41 +57,41 @@
     </div>
   </div>
   <div class='col-sm-6'>
-                  <div class='box'>
-                    <div class='box-header'>
-                      <div class='title'>
-                        <div class='icon-inbox'></div>
-                        Profit
-                      </div>
-                      <div class='actions'>
-                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
-                        </a>
-                        
-                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class='row'>
-                      <div class='col-sm-12'>
-                        <div class='box-content box-statistic'>
-                          <h3 class='title text-error'>333</h3>
-                          <small>Today</small>
-                          <div class='text-error icon-inbox align-right'></div>
-                        </div>
-                        <div class='box-content box-statistic'>
-                          <h3 class='title text-warning'>7000</h3>
-                          <small>This Week</small>
-                          <div class='text-warning icon-check align-right'></div>
-                        </div>
-                        <div class='box-content box-statistic'>
-                          <h3 class='title text-info'>22 400</h3>
-                          <small>This Month</small>
-                          <div class='text-info icon-time align-right'></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    <div class='box'>
+      <div class='box-header'>
+        <div class='title'>
+          <div class='icon-inbox'></div>
+          Profit
+        </div>
+        <div class='actions'>
+          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+          </a>
+          
+          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+          </a>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-12'>
+          <div class='box-content box-statistic'>
+            <h3 class='title text-error'>$<%= @todayprofit %></h3>
+            <small>Today</small>
+            <div class='text-error icon-inbox align-right'></div>
+          </div>
+          <div class='box-content box-statistic'>
+            <h3 class='title text-warning'>$<%= @weeklyprofit %></h3>
+            <small>This Week</small>
+            <div class='text-warning icon-check align-right'></div>
+          </div>
+          <div class='box-content box-statistic'>
+            <h3 class='title text-info'>$<%= @monthylprofit %></h3>
+            <small>This Month</small>
+            <div class='text-info icon-time align-right'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <script>
       var data, dataset, gd, options, previousLabel, previousPoint, showTooltip, ticks;

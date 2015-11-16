@@ -86,7 +86,36 @@ class UsersController < ApplicationController
     if (is_user_admin?)
       @generatedlinks = Generatedlink.all 
     else 
+      
+      #STANDARD USER
+      
       @generatedlinks = Generatedlink.where("user_id = ?", current_user_id)
+      #Adding data for access in the view...
+      @todaysclicks = 0
+      @weeklyclicks = 0
+      @monthyclicks = 0
+      @todayprofit  = 0
+      @weeklyprofit = 0
+      @monthylprofit= 0
+      @generatedlinks.each do |l|
+        #Limiting queries
+        tclicks = getTodayClicks(l.url)
+        wclicks = getWeeklyClicks(l.url)
+        mclicks = getMonthlyClicks(l.url)
+        cpm = getlinkcpm(l)
+        #Computing stats
+        @todaysclicks += tclicks
+        @weeklyclicks += wclicks
+        @monthyclicks += mclicks
+        @todayprofit  += (tclicks.to_d/1000) * cpm.to_d
+        @weeklyprofit += (wclicks.to_d/1000) * cpm.to_d
+        @monthylprofit+= (mclicks.to_d/1000) * cpm.to_d
+      end
+        
+        
+      
+      
+      
     end 
     if(is_user_publisher?)
       @links = Link.where("publisher_id = ?",user_publisher_id.to_s)
