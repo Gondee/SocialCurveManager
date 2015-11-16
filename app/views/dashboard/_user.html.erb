@@ -19,7 +19,7 @@
     </div>
   </div>
 </div>
-
+<% if !is_user_admin? && !is_user_publisher?%>
 <div class='col-sm-6'>
     <div class='box'>
       <div class='box-header'>
@@ -92,7 +92,7 @@
       </div>
     </div>
   </div>
-
+<% end %>
 <script>
       var data, dataset, gd, options, previousLabel, previousPoint, showTooltip, ticks;
       var blue, data, datareal, getRandomData, green, i, newOrders, options, orange, orders, placeholder, plot, purple, randNumber, randSmallerNumber, red, series, totalPoints, update, updateInterval;
