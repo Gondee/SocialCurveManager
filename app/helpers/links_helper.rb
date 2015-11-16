@@ -23,25 +23,7 @@ module LinksHelper
     #def giveGeneratedLinkToUser()
         #Not sure if this functionality can go here. 
     #end
-    
-    def cacheclicks?(link)
-       if(link.updated_at < DateTime.now.beginning_of_hour)
-           true
-       else
-           false
-       end
-        
-    end
-    
-    def cacheclicks(shorturl)
-        puts 'cacheclicks'
-        locallink = Generatedlink.find_by url: shorturl
-        if(cacheclicks?(locallink))
-            locallink.clicks = getTotalClicks(shorturl) #update the clicks
-            locallin.updated_at = DateTime.current
-            locallink.save
-        end
-    end
+
     
    
     #total clicks in each country, tuple <string, int> #Need to set the countries
