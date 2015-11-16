@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111233252) do
+ActiveRecord::Schema.define(version: 20151116001945) do
 
   create_table "generatedlinks", force: :cascade do |t|
     t.string   "url"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20151111233252) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "link_id"
+    t.integer  "clicks"
   end
 
   create_table "links", force: :cascade do |t|
