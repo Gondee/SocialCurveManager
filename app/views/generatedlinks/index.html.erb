@@ -64,14 +64,14 @@
                 <tr>
                   
                   <td>
-                    <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= generatedlink.url %> data-clipboard-text=<%= generatedlink.url %> id="<%= generatedlink.id %>" title='Click me to copy to clipboard.'>
-                      <i class='icon-copy'></i>
-                      <b>Copy To Clipboard</b>
-                    </button>
                     <a href="<%= generatedlink.url %>" class='btn btn-sm' style='margin-bottom:5px' target="_blank">
                       <i class='icon-eye-open'></i>
                       Visit Content
                     </a>
+                    <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= generatedlink.url %> data-clipboard-text=<%= generatedlink.url %> id="<%= generatedlink.id %>" title='Click me to copy to clipboard.'>
+                      <i class='icon-copy'></i>
+                      <b>Copy To Clipboard</b>
+                    </button>
                   </td>
                   <td><%= getTotalClicks(generatedlink.url) %></td>
                   <td>$<%= ((getTotalClicks(generatedlink.url).to_d)/1000) * getlinkcpm(generatedlink) %></td>
