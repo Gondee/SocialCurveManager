@@ -15,6 +15,17 @@ class GeneratedlinksController < ApplicationController
   # GET /generatedlinks/1
   # GET /generatedlinks/1.json
   def show
+      @generatedlink = Generatedlink.find(params[:id])
+      #Adding data for access in the view...
+      url = @generatedlink.url
+      @todaysclicks = getTodayClicks(url)
+      @weeklyclicks = getWeeklyClicks(url)
+      @monthyclicks = getMonthlyClicks(url)
+      cpm = getlinkcpm(@generatedlink)
+      @todayprofit  = (@todaysclicks.to_d/1000) * cpm.to_d
+      @weeklyprofit = (@weeklyclicks.to_d/1000) * cpm.to_d
+      @monthylprofit= (@monthyclicks.to_d/1000) * cpm.to_d
+
   end
 
   # GET /generatedlinks/new
@@ -43,6 +54,9 @@ class GeneratedlinksController < ApplicationController
 
     respond_to do |format|
       if @generatedlink.save
+        #Must change used flag
+        patchbacklinkid.used = true
+        patchbacklinkid.save
         format.html { redirect_to @generatedlink, notice: 'Generatedlink was successfully created.' }
         format.json { render :show, status: :created, location: @generatedlink }
       else
