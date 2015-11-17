@@ -131,7 +131,6 @@
               </thead>
               <tbody>
                 <tr>
-                  
                   <td>
                     <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= @generatedlink.url %> data-clipboard-text=<%= @generatedlink.url %> id="<%= @generatedlink.id %>" title='Click me to copy to clipboard.'>
                       <i class='icon-copy'></i>
@@ -166,6 +165,61 @@
     </div>
   </div>
 </div>
+
+<div class='col-sm-12 col-md-12'>
+                  <div class='row recent-activity'>
+                    <div class='col-sm-12'>
+                      <div class='box'>
+                        <div class='box-header'>
+                          <div class='title'>
+                            <i class='icon-refresh'></i>
+                            Content Preview (If Provided)
+                          </div>
+                          <div class='actions'>
+                            <!--<a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                            </a>-->
+                            
+                            <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                            </a>
+                          </div>
+                        </div>
+                        <div class='box-content box-no-padding'>
+                          <ul class='nav nav-tabs nav-tabs-simple'>
+                            <li class='active'>
+                                          <a data-toggle="tab" class="green-border" href="#users"><i class='icon-user text-green'></i>
+                              Snap Shot
+                              </a>
+                  
+                            </li>
+                            <li>
+                                          <a data-toggle="tab" class="purple-border" href="#comments"><i class='icon-comments text-purple'></i>
+                              Information
+                              </a>
+                  
+                            </li>
+                          </ul>
+                          <div class='tab-content'>
+                            <div class='tab-pane fade in active' id='users'>
+                              <ul class='list-unstyled users list-hover list-striped'>
+                                <!--<li>-->
+                                  <div class='avatar pull-left'>
+                                    <img  src="<%= @thumbnail %>" />
+                                  </div>
+                                <!--</li>-->
+                              </ul>
+                            </div>
+                            <div class='tab-pane fade' id='comments'>
+                              <ul class='list-unstyled comments list-hover list-striped'>
+                               <li>Title: <% @sitetitle %></li>
+                               <li>Description: <% @sitedes %> </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
 
 
