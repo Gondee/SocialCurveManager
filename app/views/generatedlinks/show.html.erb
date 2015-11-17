@@ -35,6 +35,11 @@
             <small>Clicks This Month</small>
             <div class='text-primary icon-time align-left'></div>
           </div>
+          <div class='box-content box-statistic text-right'>
+            <h3 class='title text-primary'><%= @allclicks %></h3>
+            <small>Clicks All Time</small>
+            <div class='text-primary icon-time align-left'></div>
+          </div>
         </div>
       </div>
     </div>
@@ -71,13 +76,100 @@
             <small>This Month</small>
             <div class='text-info icon-time align-right'></div>
           </div>
+          <div class='box-content box-statistic'>
+            <h3 class='title text-info'>$<%= @allprofit %></h3>
+            <small>All Time</small>
+            <div class='text-info icon-time align-right'></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
 
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='box bordered-box blue-border' style='margin-bottom:0;'>
+      <div class='box-header blue-background'>
+        <div class='title'>Links To Content</div>
+        <div class='actions'>
+          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+          </a>
+          
+          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+          </a>
+        </div>
+      </div>
+      <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+          <div class='scrollable-area'>
+            <table class='table' style='margin-bottom:0;'>
+              <thead>
+                <tr>
+                  <th>
+                    URL
+                  </th>
+                  <th>
+                    Clicks
+                  </th>
+                  <th>
+                    Profit
+                  </th>
+                  <th>
+                    Paid?
+                  </th>
+                  <th>
+                    Date
+                  </th>
+                  <% if is_user_admin? %>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  <% end %>
+                  
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  
+                  <td>
+                    <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= @generatedlink.url %> data-clipboard-text=<%= @generatedlink.url %> id="<%= @generatedlink.id %>" title='Click me to copy to clipboard.'>
+                      <i class='icon-copy'></i>
+                      <b>Copy To Clipboard</b>
+                    </button>
+                    <a href="<%= @generatedlink.url %>" class='btn btn-sm' style='margin-bottom:5px' target="_blank">
+                      <i class='icon-eye-open'></i>
+                      Visit Content
+                    </a>
+                  </td>
+                  <td><%= getTotalClicks(@generatedlink.url) %></td>
+                  <td>$<%= ((getTotalClicks(@generatedlink.url).to_d)/1000) * getlinkcpm(@generatedlink) %></td>
+                  <td><%= @generatedlink.paidout %></td>
+                  <td><%= @generatedlink.date %></td>
+                    <% if is_user_admin? %>
+                      <td><%= link_to 'Edit', edit_generatedlink_path(@generatedlink) %></td>
+                      <td><%= link_to 'Destroy', @generatedlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <% end %> 
+                  
+                </tr>
+                <script>
+                      $(document).ready(function() {
+                        var clip = new ZeroClipboard($("#<%= @generatedlink.id %>"))
+                      });
+                    </script>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+
+
+<% if is_user_admin? %>
 <p>
   <strong>Url:</strong>
   <%= @generatedlink.url %>
@@ -97,7 +189,6 @@
   <strong>User:</strong>
   <%= @generatedlink.user_id %>
 </p>
-<% if is_user_admin? %>
   <%= link_to 'Edit', edit_generatedlink_path(@generatedlink) %> |
   <%= link_to 'Back', generatedlinks_path %>
 <% end %>

@@ -21,11 +21,12 @@ class GeneratedlinksController < ApplicationController
       @todaysclicks = getTodayClicks(url)
       @weeklyclicks = getWeeklyClicks(url)
       @monthyclicks = getMonthlyClicks(url)
+      @allclicks = getTotalClicks(url)
       cpm = getlinkcpm(@generatedlink)
       @todayprofit  = (@todaysclicks.to_d/1000) * cpm.to_d
       @weeklyprofit = (@weeklyclicks.to_d/1000) * cpm.to_d
       @monthylprofit= (@monthyclicks.to_d/1000) * cpm.to_d
-
+      @allprofit = (@allclicks.to_d/1000) * cpm.to_d
   end
 
   # GET /generatedlinks/new
