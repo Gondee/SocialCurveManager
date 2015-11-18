@@ -1,5 +1,5 @@
 <% provide(:title, "Link Peformance") %>
-<% provide(:headline, "Link Peformance") %>
+<% provide(:headline, "My Links - Link Peformance") %>
 <% provide(:icon, "unchecked") %>
 <p id="notice"><%= notice %></p>
 
@@ -66,13 +66,10 @@
               <thead>
                 <tr>
                   <th>
-                    URL
+                    Content
                   </th>
                   <th>
-                    Clicks
-                  </th>
-                  <th>
-                    Profit
+                    Raw URL
                   </th>
                   <th>
                     Paid Out
@@ -94,15 +91,14 @@
                     <!--<img width=16 height=16 src="http://www.google.com/s2/favicons?domain=<%= @generatedlink.url %>" />-->
                     <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= @generatedlink.url %> data-clipboard-text=<%= @generatedlink.url %> id="<%= @generatedlink.id %>" title='Click link to clipboard.'>
                       <i class='icon-copy'></i>
-                      <b>Copy</b>
+                      <b>Copy Link</b>
                     </button>
                     <a href="<%= @generatedlink.url %>" class='btn btn-sm' style='margin-bottom:5px' target="_blank">
                       <i class='icon-eye-open'></i>
                       Visit
                     </a>
                   </td>
-                  <td><%= getTotalClicks(@generatedlink.url) %></td>
-                  <td>$<%= ((getTotalClicks(@generatedlink.url).to_d)/1000) * getlinkcpm(@generatedlink) %></td>
+                  <td><%= @generatedlink.url %></td>
                   <td><%= @generatedlink.paidout %></td>
                   <td><%= @generatedlink.date %></td>
                     <% if is_user_admin? %>
