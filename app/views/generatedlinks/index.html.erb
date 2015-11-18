@@ -23,23 +23,27 @@
               <thead>
                 <tr>
                   <th>
-                    URL
+                    Preview
                   </th>
                   <th>
-                    Clicks
+                    URL
                   </th>
+                  <!--<th>
+                    Clicks
+                  </th>-->
                   <th>
                     Profit
                   </th>
-                  <th>
+                  <!--<th>
                     Paid?
+                  </th>-->
+                  <th>
+                    Details
                   </th>
                   <th>
                     Date
                   </th>
-                  <th>
-                    Actions
-                  </th>
+                  
                   <% if is_user_admin? %>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -49,34 +53,39 @@
                 </tr>
               </thead>
               <tbody>
-                <% if @generatedlinks.count ==0 %>
-                  <tr>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                  </tr>
-                <% end %>
                 
                 <% @generatedlinks.each do |generatedlink| %>
                 <tr>
                   <td>
+                    <div class='picture'>
+                      <div class='tags'>
+                        <!--<div class='label label-important'>Facebook Thumbnail</div>-->
+                      </div>
+                      <div class='actions'>
+                      </div>
+                      <% thumbnail = (LinkThumbnailer.generate(generatedlink.url)).images.first.src.to_s %>
+                      <a href='<%= thumbnail %>'>
+                        <img width=150 height=75 src="<%= thumbnail %>" />
+                      </a> 
+                    </div>
+                  </td>
+                  <td>
+                    <!--<img width=16 height=16 src="http://www.google.com/s2/favicons?domain=<%= generatedlink.url %>" />-->
                     <a href="<%= generatedlink.url %>" class='btn btn-sm' style='margin-bottom:5px' target="_blank">
                       <i class='icon-eye-open'></i>
-                      Visit Content
+                      View
                     </a>
-                    <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= generatedlink.url %> data-clipboard-text=<%= generatedlink.url %> id="<%= generatedlink.id %>" title='Click me to copy to clipboard.'>
+                    <BR>
+                    <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= generatedlink.url %> data-clipboard-text=<%= generatedlink.url %> id="<%= generatedlink.id %>" title='Click Link to Clipboard.'>
                       <i class='icon-copy'></i>
-                      <b>Copy To Clipboard</b>
+                      <b>Copy</b>
                     </button>
                   </td>
-                  <td><%= getTotalClicks(generatedlink.url) %></td>
+                  <!--<td><%= getTotalClicks(generatedlink.url) %></td>-->
                   <td>$<%= ((getTotalClicks(generatedlink.url).to_d)/1000) * getlinkcpm(generatedlink) %></td>
-                  <td><%= generatedlink.paidout %></td>
+                  <!--<td><%= generatedlink.paidout %></td>-->
+                  <td><%= link_to 'Details', generatedlink %></td>
                   <td><%= generatedlink.date %></td>
-                  <td><%= link_to 'Show', generatedlink %></td>
                     <% if is_user_admin? %>
                       <td><%= link_to 'Edit', edit_generatedlink_path(generatedlink) %></td>
                       <td><%= link_to 'Destroy', generatedlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>

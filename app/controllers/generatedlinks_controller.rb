@@ -29,7 +29,7 @@ class GeneratedlinksController < ApplicationController
       @allprofit = (@allclicks.to_d/1000) * cpm.to_d
       
       thumbnails = LinkThumbnailer.generate(url)
-      @flavicon = thumbnails.flavicon
+      @flavicon = thumbnails.favicon
       @thumbnail = thumbnails.images.first.src.to_s
       @sitetite  = thumbnails.title
       @sitedes   = thumbnails.description
