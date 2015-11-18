@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   
   has_many :publishers, dependent: :destroy
   has_many :generatedlinks, dependent: :destroy
+  has_many :clearing_houses, dependent: :destroy
+
   
   validates :first,  presence: true, length: { maximum: 50 }
   validates :last, presence: true, length: { maximum: 50 } 

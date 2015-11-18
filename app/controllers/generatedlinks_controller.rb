@@ -40,6 +40,24 @@ class GeneratedlinksController < ApplicationController
   # GET /generatedlinks/new
   def new
      @generatedlink = Generatedlink.new(:url => params[:url])
+     if (!is_user_admin? && ! is_user_publisher?)
+       
+       @glink= @generatedlink
+       @glink.user_id = current_user_id
+       @glink.paidout = false
+       @glink.date = DateTime.now
+       patchbacklinkid= Link.where("url = ?",@generatedlink.url).first
+       @glink.url = createNewShortenedLink(@generatedlink.url)
+       @glink.link_id = patchbacklinkid.id
+      if(@glink.save)
+        patchbacklinkid.used = true
+        patchbacklinkid.save
+        redirect_to @generatedlink
+      end
+      
+     end
+     
+     
   end
 
   # GET /generatedlinks/1/edit

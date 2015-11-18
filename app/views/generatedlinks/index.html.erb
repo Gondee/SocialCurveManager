@@ -7,10 +7,10 @@
   <div class='col-sm-12'>
     <div class='box bordered-box blue-border' style='margin-bottom:0;'>
       <div class='box-header blue-background'>
-        <div class='title'>Links To Content</div>
+        <div class='title'>Links To Your Content</div>
         <div class='actions'>
-          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
-          </a>
+          <!--<a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+          </a>-->
           
           <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
           </a>
@@ -64,7 +64,7 @@
                       <div class='actions'>
                       </div>
                       <% thumbnail = (LinkThumbnailer.generate(generatedlink.url)).images.first.src.to_s %>
-                      <a href='<%= thumbnail %>'>
+                      <a data-lightbox='flatty' href='<%= thumbnail %>'>
                         <img width=150 height=75 src="<%= thumbnail %>" />
                       </a> 
                     </div>
