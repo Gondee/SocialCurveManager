@@ -185,7 +185,7 @@
                           <a class="text-contrast" href="/links/<%= link.id %>"><%= link.url %></a>
                       </div>
                       <small class='date pull-right text-muted'>
-                        <span class='timeago fade has-tooltip' data-placement='top' title='<%= link.date %>'><%= link.date %></span>
+                        <span class='timeago fade has-tooltip' data-placement='top' title='<%= link.date %>'><%= time_ago_in_words(link.date) %> </span>
                         <i class='icon-time'></i>
                       </small>
                   </li>
@@ -241,7 +241,7 @@
                               <a class="text-contrast" href="/links/<%= link.id %>"><%= link.url %></a>
                           </div>
                           <small class='date pull-right text-muted'>
-                            <span class='timeago fade has-tooltip' data-placement='top' title='<%= link.date %>'><%= link.date %></span>
+                            <span class='timeago fade has-tooltip' data-placement='top' title='<%= link.date %>'><%= time_ago_in_words(link.date) %> </span>
                             <i class='icon-time'></i>
                           </small>
                       </li>
