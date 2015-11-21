@@ -10,8 +10,7 @@
       <div class='box-header blue-background'>
         <div class='title'>Links In Use</div>
         <div class='actions'>
-          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
-          </a>
+            
           
           <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
           </a>
@@ -44,6 +43,7 @@
                   <% if is_user_admin? %>
                     <th>Edit</th>
                     <th>Delete</th>
+                    <th>Assign Link</th>
                   <% end %>
                   
                   
@@ -64,6 +64,7 @@
                   <% if is_user_admin? %>
                     <td><%= link_to 'Edit', edit_link_path(link) %></td>
                     <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td><%= link_to "Create Generated Link", new_generatedlink_path(:url => unusedlink.url, :link_id => unusedlink.id) %></td>
                   <% end %> 
                   
                   </tr>
@@ -85,8 +86,6 @@
       <div class='box-header blue-background'>
         <div class='title'>Unused Links</div>
         <div class='actions'>
-          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
-          </a>
           
           <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
           </a>
