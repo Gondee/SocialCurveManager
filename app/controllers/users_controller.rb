@@ -80,6 +80,12 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def payment
+    
+    
+    
+  end
+
   
   # GET /dashboard
   def dashboard
