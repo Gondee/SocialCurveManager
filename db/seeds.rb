@@ -49,6 +49,8 @@ Link.create!(url: "http://www.google.com/",
              publisher_id: 1,
              used: false,
              cpm: 4.0,
+             title: "Google", 
+             category: "Search Engine", 
              date: 2.days.ago)
              
 Generatedlink.create!(url: 'http://goo.gl/Vrt8VD',

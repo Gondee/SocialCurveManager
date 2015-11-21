@@ -26,6 +26,12 @@
                     URL
                   </th>
                   <th>
+                    Title
+                  </th>
+                  <th>
+                    Category 
+                  </th>
+                  <th>
                     Date
                   </th>
                   <th>
@@ -54,6 +60,8 @@
                   <% @links.each do |link| %>
                   <tr>
                   <td><%= link.url %></td>
+                  <td><%= link.title %></td>
+                  <td><%= link.category %></td>
                   <td><%= link.date %></td>
                   <td><%= link.used %></td>
                   <% if is_user_admin? %>
@@ -101,6 +109,12 @@
                     URL
                   </th>
                   <th>
+                    Title
+                  </th>
+                  <th>
+                    Category 
+                  </th>
+                  <th>
                     Date
                   </th>
                   <th>
@@ -128,6 +142,8 @@
                   <% @unusedlinks.each do |unusedlink| %>
                     <tr>
                     <td><%= unusedlink.url %></td>
+                    <td><%= unusedlink.title %></td>
+                    <td><%= unusedlink.category %></td>
                     <td><%= unusedlink.date %></td>
                     <td><%= unusedlink.used %></td>
                     <% if is_user_admin? %>

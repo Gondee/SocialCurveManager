@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121184800) do
+ActiveRecord::Schema.define(version: 20151121204827) do
 
   create_table "clearing_houses", force: :cascade do |t|
     t.integer  "publisher_id"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20151121184800) do
     t.datetime "updated_at",   null: false
     t.integer  "publisher_id"
     t.float    "cpm"
+    t.string   "title"
+    t.string   "category"
   end
 
   create_table "publishers", force: :cascade do |t|
