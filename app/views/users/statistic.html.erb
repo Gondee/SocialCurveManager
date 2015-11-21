@@ -1,0 +1,10 @@
+<% provide(:title, "Statistics") %>
+<% provide(:headline, "My Stats") %>
+<% provide(:icon, "signal") %>
+<% if current_user.admin? %>
+    <%= render 'statistic/admin' %>
+<% elsif current_user.publisher %>
+    <%= render 'statistic/publisher' %>
+<% else %>
+    <%= render 'statistic/user' %>
+<% end %>

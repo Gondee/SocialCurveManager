@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'signout'   => 'sessions#destroy'
   get 'dashboard' => 'users#dashboard'
   get 'payment'   => 'users#payment'
+  get 'statistic' => 'users#statistic'
   get 'linkdistribution' => 'links#linkdistribution' 
   get 'links/generatenew' => 'links#generatenew'
 
