@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20151118055631) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.boolean  "publisher"
+    t.integer  "publisher_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -48,7 +48,7 @@ Publisher.create!(company: "ACME Corporation",
 Link.create!(url: "http://www.google.com/",
              publisher_id: 1,
              used: false,
-             date: "2015-11-14")
+             cpm: 4.0)
              
 Generatedlink.create!(url: 'http://goo.gl/Vrt8VD',
                     paidout: false,
