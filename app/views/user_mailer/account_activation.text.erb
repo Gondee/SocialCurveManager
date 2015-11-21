@@ -1,5 +1,16 @@
-Hi <%= @user.first %>,
+SocialCurve
 
-Welcome to the Social Curve! Click on the link below to activate your account:
+Thank you for joining us!
+
+-- Account Confirmation --
+
+Name: <%= @user.first %> <%= @user.last %>
+Email: <%= @user.email %>
+
+Visit this URL in order to confirm your account:
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+
+----
+
+You are receiving this email because you, or someone using your email address, has signed up to SocialCurve. If you did not make this request, you may safely ignore this email.

@@ -1,14 +1,13 @@
 <%= form_for(@clearing_house) do |f| %>
   <% if @clearing_house.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@clearing_house.errors.count, "error") %> prohibited this clearing_house from being saved:</h2>
-
-      <ul>
-      <% @clearing_house.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  	<div class='alert alert-danger alert-dismissable'><a class='close' data-dismiss='alert' href='#'>&times;</a>
+  		<%= pluralize(@clearing_house.errors.count, "error") %> prohibited this link from being saved:
+  		<ul>
+  			<% @clearing_house.errors.full_messages.each do |message| %>
+  				<li><%= message %></li>
+  			<% end %>
+  		</ul>
+  	</div>
   <% end %>
 
   <div class="field">

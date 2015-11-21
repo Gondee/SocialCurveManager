@@ -1,14 +1,13 @@
 <%= form_for(@generatedlink) do |f| %>
   <% if @generatedlink.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@generatedlink.errors.count, "error") %> prohibited this generatedlink from being saved:</h2>
-
-      <ul>
-      <% @generatedlink.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  	<div class='alert alert-danger alert-dismissable'><a class='close' data-dismiss='alert' href='#'>&times;</a>
+  		<%= pluralize(@generatedlink.errors.count, "error") %> prohibited this link from being saved:
+  		<ul>
+  			<% @generatedlink.errors.full_messages.each do |message| %>
+  				<li><%= message %></li>
+  			<% end %>
+  		</ul>
+  	</div>
   <% end %>
 
   <div class="field">

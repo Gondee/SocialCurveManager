@@ -1,5 +1,5 @@
-class UserMailer < ApplicationMailer
-
+class UserMailer < ActionMailer::Base
+  default from: "SCDP-Mailer@SCDP.com"
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
