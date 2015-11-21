@@ -85,6 +85,10 @@ class UsersController < ApplicationController
     
     
   end
+  
+  def statistic
+    
+  end
 
   
   # GET /dashboard

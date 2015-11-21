@@ -10,6 +10,9 @@
         <%= f.text_field :url , class: 'form-control' %> <br />
         <%= f.hidden_field :url %>
         
+        <% f.number_field :link_id , class: 'form-control' %>
+        <%= f.hidden_field :link_id %>
+        
         <%= f.label :Date %> <br /> <br /> 
         <%= f.date_select :date, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2050, selected: Date.today}, class: 'form-control' %> <br />
         

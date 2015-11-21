@@ -1,6 +1,6 @@
 <% provide(:title, "Payments") %>
 <% provide(:headline, "My Payments") %>
-<% provide(:icon, "dashboard") %>
+<% provide(:icon, "usd") %>
 <% if current_user.admin? %>
     <%= render 'payments/admin' %>
 <% elsif current_user.publisher %>
