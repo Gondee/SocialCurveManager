@@ -12,67 +12,51 @@
   <% end %>
   <div class='row'>
     <div class='col-sm-12'>
-      <div class='box bordered-box blue-border'>
-        <div class='box-header blue-background'>
-          <div class='title'>
-            <i class='icon-plus-sign-alt'></i>
-            Adding A Link To New Content
-          </div>
-          <div class='actions'>
-            <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
-            </a>
-            
-            <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
-            </a>
-          </div>
-        </div>
-        <div class='box-content box-double-padding'>
-          <form class='form' style='margin-bottom: 0;'>
-            <fieldset>
-              <div class='col-sm-4'>
-                <div class='box'>
-                  <div class='lead'>
-                    <i class='icon-github text-contrast'></i>
-                    Content Information
-                  </div>
-                  <small class='text-muted'>This is where you add a new link to the Social Curve System. From here Social Curve Admins will forward your link on to users with ideal traffic demographics</small>
-                </div>
+      <form class='form' style='margin-bottom: 0;'>
+        <fieldset>
+          <div class='col-sm-4'>
+            <div class='box'>
+              <div class='lead'>
+                <i class='icon-github text-contrast'></i>
+                Content Information
               </div>
-              <div class='col-sm-7 col-sm-offset-1'>
-                <div class='form-group'>
-                  <label>Link to Content</label>
-                  <!--<input class='form-control' id='full-name' type='text'>-->
-                  <%= f.text_field :url, class: 'form-control', placeholder: "Full URL" %>
-                </div>
-                <div class='form-group'>
-                              <label>Set Your Links Payout</label>
-                              <div class='row'>
-                                <div class='col-sm-6 col-md-6 col-lg-4'>
-                                  <div class='input-group'>
-                                    <span class='input-group-addon'>
-                                      $
-                                    </span>
-                                    <!--<input class='form-control input-lg text-right' id='appendedPrependedInput' type='text'>-->
-                                    <%= f.text_field :cpm, class: 'form-control input-lg text-right', placeholder: "10.00" %>
-                                    <span class='input-group-addon'>/1000</span>
-                                  </div>
-                                  <p class='help-block'>
-                                    <small class='text-muted'>Example: $10/1000 means that it costs $10 per 1000 clicks (traffic)</small>
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-            </fieldset>
-            <div class='form-actions'>
+              <small class='text-muted'>This is where you add a new link to the Social Curve System. From here Social Curve Admins will forward your link on to users with ideal traffic demographics</small>
+            </div>
+          </div>
+          <div class='col-sm-7 col-sm-offset-1'>
+            <div class='form-group'>
+              <label>Link to Content</label>
+              <!--<input class='form-control' id='full-name' type='text'>-->
+              <%= f.text_field :url, class: 'form-control', placeholder: "Full URL" %>
+            </div>
+            <div class='form-group'>
+              <label>Set Your Links Payout</label>
               <div class='row'>
-                <div class='col-sm-7 col-sm-offset-5'>
-                    <%= f.submit "Submit Content", class: "btn btn-primary btn-lg" %>
+                <div class='col-sm-6 col-md-6 col-lg-4'>
+                  <div class='input-group'>
+                    <span class='input-group-addon'>
+                      $
+                    </span>
+                    <!--<input class='form-control input-lg text-right' id='appendedPrependedInput' type='text'>-->
+                    <%= f.text_field :cpm, class: 'form-control input-lg text-right', placeholder: "10.00" %>
+                    <span class='input-group-addon'>/1000</span>
+                  </div>
+                  <p class='help-block'>
+                    <small class='text-muted'>Example: $10/1000 = $10 per 1000 clicks (traffic)</small>
+                  </p>
+                </div>
               </div>
             </div>
-          </form>
+          </div>
+        </fieldset>
+        <div class='form-actions'>
+          <div class='row'>
+            <div class='col-sm-7 col-sm-offset-5'>
+                <%= f.submit "Submit Content", class: "btn btn-primary btn-lg" %>
+          </div>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 <% end %>
