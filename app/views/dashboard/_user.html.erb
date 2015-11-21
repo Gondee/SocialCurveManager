@@ -6,6 +6,8 @@
           My Clicks
         </div>
         <div class='actions'>
+          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+          </a>
           
           <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
           </a>
@@ -44,10 +46,6 @@
           <h3 class='title text-error'><%= @todaysclicks %></h3>
           <small>Clicks Today</small>
           <div class='text-error icon-user align-left'></div>
-        <div class='actions'>
-          
-          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
-          </a>
         </div>
         <div class='box-content box-statistic text-right'>
           <h3 class='title text-warning'><%= @weeklyclicks %></h3>
@@ -69,6 +67,8 @@
           Profit
         </div>
         <div class='actions'>
+          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+          </a>
           
           <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
           </a>
@@ -147,18 +147,21 @@
     });
   }
 </script>
-
-<div class='col-sm-6 box'>
-  <div class='box'>
-    <div class='box-header'>
-      <div class='title'>
-        <i class='icon-refresh'></i>
-        Current Links
-      </div>
-      <div class='actions'>
-        
-        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
-        </a>
+<div class="row recent-activity">
+  <div class='col-sm-6 box'>
+    <div class='box'>
+      <div class='box-header'>
+        <div class='title'>
+          <i class='icon-refresh'></i>
+          Current Links
+        </div>
+        <div class='actions'>
+          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+          </a>
+          
+          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+          </a>
+        </div>
       </div>
       <div class='box-content box-no-padding'>
         <ul class='nav nav-tabs nav-tabs-simple'>
@@ -203,7 +206,7 @@
         Recently Paid-Out
       </div>
       <div class='actions'>
-        
+        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i></a>
         <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
         </a>
       </div>
