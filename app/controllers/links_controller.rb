@@ -105,7 +105,7 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:url, :date, :cpm, :used, :publisher_id)
+      params.require(:link).permit(:url, :date, :cpm, :used, :title, :category, :publisher_id)
     end
     
      # Confirms a logged-in user.

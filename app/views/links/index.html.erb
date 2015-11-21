@@ -1,6 +1,6 @@
 <% provide(:title, "Listing of Links") %>
 <% provide(:headline, "Listing of Links") %>
-<% provide(:icon, "unchecked") %>
+<% provide(:icon, "th-list") %>
 <p id="notice"><%= notice %></p>
 
 
@@ -10,8 +10,7 @@
       <div class='box-header blue-background'>
         <div class='title'>Links In Use</div>
         <div class='actions'>
-          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
-          </a>
+            
           
           <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
           </a>
@@ -25,6 +24,12 @@
                 <tr>
                   <th>
                     URL
+                  </th>
+                  <th>
+                    Title
+                  </th>
+                  <th>
+                    Category 
                   </th>
                   <th>
                     Date
@@ -44,6 +49,7 @@
                   <% if is_user_admin? %>
                     <th>Edit</th>
                     <th>Delete</th>
+                    <th>Assign Link</th>
                   <% end %>
                   
                   
@@ -54,6 +60,8 @@
                   <% @links.each do |link| %>
                   <tr>
                   <td><%= link.url %></td>
+                  <td><%= link.title %></td>
+                  <td><%= link.category %></td>
                   <td><%= link.date %></td>
                   <td><%= link.used %></td>
                   <% if is_user_admin? %>
@@ -64,6 +72,7 @@
                   <% if is_user_admin? %>
                     <td><%= link_to 'Edit', edit_link_path(link) %></td>
                     <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td><%= link_to "Create Generated Link", new_generatedlink_path(:url => unusedlink.url, :link_id => unusedlink.id) %></td>
                   <% end %> 
                   
                   </tr>
@@ -85,8 +94,6 @@
       <div class='box-header blue-background'>
         <div class='title'>Unused Links</div>
         <div class='actions'>
-          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
-          </a>
           
           <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
           </a>
@@ -100,6 +107,12 @@
                 <tr>
                   <th>
                     URL
+                  </th>
+                  <th>
+                    Title
+                  </th>
+                  <th>
+                    Category 
                   </th>
                   <th>
                     Date
@@ -129,6 +142,8 @@
                   <% @unusedlinks.each do |unusedlink| %>
                     <tr>
                     <td><%= unusedlink.url %></td>
+                    <td><%= unusedlink.title %></td>
+                    <td><%= unusedlink.category %></td>
                     <td><%= unusedlink.date %></td>
                     <td><%= unusedlink.used %></td>
                     <% if is_user_admin? %>
