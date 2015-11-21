@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111233252) do
+ActiveRecord::Schema.define(version: 20151118055631) do
+
+  create_table "clearing_houses", force: :cascade do |t|
+    t.integer  "publisher_id"
+    t.integer  "user_id"
+    t.text     "note"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "generatedlinks", force: :cascade do |t|
     t.string   "url"
@@ -21,6 +29,7 @@ ActiveRecord::Schema.define(version: 20151111233252) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "link_id"
+    t.integer  "clicks"
   end
 
   create_table "links", force: :cascade do |t|
@@ -30,6 +39,7 @@ ActiveRecord::Schema.define(version: 20151111233252) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "publisher_id"
+    t.float    "cpm"
   end
 
   create_table "publishers", force: :cascade do |t|

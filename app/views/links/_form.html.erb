@@ -44,6 +44,25 @@
                   <!--<input class='form-control' id='full-name' type='text'>-->
                   <%= f.text_field :url, class: 'form-control', placeholder: "Full URL" %>
                 </div>
+                <div class='form-group'>
+                              <label>Set Your Links Payout</label>
+                              <div class='row'>
+                                <div class='col-sm-6 col-md-6 col-lg-4'>
+                                  <div class='input-group'>
+                                    <span class='input-group-addon'>
+                                      $
+                                    </span>
+                                    <!--<input class='form-control input-lg text-right' id='appendedPrependedInput' type='text'>-->
+                                    <%= f.text_field :cpm, class: 'form-control input-lg text-right', placeholder: "10.00" %>
+                                    <span class='input-group-addon'>/1000</span>
+                                  </div>
+                                  <p class='help-block'>
+                                    <small class='text-muted'>Example: $10/1000 means that it costs $10 per 1000 clicks (traffic)</small>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
             </fieldset>
             <div class='form-actions'>
               <div class='row'>

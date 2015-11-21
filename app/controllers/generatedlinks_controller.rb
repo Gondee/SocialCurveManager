@@ -15,11 +15,49 @@ class GeneratedlinksController < ApplicationController
   # GET /generatedlinks/1
   # GET /generatedlinks/1.json
   def show
+      @generatedlink = Generatedlink.find(params[:id])
+      #Adding data for access in the view...
+      url = @generatedlink.url
+      @todaysclicks = getTodayClicks(url)
+      @weeklyclicks = getWeeklyClicks(url)
+      @monthyclicks = getMonthlyClicks(url)
+      @allclicks = getTotalClicks(url)
+      cpm = getlinkcpm(@generatedlink)
+      @todayprofit  = (@todaysclicks.to_d/1000) * cpm.to_d
+      @weeklyprofit = (@weeklyclicks.to_d/1000) * cpm.to_d
+      @monthylprofit= (@monthyclicks.to_d/1000) * cpm.to_d
+      @allprofit = (@allclicks.to_d/1000) * cpm.to_d
+      
+      thumbnails = LinkThumbnailer.generate(url)
+      @flavicon = thumbnails.favicon
+      @thumbnail = thumbnails.images.first.src.to_s
+      @sitetite  = thumbnails.title
+      @sitedes   = thumbnails.description
+      
+      
   end
 
   # GET /generatedlinks/new
   def new
      @generatedlink = Generatedlink.new(:url => params[:url])
+     if (!is_user_admin? && ! is_user_publisher?)
+       
+       @glink= @generatedlink
+       @glink.user_id = current_user_id
+       @glink.paidout = false
+       @glink.date = DateTime.now
+       patchbacklinkid= Link.where("url = ?",@generatedlink.url).first
+       @glink.url = createNewShortenedLink(@generatedlink.url)
+       @glink.link_id = patchbacklinkid.id
+      if(@glink.save)
+        patchbacklinkid.used = true
+        patchbacklinkid.save
+        redirect_to @generatedlink
+      end
+      
+     end
+     
+     
   end
 
   # GET /generatedlinks/1/edit
@@ -34,11 +72,18 @@ class GeneratedlinksController < ApplicationController
   # POST /generatedlinks.json
   def create
     @modified_generatedlink_params = generatedlink_params
+    patchbacklinkid= Link.where("url = ?",@modified_generatedlink_params[:url]).first
     @modified_generatedlink_params[:url] = createNewShortenedLink(@modified_generatedlink_params[:url])
     @generatedlink = Generatedlink.new(@modified_generatedlink_params)
+    @generatedlink.link_id = patchbacklinkid.id
+    
+    
 
     respond_to do |format|
       if @generatedlink.save
+        #Must change used flag
+        patchbacklinkid.used = true
+        patchbacklinkid.save
         format.html { redirect_to @generatedlink, notice: 'Generatedlink was successfully created.' }
         format.json { render :show, status: :created, location: @generatedlink }
       else

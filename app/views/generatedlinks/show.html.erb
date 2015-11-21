@@ -1,8 +1,219 @@
-<% provide(:title, "GeneratedLink") %>
-<% provide(:headline, "GeneratedLink") %>
+<% provide(:title, "Link Peformance") %>
+<% provide(:headline, "My Links - Link Peformance") %>
 <% provide(:icon, "unchecked") %>
 <p id="notice"><%= notice %></p>
 
+
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='box'>
+      <div class='box-content'>
+        <div class='gallery'>
+          <ul class='list-unstyled list-inline'>
+            <li>
+              <div class='picture'>
+                <div class='tags'>
+                  <!--<div class='label label-important'>Facebook Thumbnail</div>-->
+                </div>
+                <div class='actions'>
+                  <div class='pull-left'>
+                    <a class='btn btn-link' href='#'>
+                      <small>
+                        <i class='icon-user'></i>
+                        Facebook Thumbnail Image
+                      </small>
+                    </a>
+                  </div>
+                  <div class='pull-right'>
+                    <a class='btn btn-link'>
+                      <i class='icon-share'></i>
+                      0
+                    </a>
+                    <a class='btn btn-link'>
+                      <i class='icon-comment'></i>
+                      0
+                    </a>
+                  </div>
+                </div>
+                <a data-lightbox='flatty' href='<%= @thumbnail %>'>
+                  <img width=250 height=150 src="<%= @thumbnail %>" />
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='box bordered-box blue-border' style='margin-bottom:0;'>
+      <div class='box-header blue-background'>
+        <div class='title'>Information on Content</div>
+        <div class='actions'>
+          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+          </a>
+          
+          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+          </a>
+        </div>
+      </div>
+      <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+          <div class='scrollable-area'>
+            <table class='table' style='margin-bottom:0;'>
+              <thead>
+                <tr>
+                  <th>
+                    Content
+                  </th>
+                  <th>
+                    Raw URL
+                  </th>
+                  <th>
+                    Paid Out
+                  </th>
+                  <th>
+                    Date
+                  </th>
+                  <% if is_user_admin? %>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  <% end %>
+                  
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <!--<img width=16 height=16 src="http://www.google.com/s2/favicons?domain=<%= @generatedlink.url %>" />-->
+                    <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= @generatedlink.url %> data-clipboard-text=<%= @generatedlink.url %> id="<%= @generatedlink.id %>" title='Click link to clipboard.'>
+                      <i class='icon-copy'></i>
+                      <b>Copy Link</b>
+                    </button>
+                    <a href="<%= @generatedlink.url %>" class='btn btn-sm' style='margin-bottom:5px' target="_blank">
+                      <i class='icon-eye-open'></i>
+                      Visit
+                    </a>
+                  </td>
+                  <td><%= @generatedlink.url %></td>
+                  <td><%= @generatedlink.paidout %></td>
+                  <td><%= @generatedlink.date %></td>
+                    <% if is_user_admin? %>
+                      <td><%= link_to 'Edit', edit_generatedlink_path(@generatedlink) %></td>
+                      <td><%= link_to 'Destroy', @generatedlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <% end %> 
+                  
+                </tr>
+                <script>
+                      $(document).ready(function() {
+                        var clip = new ZeroClipboard($("#<%= @generatedlink.id %>"))
+                      });
+                    </script>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='col-sm-6'>
+    <div class='box'>
+      <div class='box-header'>
+        <div class='title'>
+          <i class='icon-group'></i>
+          Traffic
+        </div>
+        <div class='actions'>
+          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+          </a>
+          
+          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+          </a>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-12'>
+          <div class='box-content box-statistic text-right'>
+            <h3 class='title text-error'><%= @todaysclicks %></h3>
+            <small>Clicks Today</small>
+            <div class='text-error icon-user align-left'></div>
+          </div>
+          <div class='box-content box-statistic text-right'>
+            <h3 class='title text-warning'><%= @weeklyclicks %></h3>
+            <small>Clicks This Week</small>
+            <div class='text-warning icon-book align-left'></div>
+          </div>
+          <div class='box-content box-statistic text-right'>
+            <h3 class='title text-primary'><%= @monthyclicks %></h3>
+            <small>Clicks This Month</small>
+            <div class='text-primary icon-time align-left'></div>
+          </div>
+          <div class='box-content box-statistic text-right'>
+            <h3 class='title text-primary'><%= @allclicks %></h3>
+            <small>Clicks All Time</small>
+            <div class='text-primary icon-time align-left'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-6'>
+    <div class='box'>
+      <div class='box-header'>
+        <div class='title'>
+          <div class='icon-inbox'></div>
+          Profit
+        </div>
+        <div class='actions'>
+          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+          </a>
+          
+          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+          </a>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-12'>
+          <div class='box-content box-statistic'>
+            <h3 class='title text-error'>$<%= @todayprofit %></h3>
+            <small>Today</small>
+            <div class='text-error icon-inbox align-right'></div>
+          </div>
+          <div class='box-content box-statistic'>
+            <h3 class='title text-warning'>$<%= @weeklyprofit %></h3>
+            <small>This Week</small>
+            <div class='text-warning icon-check align-right'></div>
+          </div>
+          <div class='box-content box-statistic'>
+            <h3 class='title text-info'>$<%= @monthylprofit %></h3>
+            <small>This Month</small>
+            <div class='text-info icon-time align-right'></div>
+          </div>
+          <div class='box-content box-statistic'>
+            <h3 class='title text-info'>$<%= @allprofit %></h3>
+            <small>All Time</small>
+            <div class='text-info icon-time align-right'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+<% if is_user_admin? %>
 <p>
   <strong>Url:</strong>
   <%= @generatedlink.url %>
@@ -22,6 +233,6 @@
   <strong>User:</strong>
   <%= @generatedlink.user_id %>
 </p>
-
-<%= link_to 'Edit', edit_generatedlink_path(@generatedlink) %> |
-<%= link_to 'Back', generatedlinks_path %>
+  <%= link_to 'Edit', edit_generatedlink_path(@generatedlink) %> |
+  <%= link_to 'Back', generatedlinks_path %>
+<% end %>

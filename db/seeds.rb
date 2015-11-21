@@ -49,3 +49,13 @@ Link.create!(url: "http://www.google.com/",
              publisher_id: 1,
              used: false,
              date: "2015-11-14")
+             
+Generatedlink.create!(url: 'http://goo.gl/Vrt8VD',
+                    paidout: false,
+                    user_id: 1,
+                    link_id: 1)
+ 
+ 
+ 
+#http://goo.gl/6DdMJJ
+#http://goo.gl/Whs2up

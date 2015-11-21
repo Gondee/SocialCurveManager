@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @clearing_house.publisher_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @clearing_house.user_id %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @clearing_house.note %>
+</p>
+
+<%= link_to 'Edit', edit_clearing_house_path(@clearing_house) %> |
+<%= link_to 'Back', clearing_houses_path %>

@@ -1,28 +1,29 @@
-<% provide(:title, "Generate A Link For A User") %>
-<% provide(:headline, "Generate A Link For A User") %>
+<% provide(:title, "Add To My Links") %>
+<% provide(:headline, "Add To My Links") %>
 <% provide(:icon, "unchecked") %>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@generatedlink) do |f| %>
-      
-      <%= f.label :url %> <br /> <br /> 
-      <%= f.text_field :url , class: 'form-control' %> <br />
-      <%= f.hidden_field :url %>
-      
-      <%= f.label :Date %> <br /> <br /> 
-      <%= f.date_select :date, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2050, selected: Date.today}, class: 'form-control' %> <br />
-      
-      <div class="control-group">
-        <%= f.label :user, class: 'control-label' %> <br /> <br /> 
-        <div class="controls">
-          <%= collection_select(:generatedlink, :user_id, User.all, :id, :email, {}, {:multiple => false} ) %> <br /> <br />
+      <% if is_user_admin? %>
+        <%= f.label :url %> <br /> <br /> 
+        <%= f.text_field :url , class: 'form-control' %> <br />
+        <%= f.hidden_field :url %>
+        
+        <%= f.label :Date %> <br /> <br /> 
+        <%= f.date_select :date, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2050, selected: Date.today}, class: 'form-control' %> <br />
+        
+        <div class="control-group">
+          <%= f.label :user, class: 'control-label' %> <br /> <br /> 
+          <div class="controls">
+            <%= collection_select(:generatedlink, :user_id, User.all, :id, :email, {}, {:multiple => false} ) %> <br /> <br />
+          </div> 
         </div> 
-      </div> 
-       <%= f.label :Paidout? %>
-      <%= f.check_box :paidout, class: 'form-control' %> <br /> 
+         <%= f.label :Paidout? %>
+        <%= f.check_box :paidout, class: 'form-control' %> <br /> 
       
       <%= f.submit "Create Generated Link", class: "btn btn-primary" %>
+      <% end %>
     <% end %>
   </div>
 </div>

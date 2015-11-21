@@ -20,7 +20,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'google_url_shortener' #pull stats from google/create new links
 gem 'zeroclipboard-rails' #copy links to clipboard
-
+gem 'link_thumbnailer'    #Get website thumbnails/flavicons/information
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.0.3' #
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

@@ -34,6 +34,11 @@ module LinksHelper
 
     # end
     
+    def getlinkcpm(genlink)
+        go = Link.where("id = ?",genlink.link_id).first
+        go.cpm
+    
+    end
     
     #Getting Stats By Time
     def getTwoHoursClicks(shortURL)
@@ -71,6 +76,18 @@ module LinksHelper
         Google::UrlShortener::Base.api_key = "AIzaSyDAT2500mxvTeoAVStBL5LebEfgqpDU8vw"
         url = Google::UrlShortener::Url.new(:short_url => shortURL)
         url.expand! #Documentation says it needs to be expanded to get the analytics
+        #cacheclicks(shortURL) #ensure its saved. 
+        
+        
+        #updating the cache. Users cache so publishers can pull large records. 
+        locallink = Generatedlink.find_by url: shortURL
+        locallink.clicks = url.analytics.all.short_url_clicks #update the clicks
+        locallink.updated_at = DateTime.current
+        locallink.save
+    
+        
+        
+        
         return url.analytics.all.short_url_clicks
     end
     
