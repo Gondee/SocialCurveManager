@@ -39,7 +39,7 @@ class GeneratedlinksController < ApplicationController
 
   # GET /generatedlinks/new
   def new
-     @generatedlink = Generatedlink.new(:url => params[:url])
+     @generatedlink = Generatedlink.new(:url => params[:url], :link_id => params[:link_id])
      if (!is_user_admin? && ! is_user_publisher?)
        
        @glink= @generatedlink
@@ -75,7 +75,7 @@ class GeneratedlinksController < ApplicationController
     patchbacklinkid= Link.where("url = ?",@modified_generatedlink_params[:url]).first
     @modified_generatedlink_params[:url] = createNewShortenedLink(@modified_generatedlink_params[:url])
     @generatedlink = Generatedlink.new(@modified_generatedlink_params)
-    @generatedlink.link_id = patchbacklinkid.id
+    #@generatedlink.link_id = patchbacklinkid.id
     
     
 
@@ -125,6 +125,6 @@ class GeneratedlinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def generatedlink_params
-      params.require(:generatedlink).permit(:url, :paidout, :user_id, :date)
+      params.require(:generatedlink).permit(:url, :paidout, :user_id, :link_id, :date)
     end
 end
