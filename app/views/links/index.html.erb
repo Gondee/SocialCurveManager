@@ -71,7 +71,7 @@
                 <% if is_user_admin? %>
                   <td><%= link_to 'Edit', edit_link_path(link) %></td>
                   <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  <td><%= link_to "Create Generated Link", new_generatedlink_path(:url => unusedlink.url, :link_id => unusedlink.id) %></td>
+                  <td><%= link_to "Create Generated Link", new_generatedlink_path(:url => link.url, :link_id => link.id) %></td>
                 <% end %> 
                 
                 </tr>
