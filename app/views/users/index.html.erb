@@ -1,65 +1,76 @@
 <% provide(:title, "All Users") %>
-<% provide(:headline, "All Users") %>
+<% provide(:headline, "All Users On Social Curve") %>
 <% provide(:icon, "user") %>
-<h1>All users</h1>
 
-<%= will_paginate %>
 
-<ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= link_to user.email, user %> -
-      <% if user.admin? %>
-        <span style="color:#ff0000"><b><u>Administrator</u></b></span>
-      <% elsif user.publisher? %>
-        <span style="color:#0000ff"><b>Publisher</b></span>
-      <% elsif !user.publisher? %>
-        <span style="color:#ffd700">User</span>
-      <% else %>
-        <span style="color:#000000">UNKNOWN - INVESTIGATE</span>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<% if is_user_admin? %>
+<div class='row'>
+    <div class='col-sm-12'>
+      <div class='box bordered-box orange-border' style='margin-bottom:0;'>
+        <div class='box-header blue-background'>
+          <div class='title'>All System Users</div>
+          <div class='actions'>
+            <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+            </a>
+            
+            <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+            </a>
+          </div>
+        </div>
+        <div class='box-content box-no-padding'>
+          <div class='responsive-table'>
+            <div class='scrollable-area'>
+              <table class='data-table-column-filter table table-bordered table-striped' style='margin-bottom:0;'>
+                <thead>
+                  <tr>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Url</th>
+                    <th>Admin?</th>
+                    <th>Publisher?</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @users.each do |user| %>
+                  <tr>
+                    <td><%= user.first %></td>
+                    <td><%= user.last %></td>
+                    <td><%= user.address %></td>
+                    <td><%= user.phone %></td>
+                    <td><%= user.url %></td>
+                    <td><%= user.admin %></td>
+                    <td><%= user.publisher %></td>
+                    <td>
+                      <%= link_to 'Show', user %>
+                      <%= link_to 'Edit', edit_user_path(user) %>
+                      <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Url</th>
+                    <th>Admin?</th>
+                    <th>Publisher?</th>
+                    <th>Actions</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<%= link_to 'Maunally Add New User', new_user_path, class: "btn btn-primary btn-lg" %>
 
-<%= will_paginate %>
-
-<!--
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>First</th>
-      <th>Last</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th>Url</th>
-      <th>Note</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.first %></td>
-        <td><%= user.last %></td>
-        <td><%= user.address %></td>
-        <td><%= user.phone %></td>
-        <td><%= user.url %></td>
-        <td><%= user.note %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
---> 
+<% end %>
