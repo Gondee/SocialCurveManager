@@ -1,97 +1,160 @@
-<% provide(:title, "Selecting Content") %>
-<% provide(:headline, "Selecting Content") %>
-<% provide(:icon, "certificate") %>
-<p id="notice"><%= notice %></p>
 
-<% @clearing_houses.each do |clearing_house| %>
-<% @content = Link.where("publisher_id =?",clearing_house.publisher_id).limit(9) %>
-<% if @content.count != 0 %>
-<div class='row'>
-  <div class='col-sm-12'>
-    <div class='box'>
-      <div class='box-content'>
-        <div class='gallery'>
-          <ul class='list-unstyled list-inline'>
-            <% @content.each do |c| %>
-      <!--<tr>
-        <td><%= clearing_house.publisher_id %></td>
-        <td><%= clearing_house.user_id %></td>
-        <td><%= clearing_house.note %></td>
-        <td><%= link_to 'Show', clearing_house %></td>
-        <td><%= link_to 'Edit', edit_clearing_house_path(clearing_house) %></td>
-        <td><%= link_to 'Destroy', clearing_house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>-->
-    
-            <li>
-              <div class='picture'>
-                <!--<div class='tags'>
-                  <div class='label label-important'>Margarita</div>
-                </div>-->
-                <div class='actions'>
-                  <div class='pull-left'>
-                    <a class='btn btn-link' href='#'>
-                      <small>
-                        <i class='icon-share-sign'></i><td>
-                        <%= link_to(new_generatedlink_path(:url => c.url)) do %>
-                          Add To My Links
-                        <% end %></td>
-                      </small>
-                    </a>
+<% if is_user_normal? %>
+  <% provide(:title, "Selecting Content") %>
+  <% provide(:headline, "Selecting Content") %>
+  <% provide(:icon, "certificate") %>
+  <p id="notice"><%= notice %></p>
+  <% if @clearing_houses.count ==0 %>
+  <div class='box-content box-double-padding'>
+    <div class='row'>
+      <div class='col-sm-6'>
+        <div class='alert alert-info alert-dismissable'>
+                      <a class="close" data-dismiss="alert" href="#">&times;
+          </a>
+      
+          <h4>
+            <i class='icon-info-sign'></i>
+           Why Don't I See Content Here?
+          </h4>
+            We are still reviewing your page. Once complete, you will see your catalog of potential content here!
+        </div>
+        </div>
+    </div>
+  </div>
+  <% end %>
+  <% @clearing_houses.each do |clearing_house| %>
+  <% @content = Link.where("publisher_id =?",clearing_house.publisher_id).limit(9) %>
+  <% if @content.count != 0 %>
+  <div class='row'>
+    <div class='col-sm-12'>
+      <div class='box'>
+        <div class='box-content'>
+          <div class='gallery'>
+            <ul class='list-unstyled list-inline'>
+              <% @content.each do |c| %>
+        <!--<tr>
+          <td><%= clearing_house.publisher_id %></td>
+          <td><%= clearing_house.user_id %></td>
+          <td><%= clearing_house.note %></td>
+          <td><%= link_to 'Show', clearing_house %></td>
+          <td><%= link_to 'Edit', edit_clearing_house_path(clearing_house) %></td>
+          <td><%= link_to 'Destroy', clearing_house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>-->
+      
+              <li>
+                <div class='picture'>
+                  <!--<div class='tags'>
+                    <div class='label label-important'>Margarita</div>
+                  </div>-->
+                  <div class='actions'>
+                    <div class='pull-left'>
+                      <a class='btn btn-link' href='#'>
+                        <small>
+                          <i class='icon-share-sign'></i><td>
+                          <%= link_to(new_generatedlink_path(:url => c.url)) do %>
+                            Add To My Links
+                          <% end %></td>
+                        </small>
+                      </a>
+                    </div>
+                    <div class='pull-right'>
+                      <a class='btn btn-link'>
+                        <i class='icon-share'></i>
+                        5
+                      </a>
+                      <a class='btn btn-link'>
+                        <i class='icon-comment'></i>
+                        5
+                      </a>
+                    </div>
                   </div>
-                  <div class='pull-right'>
-                    <a class='btn btn-link'>
-                      <i class='icon-share'></i>
-                      5
-                    </a>
-                    <a class='btn btn-link'>
-                      <i class='icon-comment'></i>
-                      5
-                    </a>
-                  </div>
+                  <% thumbnail = (LinkThumbnailer.generate(c.url)).images.first.src.to_s %>
+                        <a data-lightbox='flatty' href='<%= thumbnail %>'>
+                          <img width=250 height=150 src="<%= thumbnail %>" />
+                        </a> 
                 </div>
-                <% thumbnail = (LinkThumbnailer.generate(c.url)).images.first.src.to_s %>
-                      <a data-lightbox='flatty' href='<%= thumbnail %>'>
-                        <img width=250 height=150 src="<%= thumbnail %>" />
-                      </a> 
-              </div>
-            </li>
-            <% end %>
-          </ul>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+    <% end %>
+    <% end %>
+<% end %>
+
+<% if is_user_admin? %>
+  <% provide(:title, "Clearing Users For Publishers") %>
+  <% provide(:headline, "Clearing Users For Publishers") %>
+  <% provide(:icon, "certificate") %>
+  <p id="notice"><%= notice %></p>
+
+ <div class='row'>
+    <div class='col-sm-12'>
+      <div class='box bordered-box orange-border' style='margin-bottom:0;'>
+        <div class='box-header purple-background'>
+          <div class='title'>Publisher to Influencer Relationships</div>
+          <div class='actions'>
+            <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+            </a>
+            
+            <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+            </a>
+          </div>
+        </div>
+        <div class='box-content box-no-padding'>
+          <div class='responsive-table'>
+            <div class='scrollable-area'>
+              <table class='data-table-column-filter table table-bordered table-striped' style='margin-bottom:0;'>
+                <thead>
+                  <tr>
+                    <th>
+                      Publisher
+                    </th>
+                    <th>
+                      Influencer
+                    </th>
+                    <th>
+                      Note
+                    </th>
+                    <th>
+                      Options
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @clearing_houses.each do |clearing_house| %>
+                  <tr>
+                    <td><% publishername = Publisher.find_by "id = ?", clearing_house.publisher_id %><%= publishername.company %></td>
+                    <td><% clientname = User.find_by "id = ?", clearing_house.user_id %><%= clientname.last %></td>
+                    <td><%= clearing_house.note %></td>
+                    <td>
+                      <%= link_to 'Show', clearing_house %>
+                      <%= link_to 'Edit', edit_clearing_house_path(clearing_house) %>
+                      <%= link_to 'Destroy', clearing_house, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th colspan='2'>Options</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
-  <% end %>
-  <% end %>
-
-
-<% if is_user_admin? %>
-<table>
-  <thead>
-    <tr>
-      <th>Publisher</th>
-      <th>User</th>
-      <th>Note</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @clearing_houses.each do |clearing_house| %>
-      <tr>
-        <td><%= clearing_house.publisher_id %></td>
-        <td><%= clearing_house.user_id %></td>
-        <td><%= clearing_house.note %></td>
-        <td><%= link_to 'Show', clearing_house %></td>
-        <td><%= link_to 'Edit', edit_clearing_house_path(clearing_house) %></td>
-        <td><%= link_to 'Destroy', clearing_house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 
-<%= link_to 'New Clearing house', new_clearing_house_path %>
+  <%= render 'form' %>
 <% end %>

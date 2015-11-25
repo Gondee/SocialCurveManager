@@ -39,6 +39,15 @@ module SessionsHelper
     end
   end
   
+  def is_user_normal?
+    @current_user ||= User.find_by(id: session[:user_id])
+    if(!@current_user.admin && !@current_user.publisher)
+      true
+    else
+      false
+    end
+  end
+  
   def is_user_publisher?
      @current_user ||= User.find_by(id: session[:user_id])
     if(@current_user.publisher)

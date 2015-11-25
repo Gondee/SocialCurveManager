@@ -4,6 +4,12 @@ class ClearingHousesController < ApplicationController
   # GET /clearing_houses
   # GET /clearing_houses.json
   def index
+    #To display the new Clearing house entry to admins
+    if(is_user_admin?)
+      @clearing_house = ClearingHouse.new
+    end
+    #-------
+    
     @clearing_houses = ClearingHouse.all
     @permissions = ClearingHouse.where("user_id =?", current_user_id)
     
