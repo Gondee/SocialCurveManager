@@ -2,7 +2,7 @@
 <% provide(:headline, "Personal Links") %>
 <% provide(:icon, "tasks") %>
 <p id="notice"><%= notice %></p>
-
+<%= render 'layouts/datatablefix' %>
 <div class='row'>
   <div class='col-sm-12'>
     <div class='box bordered-box blue-border' style='margin-bottom:0;'>
@@ -18,7 +18,7 @@
       </div>
       <div class='box-content box-no-padding'>
         <div class='responsive-table'>
-          <table class='box-content scrollable-area data-table table table-bordered table-striped' style='margin-bottom:0;'>
+          <table class='data-table table table-bordered table-striped' style='margin-bottom:0;'>
             <thead>
               <tr>
                 <th>
@@ -52,50 +52,49 @@
               </tr>
             </thead>
             <tbody>
-              
               <% @generatedlinks.each do |generatedlink| %>
-              <tr>
-                <td>
-                  <div class='picture'>
-                    <div class='tags'>
-                      <!--<div class='label label-important'>Facebook Thumbnail</div>-->
+                <tr>
+                  <td>
+                    <div class='picture'>
+                      <div class='tags'>
+                        <!--<div class='label label-important'>Facebook Thumbnail</div>-->
+                      </div>
+                      <div class='actions'>
+                      </div>
+                      <% thumbnail = (LinkThumbnailer.generate(generatedlink.url)).images.first.src.to_s %>
+                      <a data-lightbox='flatty' href='<%= thumbnail %>'>
+                        <img width=150 height=75 src="<%= thumbnail %>" />
+                      </a> 
                     </div>
-                    <div class='actions'>
-                    </div>
-                    <% thumbnail = (LinkThumbnailer.generate(generatedlink.url)).images.first.src.to_s %>
-                    <a data-lightbox='flatty' href='<%= thumbnail %>'>
-                      <img width=150 height=75 src="<%= thumbnail %>" />
-                    </a> 
-                  </div>
-                </td>
-                <td>
-                  <!--<img width=16 height=16 src="http://www.google.com/s2/favicons?domain=<%= generatedlink.url %>" />-->
-                  <a href="<%= generatedlink.url %>" class='btn btn-sm' style='margin-bottom:5px' target="_blank">
-                    <i class='icon-eye-open'></i>
-                    View
-                  </a>
-                  <BR>
-                  <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= generatedlink.url %> data-clipboard-text=<%= generatedlink.url %> id="<%= generatedlink.id %>" title='Click Link to Clipboard.'>
-                    <i class='icon-copy'></i>
-                    <b>Copy</b>
-                  </button>
-                </td>
-                <!--<td><%= getTotalClicks(generatedlink.url) %></td>-->
-                <td>$<%= ((getTotalClicks(generatedlink.url).to_d)/1000) * getlinkcpm(generatedlink) %></td>
-                <!--<td><%= generatedlink.paidout %></td>-->
-                <td><%= link_to 'Details', generatedlink %></td>
-                <td><%= generatedlink.date %></td>
-                  <% if is_user_admin? %>
-                    <td><%= link_to 'Edit', edit_generatedlink_path(generatedlink) %></td>
-                    <td><%= link_to 'Destroy', generatedlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  <% end %> 
-                
-              </tr>
-              <script>
-                    $(document).ready(function() {
-                      var clip = new ZeroClipboard($("#<%= generatedlink.id %>"))
-                    });
-                  </script>
+                  </td>
+                  <td>
+                    <!--<img width=16 height=16 src="http://www.google.com/s2/favicons?domain=<%= generatedlink.url %>" />-->
+                    <a href="<%= generatedlink.url %>" class='btn btn-sm' style='margin-bottom:5px' target="_blank">
+                      <i class='icon-eye-open'></i>
+                      View
+                    </a>
+                    <BR>
+                    <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= generatedlink.url %> data-clipboard-text=<%= generatedlink.url %> id="<%= generatedlink.id %>" title='Click Link to Clipboard.'>
+                      <i class='icon-copy'></i>
+                      <b>Copy</b>
+                    </button>
+                  </td>
+                  <!--<td><%= getTotalClicks(generatedlink.url) %></td>-->
+                  <td>$<%= ((getTotalClicks(generatedlink.url).to_d)/1000) * getlinkcpm(generatedlink) %></td>
+                  <!--<td><%= generatedlink.paidout %></td>-->
+                  <td><%= link_to 'Details', generatedlink %></td>
+                  <td><%= generatedlink.date %></td>
+                    <% if is_user_admin? %>
+                      <td><%= link_to 'Edit', edit_generatedlink_path(generatedlink) %></td>
+                      <td><%= link_to 'Destroy', generatedlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <% end %> 
+                  
+                </tr>
+                <script>
+                  $(document).ready(function() {
+                    var clip = new ZeroClipboard($("#<%= generatedlink.id %>"))
+                  });
+                </script>
               <% end %>
             </tbody>
           </table>
