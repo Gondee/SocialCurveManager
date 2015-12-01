@@ -22,8 +22,8 @@
             <%= collection_select(:generatedlink, :user_id, User.where("publisher = ? AND admin = ?",false,false), :id, :email, {}, {:multiple => false} ) %> <br /> <br />
           </div> 
         </div> 
-         <%= f.label :Paidout? %>
-        <%= f.check_box :paidout, class: 'form-control' %> <br /> 
+         <% f.label :Paidout? %>
+        <% f.check_box :paidout, class: 'form-control' %> <br /> 
       
       <%= f.submit "Create Generated Link", class: "btn btn-primary" %>
       <% end %>
