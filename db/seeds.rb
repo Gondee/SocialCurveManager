@@ -102,7 +102,7 @@ Link.create!(url: "http://www.google.com/",
              used: false,
              cpm: 4.0,
              title: "Google", 
-             category: "Search Engine", 
+             category: "Science", 
              date: 2.days.ago)
              
 Generatedlink.create!(url: 'http://goo.gl/Vrt8VD',
