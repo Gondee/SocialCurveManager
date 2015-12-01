@@ -19,7 +19,7 @@
         <div class="control-group">
           <%= f.label :user, class: 'control-label' %> <br /> <br /> 
           <div class="controls">
-            <%= collection_select(:generatedlink, :user_id, User.all, :id, :email, {}, {:multiple => false} ) %> <br /> <br />
+            <%= collection_select(:generatedlink, :user_id, User.where("publisher = ? AND admin = ?",false,false), :id, :email, {}, {:multiple => false} ) %> <br /> <br />
           </div> 
         </div> 
          <%= f.label :Paidout? %>
