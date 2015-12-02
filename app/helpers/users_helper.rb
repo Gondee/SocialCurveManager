@@ -16,4 +16,10 @@ module UsersHelper
       raw "<li><a href='#{page}'><i class='icon-#{icon}'></i> <span>#{text}</span></a></li>"
     end
   end
+  def nav_folder_start(text)
+    raw "<li><a class='dropdown-collapse' href='#'><i class='icon-folder-open-alt'></i> <span>#{text}</span><i class='icon-angle-down angle-down'></i></a><ul class='nav nav-stacked'>"
+  end
+  def nav_folder_end
+    raw "</ul></li>"
+  end
 end

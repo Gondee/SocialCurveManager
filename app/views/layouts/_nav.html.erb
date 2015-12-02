@@ -2,7 +2,6 @@
   <div class="navigation">
     <!-- navigation items -->
     <ul class="nav nav-stacked">
-      <!-- single navigation item -->
       <% if logged_in? %>
         <% # If logged in %>
         <%= nav_button_gen("/dashboard","dashboard","Dashboard") %>
@@ -29,18 +28,11 @@
         
         <% # If logged in %>
         <%= nav_button_gen("/signout","remove-circle","Sign Out") %>
-        <li class="">
-          <a class="dropdown-collapse" href="#">
-            <i class="icon-folder-open-alt"></i>
-            <span>SocialCurve</span>
-            <i class="icon-angle-down angle-down"></i>
-          </a>
-          <ul class="nav nav-stacked">
-            <%= nav_button_gen("/about","info-sign","About SocialCurve") %>
-            <%= nav_button_gen("/help","question-sign","Help") %>
-            <%= nav_button_gen("/contact","phone","Contact Us") %>
-          </ul>
-        </li>
+        <%= nav_folder_start("SocialCurve") %>
+          <%= nav_button_gen("/about","info-sign","About SocialCurve") %>
+          <%= nav_button_gen("/help","question-sign","Help") %>
+          <%= nav_button_gen("/contact","phone","Contact Us") %>
+        <%= nav_folder_end %>
       <% else %>
         <% # If NOT logged in %>
         <%= nav_button_gen("/","home","Home") %>
