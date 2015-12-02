@@ -8,7 +8,7 @@ class GeneratedlinksController < ApplicationController
     if(is_user_admin?)
       @generatedlinks = Generatedlink.all
     else
-      @generatedlinks = Generatedlink.where("user_id =?", current_user_id)
+      @generatedlinks = Generatedlink.where("user_id =? AND paidout =?", current_user_id, false)
     end
   end
 
