@@ -1,225 +1,54 @@
 <nav id="main-nav">
   <div class="navigation">
- 
-    <!-- search form visible on phone 
-    <div class="search">
-      <form action="search_results.html" method="get">
-        <div class="search-wrapper">
-          <input value="" class="search-query form-control" placeholder="Search..." autocomplete="off" name="q" type="text">
-          <button class="btn btn-link icon-search" name="button" type="submit"></button>
-        </div>
-      </form>
-    </div>-->
- 
     <!-- navigation items -->
     <ul class="nav nav-stacked">
- 
       <!-- single navigation item -->
       <% if logged_in? %>
-          <li class="active">
-            <a href="/dashboard">
-              <i class="icon-dashboard"></i>
-              <span>Dashboard</span>
-            </a>
-          </li>
+        <% # If logged in %>
+        <%= nav_button_gen("/dashboard","dashboard","Dashboard") %>
         <% if current_user.admin? %>
-          <li class="active">
-            <a href="/users">
-              <i class="icon-user"></i>
-              <span>All Users</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="/clearing_houses">
-              <i class="icon-certificate"></i>
-              <span>Clearing House</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="/links">
-              <i class="icon-th-list"></i>
-              <span>Content Management</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="/statistic">
-              <i class="icon-signal"></i>
-              <span>Content Statistics</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="/payment">
-              <i class="icon-usd"></i>
-              <span>In/Out Payments</span>
-            </a>
-          </li>
+          <% # If logged in and ADMIN %>
+          <%= nav_button_gen("/users","user","All Users") %>
+          <%= nav_button_gen("/clearing_houses","certificate","Clearing House") %>
+          <%= nav_button_gen("/links","th-list","Content Management") %>
+          <%= nav_button_gen("/statistic","signal","Content Statistics") %>
+          <%= nav_button_gen("/payment","usd","In/Out Payments") %>
         <% elsif current_user.publisher? %>
-          <li class="active">
-            <a href="/links/new">
-              <i class="icon-edit"></i>
-              <span>Create Links</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="/links">
-              <i class="icon-th-list"></i>
-              <span>View Links</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="/statistic">
-              <i class="icon-signal"></i>
-              <span>My Statistics</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="/payment">
-              <i class="icon-usd"></i>
-              <span>Payments</span>
-            </a>
-          </li>
+          <% # If logged in and PUBLISHER %>
+          <%= nav_button_gen("/links/new","edit","Create Links") %>
+          <%= nav_button_gen("/links","th-list","View Links") %>
+          <%= nav_button_gen("/statistic","signal","My Statistics") %>
+          <%= nav_button_gen("/payment","usd","Payments") %>
         <% else %>
-          <li class="active">
-            <a href="/clearing_houses">
-              <i class="icon-certificate"></i>
-              <span>Add Content</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="/generatedlinks">
-              <i class="icon-tasks"></i>
-              <span>Your Content</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="/statistic">
-              <i class="icon-signal"></i>
-              <span>Statistics</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="/payment">
-              <i class="icon-usd"></i>
-              <span>Payments</span>
-            </a>
-          </li>
+          <% # If logged in and USER %>
+          <%= nav_button_gen("/clearing_houses","certificate","Add Content") %>
+          <%= nav_button_gen("/generatedlinks","tasks","Your Content") %>
+          <%= nav_button_gen("/statistic","signal","Statistics") %>
+          <%= nav_button_gen("/payment","usd","Payments") %>
         <% end %>
-        <li class="active">
-          <a href="/signout">
-            <i class="icon-remove-circle"></i>
-            <span>Sign Out</span>
+        
+        <% # If logged in %>
+        <%= nav_button_gen("/signout","remove-circle","Sign Out") %>
+        <li class="">
+          <a class="dropdown-collapse" href="#">
+            <i class="icon-folder-open-alt"></i>
+            <span>SocialCurve</span>
+            <i class="icon-angle-down angle-down"></i>
           </a>
+          <ul class="nav nav-stacked">
+            <%= nav_button_gen("/about","info-sign","About SocialCurve") %>
+            <%= nav_button_gen("/help","question-sign","Help") %>
+            <%= nav_button_gen("/contact","phone","Contact Us") %>
+          </ul>
         </li>
-      <% end %>
-      
-      
-      <% if logged_in? %>
-      <li>
-        <a class="dropdown-collapse" href="#">
-          <i class="icon-folder-open-alt"></i>
-          <span>SocialCurve</span>
-          <i class="icon-angle-down angle-down"></i>
-        </a>
-        <ul class="nav nav-stacked">
-          <li>
-            <a href="/about">
-              <i class="icon-info-sign"></i>
-              <span>About SocialCurve</span>
-            </a>
-          </li>
-          <li>
-            <a href="/help">
-              <i class="icon-question-sign"></i>
-              <span>Help</span>
-            </a>
-          </li>
-          <li>
-            <a href="/contact">
-              <i class="icon-phone"></i>
-              <span>Contact Us</span>
-            </a>
-          </li>
-        </ul>
-      </li>
       <% else %>
-      <li class="active">
-        <a href="/">
-          <i class="icon-home"></i>
-          <span>Home</span>
-        </a>
-      </li>
-      <li class="active">
-        <a href="/about">
-          <i class="icon-info-sign"></i>
-          <span>About SocialCurve</span>
-        </a>
-      </li>
-      <li class="active">
-        <a href="/help">
-          <i class="icon-question-sign"></i>
-          <span>Help</span>
-        </a>
-      </li>
-      <li class="active">
-        <a href="/contact">
-          <i class="icon-phone"></i>
-          <span>Contact Us</span>
-        </a>
-      </li>
-      <li class="active">
-        <a href="/signin">
-          <i class="icon-ok-circle"></i>
-          <span>Sign In</span>
-        </a>
-      </li>
+        <% # If NOT logged in %>
+        <%= nav_button_gen("/","home","Home") %>
+        <%= nav_button_gen("/about","info-sign","About SocialCurve") %>
+        <%= nav_button_gen("/help","question-sign","Help") %>
+        <%= nav_button_gen("/contact","phone","Contact Us") %>
+        <%= nav_button_gen("/signin","ok-circle","Sign In") %>
       <% end %>
-      <!-- four level dropdown -->
-      <!-- <li>
-        <a class="dropdown-collapse" href="#">
-          <i class="icon-folder-open-alt"></i>
-          <span>Four level dropdown</span>
-          <i class="icon-angle-down angle-down"></i>
-        </a>
-        <ul class="nav nav-stacked">
-          <li>
-            <a class="dropdown-collapse" href="#">
-              <i class="icon-caret-right"></i>
-              <span>Second level</span>
-              <i class="icon-angle-down angle-down"></i>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-collapse" href="#">
-              <i class="icon-caret-right"></i>
-              <span>Second level</span>
-              <i class="icon-angle-down angle-down"></i>
-            </a>
-            <ul class="nav nav-stacked">
-              <li>
-                <a class="dropdown-collapse" href="#">
-                  <i class="icon-caret-right"></i>
-                  <span>Third level</span>
-                  <i class="icon-angle-down angle-down"></i>
-                </a>
-                <ul class="nav nav-stacked">
-                  <li>
-                    <a href="#">
-                      <i class="icon-caret-right"></i>
-                      <span>Fourth level</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="icon-caret-right"></i>
-                      <span>Another fourth level</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>-->
     </ul>
   </div>
 </nav>

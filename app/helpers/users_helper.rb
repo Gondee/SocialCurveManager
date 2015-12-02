@@ -9,4 +9,11 @@ module UsersHelper
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
     "https://secure.gravatar.com/avatar/#{gravatar_id}"
   end
+  def nav_button_gen(page,icon,text)
+    if current_page?(page)
+      raw "<li class='active'><a href='#{page}'><i class='icon-#{icon}'></i> <span>#{text}</span></a></li>"
+    else
+      raw "<li><a href='#{page}'><i class='icon-#{icon}'></i> <span>#{text}</span></a></li>"
+    end
+  end
 end
