@@ -52,34 +52,23 @@
         <div class='title'>Information on Content</div>
         <div class='actions'>
           <!--<a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i></a>-->
-          
           <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
           </a>
         </div>
       </div>
       <div class='box-content box-no-padding'>
-        <div class='responsive-table'>
-          <table class='box-content scrollable-area table' style='margin-bottom:0;'>
+        <div class='responsive-table scrollable-area' style='overflow-x: scroll;'>
+          <table class='table' style='margin-bottom:0'>
             <thead>
               <tr>
-                <th>
-                  Content
-                </th>
-                <th>
-                  Raw URL
-                </th>
-                <th>
-                  Paid Out
-                </th>
-                <th>
-                  Date
-                </th>
+                <th>Content</th>
+                <th>Raw URL</th>
+                <th>Paid Out</th>
+                <th>Date</th>
                 <% if is_user_admin? %>
                   <th>Edit</th>
                   <th>Delete</th>
                 <% end %>
-                
-                
               </tr>
             </thead>
             <tbody>

@@ -60,7 +60,7 @@ class LinksController < ApplicationController
     #Adding the current publisher to the newly added link. 
     @pub = Publisher.find_by user_id: current_user_id
     @link.publisher_id = @pub.id
-    @link.date = Date.today
+    @link.date = DateTime.now
     @link.used = false
     respond_to do |format|
       if @link.save
