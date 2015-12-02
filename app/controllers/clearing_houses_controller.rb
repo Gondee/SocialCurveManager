@@ -39,7 +39,7 @@ class ClearingHousesController < ApplicationController
 
     respond_to do |format|
       if @clearing_house.save
-        format.html { redirect_to @clearing_house, notice: 'Clearing house was successfully created.' }
+        format.html { flash[:success] = 'Clearing house was successfully created.'; redirect_to @clearing_house }
         format.json { render :show, status: :created, location: @clearing_house }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class ClearingHousesController < ApplicationController
   def update
     respond_to do |format|
       if @clearing_house.update(clearing_house_params)
-        format.html { redirect_to @clearing_house, notice: 'Clearing house was successfully updated.' }
+        format.html { flash[:success] = 'Clearing house was successfully updated.'; redirect_to @clearing_house }
         format.json { render :show, status: :ok, location: @clearing_house }
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class ClearingHousesController < ApplicationController
   def destroy
     @clearing_house.destroy
     respond_to do |format|
-      format.html { redirect_to clearing_houses_url, notice: 'Clearing house was successfully destroyed.' }
+      format.html { flash[:success] = 'Clearing house was successfully destroyed.'; redirect_to clearing_houses_url }
       format.json { head :no_content }
     end
   end

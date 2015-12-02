@@ -84,7 +84,7 @@ class GeneratedlinksController < ApplicationController
         #Must change used flag
         patchbacklinkid.used = true
         patchbacklinkid.save
-        format.html { redirect_to @generatedlink, notice: 'Generatedlink was successfully created.' }
+        format.html { flash[:success] = 'Generatedlink was successfully created.'; redirect_to @generatedlink }
         format.json { render :show, status: :created, location: @generatedlink }
       else
         format.html { render :new }
@@ -98,7 +98,7 @@ class GeneratedlinksController < ApplicationController
   def update
     respond_to do |format|
       if @generatedlink.update(generatedlink_params)
-        format.html { redirect_to @generatedlink, notice: 'Generatedlink was successfully updated.' }
+        format.html { flash[:success] = 'Generatedlink was successfully updated.'; redirect_to @generatedlink }
         format.json { render :show, status: :ok, location: @generatedlink }
       else
         format.html { render :edit }
@@ -112,7 +112,7 @@ class GeneratedlinksController < ApplicationController
   def destroy
     @generatedlink.destroy
     respond_to do |format|
-      format.html { redirect_to generatedlinks_url, notice: 'Generatedlink was successfully destroyed.' }
+      format.html { flash[:success] = 'Generatedlink was successfully destroyed.'; redirect_to generatedlinks_url }
       format.json { head :no_content }
     end
   end

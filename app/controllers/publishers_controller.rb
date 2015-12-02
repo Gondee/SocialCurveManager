@@ -28,7 +28,7 @@ class PublishersController < ApplicationController
 
     respond_to do |format|
       if @publisher.save
-        format.html { redirect_to @publisher, notice: 'Publisher was successfully created.' }
+        format.html { flash[:success] = 'Publisher was successfully created.'; redirect_to @publisher }
         format.json { render :show, status: :created, location: @publisher }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PublishersController < ApplicationController
   def update
     respond_to do |format|
       if @publisher.update(publisher_params)
-        format.html { redirect_to @publisher, notice: 'Publisher was successfully updated.' }
+        format.html { flash[:success] = 'Publisher was successfully updated.'; redirect_to @publisher }
         format.json { render :show, status: :ok, location: @publisher }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class PublishersController < ApplicationController
   def destroy
     @publisher.destroy
     respond_to do |format|
-      format.html { redirect_to publishers_url, notice: 'Publisher was successfully destroyed.' }
+      format.html { flash[:success] = 'Publisher was successfully destroyed.'; redirect_to publishers_url }
       format.json { head :no_content }
     end
   end

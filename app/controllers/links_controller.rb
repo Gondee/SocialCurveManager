@@ -64,7 +64,7 @@ class LinksController < ApplicationController
     @link.used = false
     respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
+        format.html { flash[:success] = 'Link was successfully created.'; redirect_to @link }
         format.json { render :show, status: :created, location: @link }
       else
         format.html { render :new }
@@ -78,7 +78,7 @@ class LinksController < ApplicationController
   def update
     respond_to do |format|
       if @link.update(link_params)
-        format.html { redirect_to @link, notice: 'Link was successfully updated.' }
+        format.html { flash[:success] = 'Link was successfully updated.'; redirect_to @link }
         format.json { render :show, status: :ok, location: @link }
       else
         format.html { render :edit }
@@ -92,7 +92,7 @@ class LinksController < ApplicationController
   def destroy
     @link.destroy
     respond_to do |format|
-      format.html { redirect_to links_url, notice: 'Link was successfully destroyed.' }
+      format.html { flash[:success] = 'Link was successfully destroyed.'; redirect_to links_url }
       format.json { head :no_content }
     end
   end
