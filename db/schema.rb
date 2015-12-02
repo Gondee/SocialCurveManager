@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202210131) do
+ActiveRecord::Schema.define(version: 20151202214834) do
 
   create_table "clearing_houses", force: :cascade do |t|
     t.integer  "publisher_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20151202210131) do
     t.integer  "link_id"
     t.integer  "clicks"
     t.integer  "expire",     default: 10
+    t.integer  "paidclicks", default: 0
   end
 
   create_table "links", force: :cascade do |t|
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 20151202210131) do
     t.float    "cpm"
     t.string   "title"
     t.string   "category"
+    t.integer  "paidclicks"
   end
 
   create_table "publishers", force: :cascade do |t|
