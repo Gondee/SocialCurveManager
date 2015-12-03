@@ -1,59 +1,56 @@
 <% provide(:title, "Link") %>
 <% provide(:headline, "Link") %>
 <% provide(:icon, "link") %>
-
 <div class='row'>
-            <div class='col-sm-9 col-lg-10'>
-              <div class='box'>
-                <div class='box-content box-double-padding'>
-                  <form class='form' style='margin-bottom: 0;'>
-                    <hr class='hr-normal'>
-                    <fieldset>
-                      <div class='col-sm-4'>
-                        <div class='lead'>
-                          <i class='icon-link text-contrast'></i>
-                          Link Information 
-                        </div>
-                        <small class='text-muted'>
-                          This is the information associated with this link, including the URL, the date it was created, 
-                          the cpm, the title associated with the link, its category, and whether or not it is used. 
-                        </small>
-                      </div>
-                      <div class='col-sm-7 col-sm-offset-1'>
-                        <div class='form-group'>
-                          <label>URL:</label>
-                          <%= @link.url %>
-                        </div>
-                        <div class='form-group'>
-                          <label>Date:</label>
-                          <%= @link.date %>
-                        </div>
-                        <div class='form-group'>
-                          <label>Cpm:</label>
-                          <%= @link.cpm %>
-                        </div>
-                        <div class='form-group'>
-                          <label>Title:</label>
-                          <%= @link.title %>
-                        </div>
-                        <div class='form-group'>
-                          <label>Category:</label>
-                          <%= @link.category %>
-                        </div>
-                        <div class='form-group'>
-                          <label>Used:</label>
-                          <%= @link.used %>
-                        </div>
-                        <!-- IF ADMIN SEE FLAGS -->
-                      </div>
-                    </fieldset>
-                    <div class='form-actions form-actions-padding' style='margin-bottom: 0;'>
-                      <div class='text-right'>
-                        <%= link_to 'Edit', edit_link_path(@link), class: "btn btn-primary btn-lg" %>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
+  <div class='col-sm-12'>
+    <form class='form' style='margin-bottom: 0;'>
+      <fieldset>
+        <div class='col-sm-4'>
+          <div class='box'>
+            <div class='lead'>
+              <i class='icon-link text-contrast'></i>
+              Link Information 
             </div>
+            <small class='text-muted'>
+              This is the information associated with this link, including the URL, the date it was created, 
+                the cpm, the title associated with the link, its category, and whether or not it is used. 
+            </small>
           </div>
+        </div>
+        <div class='col-sm-7 col-sm-offset-1'>
+          <div class='form-group'>
+            <label>URL:</label>
+            <%= @link.url %>
+          </div>
+          <div class='form-group'>
+            <label>Date:</label>
+            <%= @link.date %>
+          </div>
+          <div class='form-group'>
+            <label>CPM:</label>
+            $<%= @link.cpm %>/1000 clicks
+          </div>
+          <div class='form-group'>
+            <label>Title:</label>
+            <%= @link.title %>
+          </div>
+          <div class='form-group'>
+            <label>Category:</label>
+            <%= @link.category %>
+          </div>
+          <div class='form-group'>
+            <label>Used:</label>
+            <%= @link.used %>
+          </div>
+        </div>
+      </fieldset>
+      <div class='form-actions'>
+        <div class='row'>
+          <div class='col-sm-7 col-sm-offset-5'>
+              <%= link_to 'Edit', edit_link_path(@link), class: "btn btn-primary btn-lg" %>
+        </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
