@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202214834) do
+ActiveRecord::Schema.define(version: 20151203045659) do
 
   create_table "clearing_houses", force: :cascade do |t|
     t.integer  "publisher_id"
@@ -25,13 +25,14 @@ ActiveRecord::Schema.define(version: 20151202214834) do
     t.string   "url"
     t.boolean  "paidout"
     t.datetime "date"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "user_id"
     t.integer  "link_id"
     t.integer  "clicks"
     t.integer  "expire",     default: 10
     t.integer  "paidclicks", default: 0
+    t.boolean  "dead",       default: false
   end
 
   create_table "links", force: :cascade do |t|
@@ -53,6 +54,13 @@ ActiveRecord::Schema.define(version: 20151202214834) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+  end
+
+  create_table "statistics", force: :cascade do |t|
+    t.integer  "generatedlink_id"
+    t.integer  "clicks"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "users", force: :cascade do |t|
