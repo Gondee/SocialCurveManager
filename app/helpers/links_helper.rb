@@ -100,11 +100,4 @@ module LinksHelper
     end
     
     
-    
-    def nightlyUpdate
-       #allgens = Generatedlink.where("paidout = ? AND created_at + > ?", false, ) 
-        
-    end
-    
-    
 end
