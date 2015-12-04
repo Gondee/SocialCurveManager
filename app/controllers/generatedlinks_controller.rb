@@ -1,5 +1,9 @@
 class GeneratedlinksController < ApplicationController
   before_action :set_generatedlink, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user, only: [:edit]
+  before_action :valid_index, only: [:index]
+  before_action :valid_show, only: [:show]
+  
 
   # GET /generatedlinks
   # GET /generatedlinks.json
@@ -127,5 +131,19 @@ class GeneratedlinksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def generatedlink_params
       params.require(:generatedlink).permit(:url, :paidout, :user_id, :link_id, :date)
+    end
+    
+     # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
+    
+    def valid_index
+      redirect_to(root_url) unless (current_user.admin? || !current_user.publisher?)
+    end
+    
+    def valid_show
+      @genlink = Generatedlink.find(params[:id])
+      redirect_to(root_url) unless (current_user.admin? || current_user.id == @genlink.user_id)
     end
 end

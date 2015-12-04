@@ -17,6 +17,10 @@ module SessionsHelper
     user == current_user
   end
   
+  def current_publisher?(publisher)
+    publisher == current_publisher
+  end
+  
   # Returns the user corresponding to the remember token cookie.
   def current_user
     if (user_id = session[:user_id])
