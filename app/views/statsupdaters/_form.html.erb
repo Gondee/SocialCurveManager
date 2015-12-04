@@ -1,0 +1,25 @@
+<%= form_for(@statsupdater) do |f| %>
+  <% if @statsupdater.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@statsupdater.errors.count, "error") %> prohibited this statsupdater from being saved:</h2>
+
+      <ul>
+      <% @statsupdater.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </div>
+  <div class="field">
+    <%= f.label :interval %><br>
+    <%= f.datetime_select :interval %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

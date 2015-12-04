@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203045659) do
+ActiveRecord::Schema.define(version: 20151204033921) do
 
   create_table "clearing_houses", force: :cascade do |t|
     t.integer  "publisher_id"
@@ -61,6 +61,13 @@ ActiveRecord::Schema.define(version: 20151203045659) do
     t.integer  "clicks"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "statsupdaters", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "interval"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

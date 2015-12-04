@@ -12,6 +12,7 @@
           <%= nav_button_gen("/links","th-list","Content Management") %>
           <%= nav_button_gen("/statistic","signal","Content Statistics") %>
           <%= nav_button_gen("/payment","usd","In/Out Payments") %>
+          <%= nav_button_gen("/statsupdater","usd","Statistics Updater") %>
         <% elsif current_user.publisher? %>
           <% # If logged in and PUBLISHER %>
           <%= nav_button_gen("/links/new","edit","Create Links") %>

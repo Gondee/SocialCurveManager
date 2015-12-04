@@ -1,7 +1,6 @@
-class DailyUpdateJob < ActiveJob::Base
+class DailyupdaterJob < ActiveJob::Base
   queue_as :default
 
-  # we assume that we have a class CsvImporter to handle the import
   def perform
      allgens = Generatedlink.where("paidout = ? AND dead = ?", false, false ) 
      allgens.each do |g|
@@ -14,7 +13,7 @@ class DailyUpdateJob < ActiveJob::Base
                 g.paidclicks = getTotalClicks(totalclicks)
                 
                 stat = Statistic.new
-                
+                puts "TEST"
                 stat.generatedlink_id = g.id
                 stat.getTotalClicks(totalclicks)
                 
