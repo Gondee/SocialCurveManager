@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
+gem 'sidekiq' #Background job execution
 gem 'bcrypt', '3.1.7'
 gem 'bootstrap-sass', '3.2.0.0'
 gem 'faker', '1.4.2'

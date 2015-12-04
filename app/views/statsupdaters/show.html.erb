@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @statsupdater.name %>
+</p>
+
+<p>
+  <strong>Interval:</strong>
+  <%= @statsupdater.interval %>
+</p>
+
+<%= link_to 'Edit', edit_statsupdater_path(@statsupdater) %> |
+<%= link_to 'Back', statsupdaters_path %>
