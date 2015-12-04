@@ -1,19 +1,67 @@
 <% provide(:title, "Home") %>
-<% provide(:headline, "Welcome to SocialCurveManager!") %>
+<% provide(:headline, "SocialCurve Manager") %>
 <% provide(:icon, "home") %>
 
-Welcome to your SocialCurveManager interface! All the tools you need to monetize your content, or earn extra spending cash, all located in one convenient place!
+<center> 
+Welcome to the SocialCurve Manager interface. Here, all the tools you need to monetize web content or earn extra spending cash is combined in one place for your convenience. 
+</center>
+<center>
+We currently serve <b><%= User.where(:publisher => true, :admin => false).count %></b> socially marketing companies, and <b><%= User.where(:publisher => false, :admin => false).count %></b> money-making individuals.
+</center>
 <br>
-<br>
-Currently serving <b><%= User.where(:publisher => true, :admin => false).count %></b> socially marketing companies, and <b><%= User.where(:publisher => false, :admin => false).count %></b> money-making individuals!<br>
-<br>
-<table>
-  <tr height=70>
-      <td width=250>For our first-time users:<br></td>
-      <td><a class="btn btn-primary btn-lg" href="/signup" role="button">Sign Up!</a></td>
+<div class='box-header blue-background'>
+  <div class='actions'>
+                      
+                      <a class="btn box-collapse btn-mini btn-link" href="#"><i></i>
+                      </a>
+                    </div>
+</div> 
+ <div class='box-content box-no-padding'>
+                    <div class='responsive-table'>
+                        <table class='table' data='' style="width:100%">
+                          <thead>
+                            <tr>
+                              <th width="50%">
+                                Advertiser
+                              </th>
+                              <th width="50%">
+                                User 
+                              </th>
+                            </tr>
+                          </thead>
+                      </table>
+                    </div>
+
+<table style="width:100%">
+  <tr>
+    <td width="45%"></td>
+    <td width="5%"></td>
+    <td width="50%"></td>
   </tr>
-  <tr height=70>
-      <td>If you already have an account:</td>
-      <td><a class="btn btn-primary btn-lg" href="/signin" role="button">Sign In!</a></td>
+  <tr>
+    <td>As the Advertiser, you can post monetized web content in the form of links that you want to attract attention for. A User with a popular Facebook page will pick up the link to put on their page and attract the attention for you.</td>
+    <td></td>
+    <td>As the User, you can make a little extra cash by picking up links posted by Advertisers to put on your Facebook page. The more clicks it gets, the more you earn.</td>		
   </tr>
 </table>
+</div> 
+<br> 
+<table style = "width:100%">
+  <tr>
+    <td width="45%"></td>
+    <td width="5%"></td>
+    <td width="50%"></td>
+  </tr>
+  <tr>
+      <td align="right"><a class="btn btn-primary btn-lg" href="/signup" role="button">Sign Up</a></td>
+      <td align="center"> or </td>
+      <td><a class="btn btn-primary btn-lg" href="/signin" role="button">Sign In</a></td>
+  </tr>
+</table>
+<br>
+<center> 
+Want to learn more? Please visit our About page for more information about SocialCurve. 
+</center>
+<center> 
+Our contact information is also avaliable if you want to know more.
+</center>

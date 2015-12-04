@@ -2,6 +2,8 @@ class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
   before_action :is_validated, only: [:destroy, :index, :edit, :update, :show ]
+  before_action :is_owner, only: [:show, :edit]
+  before_action :admin_user, only: [:generatenew]
   # GET /linkss
   # GET /links.json
   helper :all 
@@ -132,6 +134,13 @@ class LinksController < ApplicationController
      # Confirms an admin user.
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+    
+    def is_owner
+      @link = Link.find(params[:id])
+      @publisher = Publisher.find(@link.publisher_id)
+      @user = User.find(@publisher.user_id)
+      redirect_to(root_url) unless (current_user.admin? || @user.id == current_user.id)
     end
     
 end

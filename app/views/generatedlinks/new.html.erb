@@ -2,6 +2,76 @@
 <% provide(:headline, "Add To User's Links") %>
 <% provide(:icon, "share-alt") %>
 
+<%= form_for(@generatedlink) do |f| %>
+
+<% if is_user_admin? %>
+<div class='middle-container'>
+  <div class='middle-row'>
+    <div class='middle-wrapper'>
+      <div class='login-container'>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-sm-4 col-sm-offset-4'>
+              <form action='index.html' method='get'>
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                    <%= f.text_field :url, class: 'form-control'%>
+                    <%= f.hidden_field :url %>
+                    <i class='icon-link text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                  </div> 
+                </div>
+                
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                  <% f.number_field :link_id , class: 'form-control' %>
+                  <%= f.hidden_field :link_id %>
+                  </div>
+                </div>
+                
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                  <%= f.date_select :date, {:order => [:month, :day, :year], :start_year => Time.now.year, :end_year => 2050, selected: Date.today}, class: 'form-control' %>
+                  </div>
+                </div>
+                
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                  <%= collection_select(:generatedlink, :user_id, User.where("publisher = ? AND admin = ?",false,false), :id, :email, {}, {:multiple => false, :class => 'form-control'} ) %>
+                  </div>
+                </div>
+                
+                <!-- 
+                <div class='form-group'>
+                  <div class='controls with-icon-over-input' style="position:relative;">
+                  <%= f.label :paidout do %>
+                  Paid out? 
+                  <%= f.check_box :paidout %>
+                  <% end %>
+                  <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
+                  </div>
+                </div>
+                --> 
+                
+                <!--<button class='btn btn-block'>Sign up</button>-->
+                <%= f.submit "Create Generated Link", class: "btn btn-block" %>
+              </form>
+<% end %>
+              <div class='text-center'>
+                <hr class='hr-normal'>
+                <a href='/links'>
+                  <i class='icon-chevron-left'></i>
+                  Go back to List of Links 
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<!--
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@generatedlink) do |f| %>
@@ -22,14 +92,15 @@
             <%= collection_select(:generatedlink, :user_id, User.where("publisher = ? AND admin = ?",false,false), :id, :email, {}, {:multiple => false} ) %> <br /> <br />
           </div> 
         </div> 
-         <% f.label :Paidout? %>
-        <% f.check_box :paidout, class: 'form-control' %> <br /> 
+        <%= f.label :Paidout? %>
+        <%= f.check_box :paidout, class: 'form-control' %> <br /> 
       
       <%= f.submit "Create Generated Link", class: "btn btn-primary" %>
       <% end %>
     <% end %>
   </div>
 </div>
+--> 
 
 <!--
 <%= render 'form' %>
