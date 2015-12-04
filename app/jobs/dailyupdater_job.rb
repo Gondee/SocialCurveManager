@@ -13,7 +13,6 @@ class DailyupdaterJob < ActiveJob::Base
                 g.paidclicks = getTotalClicks(totalclicks)
                 
                 stat = Statistic.new
-                puts "TEST"
                 stat.generatedlink_id = g.id
                 stat.getTotalClicks(totalclicks)
                 
