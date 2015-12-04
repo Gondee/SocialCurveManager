@@ -95,6 +95,8 @@ class UsersController < ApplicationController
     @links = Link.all 
     if (is_user_admin?)
       @generatedlinks = Generatedlink.all 
+     
+      
     else 
       
       #STANDARD USER

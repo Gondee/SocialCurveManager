@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :statsupdaters
   resources :clearing_houses
   root 'static_pages#home'
   get 'help'      => 'static_pages#help'
