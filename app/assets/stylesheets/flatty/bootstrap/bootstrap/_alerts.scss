@@ -7,8 +7,7 @@
 // -------------------------
 
 .alert {
-  //padding: $alert-padding;
-  padding: 15px;
+  padding: $alert-padding;
   margin-bottom: $line-height-computed;
   border: 1px solid transparent;
   border-radius: $alert-border-radius;
@@ -39,8 +38,7 @@
 // Expand the right padding and account for the close button's positioning.
 
 .alert-dismissable {
- //padding-right: ($alert-padding + 20);
- padding-right: 35px;
+ padding-right: ($alert-padding + 20);
 
   // Adjust close link position
   .close {
