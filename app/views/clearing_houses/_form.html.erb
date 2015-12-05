@@ -40,11 +40,11 @@
               <div class='col-sm-7 col-sm-offset-1'>
                 <div class='form-group'>
                   <label>Publisher Name: </label>
-                  <%= f.number_field :publisher_id %>
+                   <%= collection_select(:generatedlink, :user_id, User.where("publisher = ? AND admin = ?",true,false), :id, :email, {}, {:multiple => false, :class => 'form-control'} ) %>
                 </div>
                 <div class='form-group'>
                   <label>Influencer Name: </label>
-                  <%= f.number_field :user_id %>
+                   <%= collection_select(:generatedlink, :user_id, User.where("publisher = ? AND admin = ?",false,false), :id, :email, {}, {:multiple => false, :class => 'form-control'} ) %>
                 </div>
                 <div class='form-group'>
                   <label>Add A Note:  </label>
