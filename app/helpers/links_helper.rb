@@ -84,10 +84,6 @@ module LinksHelper
         locallink.clicks = url.analytics.all.short_url_clicks #update the clicks
         locallink.updated_at = DateTime.current
         locallink.save
-    
-        
-        
-        
         return url.analytics.all.short_url_clicks
     end
     
