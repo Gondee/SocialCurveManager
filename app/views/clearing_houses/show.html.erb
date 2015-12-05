@@ -1,11 +1,17 @@
+<% provide(:title, "Clearing House") %>
+<% provide(:headline, "Clearing House") %>
+<% provide(:icon, "certificate") %>
 <p>
   <strong>Publisher:</strong>
-  <%= @clearing_house.publisher_id %>
+  <% @pub_pub = Publisher.find(@clearing_house.publisher_id) %>
+  <% @pub_usr = User.find(@pub_pub.user_id) %>
+  <%= @pub_usr.email %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @clearing_house.user_id %>
+  <% @usr = User.find(@clearing_house.user_id) %>
+  <%= @usr.email %>
 </p>
 
 <p>
