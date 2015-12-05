@@ -29,6 +29,10 @@
               <%= f.text_field :url, class: 'form-control', placeholder: "Full URL" %>
             </div>
             <div class='form-group'>
+              <label>Link Title</label>
+              <%= f.text_field :title, class:'form-control', placeholder: "Title" %>
+            </div>
+            <div class='form-group'>
               <label>Link Category</label>
               <%= f.select(:category, [["(Select One)",""],"Health","Fitness","Hipster","Science","Funny","Happiness"], {}, {:class => 'form-control'}) %>
             </div>

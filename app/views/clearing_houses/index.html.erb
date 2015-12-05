@@ -47,12 +47,10 @@
                   </div>
                   <div class='actions'>
                     <div class='pull-left'>
-                      <a class='btn btn-link' href='#'>
+                      <a href="<%= new_generatedlink_path(:url => c.url) %>" class='btn btn-link'>
                         <small>
-                          <i class='icon-share-sign'></i><td>
-                          <%= link_to(new_generatedlink_path(:url => c.url)) do %>
-                            Add To My Links
-                          <% end %></td>
+                          <i class='icon-share-sign'></i>
+                          Add To My Links
                         </small>
                       </a>
                     </div>
