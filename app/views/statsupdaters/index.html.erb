@@ -20,7 +20,7 @@
         <td><%= statsupdater.interval %></td>
         <td><%= link_to 'Show', statsupdater %></td>
         <td><%= link_to 'Edit', edit_statsupdater_path(statsupdater) %></td>
-        <td><%= link_to 'Destroy', statsupdater, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', {action: :destroy, id: statsupdater.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -8,5 +8,4 @@
 //= require flatty/theme
 //= require flatty/demo
 //= require zeroclipboard
-//= require jquery
 //= require jquery_ujs
