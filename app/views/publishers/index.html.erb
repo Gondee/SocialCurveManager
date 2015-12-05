@@ -30,7 +30,7 @@
         <td><%= publisher.note %></td>
         <td><%= link_to 'Show', publisher %></td>
         <td><%= link_to 'Edit', edit_publisher_path(publisher) %></td>
-        <td><%= link_to 'Destroy', publisher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', {action: :destroy, id: publisher.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

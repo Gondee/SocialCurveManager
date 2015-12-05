@@ -89,7 +89,7 @@
                 <td><%= @generatedlink.date %></td>
                   <% if is_user_admin? %>
                     <td><%= link_to 'Edit', edit_generatedlink_path(@generatedlink) %></td>
-                    <td><%= link_to 'Destroy', @generatedlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td><%= link_to 'Destroy', {action: :destroy, id: @generatedlink.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                   <% end %> 
                 
               </tr>

@@ -36,7 +36,7 @@
           <td><%= clearing_house.note %></td>
           <td><%= link_to 'Show', clearing_house %></td>
           <td><%= link_to 'Edit', edit_clearing_house_path(clearing_house) %></td>
-          <td><%= link_to 'Destroy', clearing_house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%= link_to 'Destroy', {action: :destroy, id: clearing_house.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
         </tr>-->
       
               <li>
@@ -130,7 +130,7 @@
                     <td>
                       <%= link_to 'Show', clearing_house %>
                       <%= link_to 'Edit', edit_clearing_house_path(clearing_house) %>
-                      <%= link_to 'Destroy', clearing_house, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <%= link_to 'Destroy', {action: :destroy, id: clearing_house.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
                     </td>
                   </tr>
                   <% end %>
