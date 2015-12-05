@@ -39,16 +39,16 @@
               </div>
               <div class='col-sm-7 col-sm-offset-1'>
                 <div class='form-group'>
-                  <label>Publisher Name: </label>
-                   <%= collection_select(:generatedlink, :user_id, User.where("publisher = ? AND admin = ?",true,false), :id, :email, {}, {:multiple => false, :class => 'form-control'} ) %>
+                  <label>Publisher: </label>
+                   <%= collection_select(:generatedlink, :publisher_id, Publisher.all, :id, :email, {}, {:multiple => false, :class => 'form-control'} ) %>
                 </div>
                 <div class='form-group'>
-                  <label>Influencer Name: </label>
+                  <label>Influencer: </label>
                    <%= collection_select(:generatedlink, :user_id, User.where("publisher = ? AND admin = ?",false,false), :id, :email, {}, {:multiple => false, :class => 'form-control'} ) %>
                 </div>
                 <div class='form-group'>
                   <label>Add A Note:  </label>
-                  <%= f.text_area :note %>
+                  <%= f.text_area :note, :class => 'form-control' %>
                 </div>
               </div>
             </fieldset>
