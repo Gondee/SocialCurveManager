@@ -1,0 +1,29 @@
+<%= form_for(@paymentgroup) do |f| %>
+  <% if @paymentgroup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paymentgroup.errors.count, "error") %> prohibited this paymentgroup from being saved:</h2>
+
+      <ul>
+      <% @paymentgroup.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :transaction_id %><br>
+    <%= f.collection_select(:transaction_id, Transaction.all, :id, :information, {}, {:multiple => false, :class => 'form-control'} ) %>
+  </div>
+  <div class="field">
+    <%= f.label :generatedlink_id %><br>
+    <%= f.collection_select(:generatedlink_id, Generatedlink.where("dead =?",false),:id, :user_email_title_clicks, {}, {:multiple => false, :class => 'form-control'} ) %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br>
+    <%= f.text_area :note %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -99,7 +99,6 @@ module LinksHelper
        
         links = Generatedlink.where("user_id = ? AND dead = ?", current_user_id, false )
         #links.reorder("created_at")
-        
         # => probably a bad solution, building inital structure
         data = []
         for d in (7).downto(0)
@@ -108,14 +107,11 @@ module LinksHelper
         
         #=> look through the list of links and create the sub arrays that will be added to the master
         links.each do |l| 
-            
             #weekarray =>put the last 7 days clicks in a array. This is the total clicks in each day, so will need to do math get the per day values. 
             weekarray = []
             for d in (7).downto(0)
                 # daystats => All the statstics for this generated link on (Today - d) days. Get latest record in that day as the value to use. 
                 daystats = Statistic.where("created_at >= ? AND created_at <= ? AND generatedlink_id = ?", d.days.ago.beginning_of_day,d.days.ago.end_of_day, l.id ) #to_date - d.days)
-                
-                
                 
                 if(daystats.length != 0)
                     dayarray = [d, daystats.maximum(:clicks)]
@@ -131,14 +127,10 @@ module LinksHelper
             for d in 1..7
                 weekarray[d][1] -= weekarray[d-1][1]
             end
-            
-            
+            #Add that links weekly stats to the list of weekly stats
             for d in (7).downto(0)
                 data[d][1] += weekarray[d][1]
             end
-            
-            
-            #return data
         end
         
         #return the list of everything

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :paymentgroups
+  resources :transactions
   resources :statsupdaters
   resources :clearing_houses
   root 'static_pages#home'

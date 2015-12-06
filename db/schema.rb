@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204033921) do
+ActiveRecord::Schema.define(version: 20151206184945) do
 
   create_table "clearing_houses", force: :cascade do |t|
     t.integer  "publisher_id"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20151204033921) do
     t.integer  "paidclicks"
   end
 
+  create_table "paymentgroups", force: :cascade do |t|
+    t.integer  "transaction_id"
+    t.integer  "generatedlink_id"
+    t.text     "note"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "publishers", force: :cascade do |t|
     t.string   "company"
     t.string   "position"
@@ -66,6 +74,15 @@ ActiveRecord::Schema.define(version: 20151204033921) do
   create_table "statsupdaters", force: :cascade do |t|
     t.text     "name"
     t.datetime "interval"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.boolean  "expense"
+    t.integer  "user_id"
+    t.float    "amount"
+    t.text     "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

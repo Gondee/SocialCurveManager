@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Transaction:</strong>
+  <%= @paymentgroup.transaction_id %>
+</p>
+
+<p>
+  <strong>Generatedlink:</strong>
+  <%= @paymentgroup.generatedlink_id %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @paymentgroup.note %>
+</p>
+
+<%= link_to 'Edit', edit_paymentgroup_path(@paymentgroup) %> |
+<%= link_to 'Back', paymentgroups_path %>
