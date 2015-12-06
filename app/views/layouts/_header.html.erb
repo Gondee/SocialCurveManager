@@ -4,9 +4,9 @@
     <!-- application logo -->
     <a class="navbar-brand" href="/">
       <!-- application logo visible on large screens -->
-      <img width="150" height="21" class="logo" alt="SocialCurve" src="/assets/icon_lg.png">
+      <%= image_tag("icon_lg.png", alt: "SocialCurve", size: "150x21", class: "logo") %>
       <!-- application logo visible on small screens -->
-      <img width="50" height="21" class="logo-xs" alt="SC" src="/assets/icon_sm.png">
+      <%= image_tag("icon_sm.png", alt: "SC", size: "50x21", class: "logo-xs") %>
     </a>
  
     <!-- main nav toggler (show/hide) -->
