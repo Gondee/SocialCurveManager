@@ -88,7 +88,7 @@
     <div class='col-sm-12'>
       <div class='box bordered-box orange-border' style='margin-bottom:0;'>
         <div class='box-header purple-background'>
-          <div class='title'>Publisher to Influencer Relationships</div>
+          <div class='title'>Publisher to User Relationships</div>
           <div class='actions'>
             <!--<a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i></a>-->
             
@@ -106,7 +106,7 @@
                       Publisher
                     </th>
                     <th>
-                      Influencer
+                      User
                     </th>
                     <th>
                       Note
@@ -121,7 +121,7 @@
                   <tr>
                     <td><% publishername = Publisher.find_by "id = ?", clearing_house.publisher_id %><%= publishername.company %></td>
                     <td><% clientname = User.find_by "id = ?", clearing_house.user_id %><%= clientname.last %></td>
-                    <td><%= clearing_house.note %></td>
+                    <td><%= truncate(clearing_house.note, line_width: 10) %></td>
                     <td>
                       <%= link_to 'Show', clearing_house %>
                       <%= link_to 'Edit', edit_clearing_house_path(clearing_house) %>
