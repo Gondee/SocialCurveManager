@@ -1,6 +1,7 @@
 class PaymentgroupsController < ApplicationController
   before_action :set_paymentgroup, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_user,  only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  
   # GET /paymentgroups
   # GET /paymentgroups.json
   def index
@@ -76,5 +77,10 @@ class PaymentgroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def paymentgroup_params
       params.require(:paymentgroup).permit(:transaction_id, :generatedlink_id, :note)
+    end
+    
+     # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

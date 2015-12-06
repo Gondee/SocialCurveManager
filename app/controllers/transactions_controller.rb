@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user,  only: [:index, :show, :new, :edit, :create, :update, :destroy]
 
   # GET /transactions
   # GET /transactions.json
@@ -70,5 +71,10 @@ class TransactionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
       params.require(:transaction).permit(:expense, :user_id, :amount, :note)
+    end
+    
+     # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end
