@@ -65,6 +65,7 @@ class ClearingHousesController < ApplicationController
   # DELETE /clearing_houses/1
   # DELETE /clearing_houses/1.json
   def destroy
+    @clearing_house = ClearingHouse.find(params[:id])
     @clearing_house.destroy
     respond_to do |format|
       format.html { flash[:success] = 'Clearing house was successfully destroyed.'; redirect_to clearing_houses_url }
