@@ -1,20 +1,25 @@
+<% provide(:title, "Payment Details") %>
+<% provide(:headline, "Payment Details") %>
+<% provide(:icon, "tasks") %>
 <p id="notice"><%= notice %></p>
 
+<% if is_user_admin? %>
 <p>
   <strong>Expense:</strong>
   <%= @transaction.expense %>
 </p>
-
+<% end %>
 <p>
   <strong>User:</strong>
-  <%= @transaction.user_id %>
+  <%name = User.find_by("id =? ", @transaction.user_id)%>
+  <%= name.first.to_s + " " + name.last.to_s%>
 </p>
 
 <p>
-  <strong>Amount:</strong>
+  <strong>Total Payment Amount:</strong>
   <%= @transaction.amount %>
 </p>
-
+<% if is_user_admin? %>
 <p>
   <strong>Note:</strong>
   <%= @transaction.note %>
@@ -22,3 +27,95 @@
 
 <%= link_to 'Edit', edit_transaction_path(@transaction) %> |
 <%= link_to 'Back', transactions_path %>
+
+<% end %>
+
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='box bordered-box blue-border' style='margin-bottom:0;'>
+      <div class='box-header blue-background'>
+        <div class='title'>Paidout Links in this Transaction</div>
+        <div class='actions'>
+          <!--<a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i></a>-->
+          
+          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+          </a>
+        </div>
+      </div>
+      <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+          <table class='data-table table table-bordered table-striped' style='margin-bottom:0;'>
+            <thead>
+              <tr>
+                <th>
+                  Preview
+                </th>
+                <th>
+                  URL
+                </th>
+                <!--<th>
+                  Clicks
+                </th>-->
+                <th>
+                  Profit
+                </th>
+                <!--<th>
+                  Paid?
+                </th>-->
+                <th>
+                  Details
+                </th>
+                <th>
+                  Date
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @genlinks.each do |link| %>
+                <% @generatedlink = Generatedlink.find_by("id = ?", link.generatedlink_id) %>
+                <tr>
+                  <td>
+                    <div class='picture'>
+                      <div class='tags'>
+                        <!--<div class='label label-important'>Facebook Thumbnail</div>-->
+                      </div>
+                      <div class='actions'>
+                      </div>
+                      <% thumbnail = (LinkThumbnailer.generate(@generatedlink.url)).images.first.src.to_s %>
+                      <a data-lightbox='flatty' href='<%= thumbnail %>'>
+                        <img width=150 height=75 src="<%= thumbnail %>" />
+                      </a> 
+                    </div>
+                  </td>
+                  <td>
+                    <!--<img width=16 height=16 src="http://www.google.com/s2/favicons?domain=<%= @generatedlink.url %>" />-->
+                    <a href="<%= @generatedlink.url %>" class='btn btn-sm' style='margin-bottom:5px' target="_blank">
+                      <i class='icon-eye-open'></i>
+                      View
+                    </a>
+                    <BR>
+                    <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= @generatedlink.url %> data-clipboard-text=<%= @generatedlink.url %> id="<%= @generatedlink.id %>" title='Click Link to Clipboard.'>
+                      <i class='icon-copy'></i>
+                      <b>Copy</b>
+                    </button>
+                  </td>
+                  <!--<td><%= @generatedlink.paidclicks %></td>-->
+                  <td>$<%= ((@generatedlink.paidclicks.to_d)/1000) * getlinkcpm(@generatedlink) %></td>
+                  <!--<td><%= @generatedlink.paidout %></td>-->
+                  <td><%= link_to 'Details', @generatedlink %></td>
+                  <td><%= @generatedlink.date %></td>
+                </tr>
+                <script>
+                  $(document).ready(function() {
+                    var clip = new ZeroClipboard($("#<%= @generatedlink.id %>"))
+                  });
+                </script>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

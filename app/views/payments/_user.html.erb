@@ -2,7 +2,7 @@
     <div class='col-sm-12'>
       <div class='box bordered-box green-border' style='margin-bottom:0;'>
         <div class='box-header green-background'>
-          <div class='title'>Striped, hovered and bordered table</div>
+          <div class='title'>Payments</div>
           <div class='actions'>
             <!--<a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i></a>-->
             
@@ -17,102 +17,32 @@
                 <thead>
                   <tr>
                     <th>
-                      Name
+                      Amount
                     </th>
                     <th>
-                      E-mail
+                      Date
                     </th>
                     <th>
                       Status
                     </th>
-                    <th></th>
+                    <th>
+                      Details
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Mara Pfeffer</td>
-                    <td>holly@yahoo.com</td>
+                  <% @payments.each do |transaction| %>
+                   <tr>
+                    <td><%= transaction.amount %></td>
+                    <td><%= transaction.created_at.to_date%></td>
                     <td>
-                      <span class='label label-success'>Success</span>
+                      <span class='label label-success'>PAID</span>
                     </td>
                     <td>
-                      <div class='text-right'>
-                        <a class='btn btn-success btn-xs' href='#'>
-                          <i class='icon-ok'></i>
-                        </a>
-                        <a class='btn btn-danger btn-xs' href='#'>
-                          <i class='icon-remove'></i>
-                        </a>
-                      </div>
+                      <%= link_to 'Show', transaction %>
+                      
                     </td>
-                  </tr>
-                  <tr>
-                    <td>Cristian Farrell</td>
-                    <td>grace@yahoo.com</td>
-                    <td>
-                      <span class='label label-important'>Important</span>
-                    </td>
-                    <td>
-                      <div class='text-right'>
-                        <a class='btn btn-success btn-xs' href='#'>
-                          <i class='icon-ok'></i>
-                        </a>
-                        <a class='btn btn-danger btn-xs' href='#'>
-                          <i class='icon-remove'></i>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Gordon Effertz</td>
-                    <td>esta@yahoo.com</td>
-                    <td>
-                      <span class='label label-warning'>Warning</span>
-                    </td>
-                    <td>
-                      <div class='text-right'>
-                        <a class='btn btn-success btn-xs' href='#'>
-                          <i class='icon-ok'></i>
-                        </a>
-                        <a class='btn btn-danger btn-xs' href='#'>
-                          <i class='icon-remove'></i>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Karli Senger</td>
-                    <td>joannie@yahoo.com</td>
-                    <td>
-                      <span class='label label-important'>Important</span>
-                    </td>
-                    <td>
-                      <div class='text-right'>
-                        <a class='btn btn-success btn-xs' href='#'>
-                          <i class='icon-ok'></i>
-                        </a>
-                        <a class='btn btn-danger btn-xs' href='#'>
-                          <i class='icon-remove'></i>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Linnea Kuhn</td>
-                    <td>deven@yahoo.com</td>
-                    <td>
-                      <span class='label label-success'>Success</span>
-                    </td>
-                    <td>
-                      <div class='text-right'>
-                        <a class='btn btn-success btn-xs' href='#'>
-                          <i class='icon-ok'></i>
-                        </a>
-                        <a class='btn btn-danger btn-xs' href='#'>
-                          <i class='icon-remove'></i>
-                        </a>
-                      </div>
-                    </td>
+                    <% end %>
                   </tr>
                 </tbody>
               </table>

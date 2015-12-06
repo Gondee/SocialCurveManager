@@ -80,8 +80,13 @@ class UsersController < ApplicationController
   end
 
   def payment
-    
-    
+    if (is_user_admin?)
+      @payments = Transaction.all
+    elsif(is_user_publisher?)
+      @payments = Transaction.where("user_id = ?", current_user_id)
+    else
+      @payments = Transaction.where("user_id = ?", current_user_id)
+    end
     
   end
   
