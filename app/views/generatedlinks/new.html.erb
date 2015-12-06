@@ -21,12 +21,10 @@
                   </div> 
                 </div>
                 
-                <div class='form-group'>
-                  <div class='controls with-icon-over-input' style="position:relative;">
-                  <% f.number_field :link_id , class: 'form-control' %>
+                  <% f.number_field :link_id, class: 'form-control' %>
                   <%= f.hidden_field :link_id %>
-                  </div>
-                </div>
+                  
+                   <%= f.check_box :paidout, :checked => false, :style => 'visibility: hidden' %>
                 
                 <div class='form-group'>
                   <div class='controls with-icon-over-input' style="position:relative;">
