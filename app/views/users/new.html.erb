@@ -57,7 +57,7 @@
                     <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
                   </div>
                   <div class='controls with-icon-over-input' style="position:relative;">
-                    <%= f.label :publisher, "Influencer", :value => "false" %>
+                    <%= f.label :publisher, "User&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".html_safe, :value => "false" %>
                     <%= f.radio_button :publisher, false, :checked => true, onclick:"javascript:chg_publisher();" %>
                     <i class='icon- text-muted'  style="position: absolute; right: 10px; top: 9px;"></i>
                   </div>

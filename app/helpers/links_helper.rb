@@ -95,5 +95,56 @@ module LinksHelper
         return url.created_at # => 2011-01-11
     end
     
+    def getDashboardGraphStats
+       
+        links = Generatedlink.where("user_id = ? AND dead = ?", current_user_id, false )
+        #links.reorder("created_at")
+        
+        # => probably a bad solution, building inital structure
+        data = []
+        for d in (7).downto(0)
+            data << [d,0]
+        end
+        
+        #=> look through the list of links and create the sub arrays that will be added to the master
+        links.each do |l| 
+            
+            #weekarray =>put the last 7 days clicks in a array. This is the total clicks in each day, so will need to do math get the per day values. 
+            weekarray = []
+            for d in (7).downto(0)
+                # daystats => All the statstics for this generated link on (Today - d) days. Get latest record in that day as the value to use. 
+                daystats = Statistic.where("created_at >= ? AND created_at <= ? AND generatedlink_id = ?", d.days.ago.beginning_of_day,d.days.ago.end_of_day, l.id ) #to_date - d.days)
+                
+                
+                
+                if(daystats.length != 0)
+                    dayarray = [d, daystats.maximum(:clicks)]
+                    weekarray << dayarray
+                else
+                    weekarray << [d,0]
+                end
+                
+            end
+            
+            #return weekarray
+            #get per day clicks - Does not include 0 - Data is stored as accumulations. so must break that down to where it is daily
+            for d in 1..7
+                weekarray[d][1] -= weekarray[d-1][1]
+            end
+            
+            
+            for d in (7).downto(0)
+                data[d][1] += weekarray[d][1]
+            end
+            
+            
+            #return data
+        end
+        
+        #return the list of everything
+        return data
+    end
+    
+    
     
 end

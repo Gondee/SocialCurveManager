@@ -37,7 +37,7 @@ class DailyupdaterJob < ActiveJob::Base
                 stat.generatedlink_id = g.id
                 stat.clicks = totalclicks
                 stat.save
-                puts "HELPPPPPPPPPPPPPP"
+                puts "Updating the Stats log for the day..."
             end
           
           
