@@ -1,5 +1,5 @@
 class Link < ActiveRecord::Base
-    belongs_to :publisher, dependent: :destroy
+    belongs_to :publisher
     has_many :generatedlinks, dependent: :destroy
     validates :url,  presence: true
     validates :cpm,  presence: true

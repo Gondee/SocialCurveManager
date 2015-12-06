@@ -1,3 +1,3 @@
 class Statistic < ActiveRecord::Base
-    belongs_to :generatedlink, dependent: :destroy
+    belongs_to :generatedlink
 end
