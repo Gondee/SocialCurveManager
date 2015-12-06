@@ -51,7 +51,7 @@
             </thead>
             <tbody>
               <% @generatedlinks.each do |link| %>
-              <% @generatedlink = link %>
+              
                 <tr>
                   <td>
                     <div class='picture'>
@@ -104,6 +104,106 @@
 </div>
 <br>
 
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='box bordered-box blue-border' style='margin-bottom:0;'>
+      <div class='box-header blue-background'>
+        <div class='title'>Unpaid links with finished tracking</div>
+        <div class='actions'>
+          <!--<a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i></a>-->
+          
+          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+          </a>
+        </div>
+      </div>
+      <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+          <table class='data-table table table-bordered table-striped' style='margin-bottom:0;'>
+            <thead>
+              <tr>
+                <th>
+                  Preview
+                </th>
+                <th>
+                  URL
+                </th>
+                <!--<th>
+                  Clicks
+                </th>-->
+                <th>
+                  Profit
+                </th>
+                <!--<th>
+                  Paid?
+                </th>-->
+                <th>
+                  Details
+                </th>
+                <th>
+                  Date
+                </th>
+                
+                <% if is_user_admin? %>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                <% end %>
+                
+                
+              </tr>
+            </thead>
+            <tbody>
+              <% @deadunpaidlinks.each do |link| %>
+                <tr>
+                  <td>
+                    <div class='picture'>
+                      <div class='tags'>
+                        <!--<div class='label label-important'>Facebook Thumbnail</div>-->
+                      </div>
+                      <div class='actions'>
+                      </div>
+                      <% thumbnail = (LinkThumbnailer.generate(link.url)).images.first.src.to_s %>
+                      <a data-lightbox='flatty' href='<%= thumbnail %>'>
+                        <img width=150 height=75 src="<%= thumbnail %>" />
+                      </a> 
+                    </div>
+                  </td>
+                  <td>
+                    <!--<img width=16 height=16 src="http://www.google.com/s2/favicons?domain=<%= link.url %>" />-->
+                    <a href="<%= link.url %>" class='btn btn-sm' style='margin-bottom:5px' target="_blank">
+                      <i class='icon-eye-open'></i>
+                      View
+                    </a>
+                    <BR>
+                    <button class='btn btn-primary btn-sm' style='margin-bottom:5px' data-clipboard-target= <%= link.url %> data-clipboard-text=<%= link.url %> id="<%= link.id %>" title='Click Link to Clipboard.'>
+                      <i class='icon-copy'></i>
+                      <b>Copy</b>
+                    </button>
+                  </td>
+                  <!--<td><%= getTotalClicks(link.url) %></td>-->
+                  <td>$<%= ((getTotalClicks(link.url).to_d)/1000) * getlinkcpm(link) %></td>
+                  <!--<td><%= link.paidout %></td>-->
+                  <td><%= link_to 'Details', link %></td>
+                  <td><%= link.date %></td>
+                    <% if is_user_admin? %>
+                      <td><%= link_to 'Edit', edit_generatedlink_path(link) %></td>
+                      <td><%= link_to 'Destroy', {action: :destroy, id: link.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <% end %> 
+                  
+                </tr>
+                <script>
+                  $(document).ready(function() {
+                    var clip = new ZeroClipboard($("#<%= link.id %>"))
+                  });
+                </script>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
 
 
 <br>
