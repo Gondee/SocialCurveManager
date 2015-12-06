@@ -98,9 +98,8 @@ class UsersController < ApplicationController
      
       
     else 
-      
+      @dashstats = getDashboardGraphStats
       #STANDARD USER
-      
       @generatedlinks = Generatedlink.where("user_id = ?", current_user_id)
       #Adding data for access in the view...
       @hoursclicks  = 0

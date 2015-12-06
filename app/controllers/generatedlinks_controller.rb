@@ -14,6 +14,7 @@ class GeneratedlinksController < ApplicationController
     else
       @generatedlinks = Generatedlink.where("user_id =? AND paidout =?", current_user_id, false)
       # @generatedlinks.
+       
     end
   end
 
