@@ -92,6 +92,42 @@ class UsersController < ApplicationController
   
   def statistic
     
+    @links = Generatedlink.where("user_id = ?", current_user_id)
+    @demographic = Generatedlink.where("user_id = ?", current_user_id)
+    @demographic = @demographic.order("clicks DESC").first
+    
+    #Stats on the Side 
+    @generatedlinks = Generatedlink.where("user_id = ?", current_user_id)
+      #Adding data for access in the view...
+      @hoursclicks  = 0
+      @todaysclicks = 0
+      @weeklyclicks = 0
+      @monthyclicks = 0
+      @hoursprofit  = 0
+      @todayprofit  = 0
+      @weeklyprofit = 0
+      @monthylprofit= 0
+      @generatedlinks.each do |l|
+        #Limiting queries
+        hclicks = getTwoHoursClicks(l.url)
+        tclicks = getTodayClicks(l.url)
+        wclicks = getWeeklyClicks(l.url)
+        mclicks = getMonthlyClicks(l.url)
+        cpm = getlinkcpm(l)
+        #Computing stats
+        @hoursclicks  += hclicks
+        @todaysclicks += tclicks
+        @weeklyclicks += wclicks
+        @monthyclicks += mclicks
+        @hoursprofit  += (hclicks.to_d/1000) * cpm.to_d
+        @todayprofit  += (tclicks.to_d/1000) * cpm.to_d
+        @weeklyprofit += (wclicks.to_d/1000) * cpm.to_d
+        @monthylprofit+= (mclicks.to_d/1000) * cpm.to_d
+      end
+    
+    
+    @dashstats = getDashboardGraphStats
+    
   end
 
   

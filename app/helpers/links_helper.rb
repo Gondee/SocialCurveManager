@@ -25,16 +25,35 @@ module LinksHelper
     #end
     
    
-    #total clicks in each country, tuple <string, int> #Need to set the countries
-    # def getCountryClicks(shortURL)
-    #     Google::UrlShortener::Base.api_key = "AIzaSyDAT2500mxvTeoAVStBL5LebEfgqpDU8vw"
-    #     url = Google::UrlShortener::Url.new(:short_url => shortURL)
-    #     url.expand! #Documentation says it needs to be expanded to get the analytics
-    #     return url.analytics.all.countries # => { "GB" => 1 }
+    #total clicks in each country, hash {COUNTRY => CLICKS} #Need to set the countries
+    def getCountryClicks(shortURL)
+        Google::UrlShortener::Base.api_key = "AIzaSyDAT2500mxvTeoAVStBL5LebEfgqpDU8vw"
+        url = Google::UrlShortener::Url.new(:short_url => shortURL)
+        url.expand! #Documentation says it needs to be expanded to get the analytics
+        return url.analytics.all.countries # => { "GB" => 1 }
 
-    # end
+    end
+    def getPlatformClicks(shortURL)
+        Google::UrlShortener::Base.api_key = "AIzaSyDAT2500mxvTeoAVStBL5LebEfgqpDU8vw"
+        url = Google::UrlShortener::Url.new(:short_url => shortURL)
+        url.expand! #Documentation says it needs to be expanded to get the analytics
+        return url.analytics.all.platforms # => { "GB" => 1 }
+
+    end
+    
+    def getReferrersClicks(shortURL)
+        Google::UrlShortener::Base.api_key = "AIzaSyDAT2500mxvTeoAVStBL5LebEfgqpDU8vw"
+        url = Google::UrlShortener::Url.new(:short_url => shortURL)
+        url.expand! #Documentation says it needs to be expanded to get the analytics
+        return url.analytics.all.referrers # => { "GB" => 1 }
+
+    end
+    
+    
+    
     
     def getlinkcpm(genlink)
+        #Later on need to put in the cut for us to make $$ with
         go = Link.where("id = ?",genlink.link_id).first
         go.cpm
     
@@ -137,6 +156,52 @@ module LinksHelper
         return data
     end
     
+    def getCountryStatisticsForBarChart(url)
+        data = getCountryClicks(url)
+        
+        names = []
+        values = []
+        i =0;
+        
+        data.each do |key, var|
+            names << [i,key]
+            values << [i,var]
+            i+=1
+        end
+        
+        return names, values
+    end
     
+    def getPlatformStatisticsForBarChart(url)
+        data = getPlatformClicks(url)
+        
+        names = []
+        values = []
+        i =0;
+        
+        data.each do |key, var|
+            names << [i,key]
+            values << [i,var]
+            i+=1
+        end
+        
+        return names, values
+    end
+    
+    def getReferrersStatisticsForBarChart(url)
+        data = getReferrersClicks(url)
+        
+        names = []
+        values = []
+        i =0;
+        
+        data.each do |key, var|
+            names << [i,key]
+            values << [i,var]
+            i+=1
+        end
+        
+        return names, values
+    end
     
 end
