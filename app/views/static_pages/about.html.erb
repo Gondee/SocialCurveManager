@@ -1,50 +1,169 @@
 <% provide(:title, "About") %>
-<% provide(:headline, "About SocialCurveManager") %>
+<% provide(:headline, "About SocialCurveManager!") %>
 <% provide(:icon, "info-sign") %>
 
-SocialCurveManager came from but a single idea for a simple concept. With all the maintenance and messaging that typically needs to take place between a marketer and a common, everyday user, wouldn't it be a lot simpler if everything could be combined in a single platform, where it would not only be easy to communicate back and forth, but to perform such business in a routine, easier manner? SocialCurveManager aims to solve this problem, offering an easy-to-use, informative dashboard-style interface for both marketers and users alike.
-<br><br>
-Users see an interface similar to this, where they may keep tabs on how much they have earned, if there are any new jobs available, or statistics of how well their advertising is faring.
-<br><br>
-<div class='carousel slide' id='carouselUsers' style='margin-bottom:0;'>
-  <ol class='carousel-indicators'>
-    <li data-slide-to='0' data-target='#carouselUsers'></li>
-    <li data-slide-to='1' data-target='#carouselUsers'></li>
-    <li class='active' data-slide-to='2' data-target='#carouselUsers'></li>
-  </ol>
-  <div class='carousel-inner'>
-    <div class='active item'><img src="http://placehold.it/460x200&text=1" /></div>
-    <div class='item'><img src="http://placehold.it/460x200/143249/fff&text=2" /></div>
-    <div class='item'><img src="http://placehold.it/460x200/f34541/fff&text=3" /></div>
-  </div>
-  <a class='left carousel-control' data-slide='prev' href='#carouselUsers'>
-    <span class='icon-angle-left icon-prev'></span>
-  </a>
-  <a class='right carousel-control' data-slide='next' href='#carouselUsers'>
-    <span class='icon-angle-right icon-next'></span>
-  </a>
-</div>
-<br><br>
-Advertisers see an interface like this, where they have the option to start a new campaign, to check on existing campaigns, to check on the amount of funds in their account, or to view how well their campaigns are performing.
-<br><br>
-<div class='carousel slide' id='carouselPublishers' style='margin-bottom:0;'>
-  <ol class='carousel-indicators'>
-    <li data-slide-to='0' data-target='#carouselPublishers'></li>
-    <li data-slide-to='1' data-target='#carouselPublishers'></li>
-    <li class='active' data-slide-to='2' data-target='#carouselPublishers'></li>
-  </ol>
-  <div class='carousel-inner'>
-    <div class='active item'><img src="http://placehold.it/460x200&text=1" /></div>
-    <div class='item'><img src="http://placehold.it/460x200/143249/fff&text=2" /></div>
-    <div class='item'><img src="http://placehold.it/460x200/f34541/fff&text=3" /></div>
-  </div>
-  <a class='left carousel-control' data-slide='prev' href='#carouselPublishers'>
-    <span class='icon-angle-left icon-prev'></span>
-  </a>
-  <a class='right carousel-control' data-slide='next' href='#carouselPublishers'>
-    <span class='icon-angle-right icon-next'></span>
-  </a>
-</div>
-<br><br>
-Either way, we have designed this tool to be as powerful, yet user-friendly as possible, for the end benefit of creating a pleasing user interface for both the marketer, and the user. However, if you happen to run into any bugs or have any ideas to help improve this tool, please <%= link_to "contact us by clicking here!",contact_url %>
+<!--Welcome to your SocialCurveManager interface! All the tools you need to monetize your content, or earn extra spending cash, all located in one convenient place!
 <br>
+<br>
+Currently serving <b><%= User.where(:publisher => true, :admin => false).count %></b> socially marketing companies, and <b><%= User.where(:publisher => false, :admin => false).count %></b> money-making individuals!<br>
+<br>
+<table>
+  <tr height=70>
+      <td width=250>For our first-time users:<br></td>
+      <td><a class="btn btn-primary btn-lg" href="/signup" role="button">Sign Up!</a></td>
+  </tr>
+  <tr height=70>
+      <td>If you already have an account:</td>
+      <td><a class="btn btn-primary btn-lg" href="/signin" role="button">Sign In!</a></td>
+  </tr>
+</table> -->
+
+<div class='row'>
+  <h2 style="text-align:center">Manager Services</h2>
+</div>
+
+<div class='row'>
+  <div class='col-sm-16'>
+    <div class='box'>
+      <div class='box-header'>
+        <div class='title'>
+          Page Growth Services
+        </div>
+      </div>
+      <div class='box-content'>
+          <table style="margin-left: 150px">
+            <tr>
+              <td>
+                <div class="text-right">
+                  <img src="/assets/graph.png">
+                </div>
+              </td>
+              <td>
+                <div class="text-center">
+                  <h5>Page Management</h5>
+                  <p>We provide cutting edge page management services.<br>
+                  By leveraging EdgeRank and other behind the scenes Algorithms,<br> 
+                  we optimize content delivery so that every drop of exposure is utilized.</p>
+                  <h5>Content Tailoring</h5>
+                  <p>By matching proven viral content with the demographic and audience preferences,<br>
+                  we leverage Social Media viral metrics to benefit you.<br>
+                  Increase exposure, reach, and user engagement with our battle tested methods.</p>
+                  <h5>Analytics</h5>
+                  <p>The data behind the scenes can make a very big difference <br>
+                  in how you interact with your following. <br>
+                  We continually monitor your audience's preferences and usage patterns <br>
+                  to optimize growth and ensure that fans are getting the experience they expect from your page.</p> 
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align:center"><i>Traffic over time display</i></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div style="margin-top: 150px">
+  <p style="text-align:center">________________________________________________________________________________________________</p>
+</div>
+
+<div style = "margin-top: 150px"></div>
+
+<div class='row'>
+  <div class='col-sm-16'>
+    <div class='box'>
+      <div class='box-header'>
+        <div class='title'>
+          On Page Monetization Services
+        </div>
+      </div>
+      <div class='box-content'>
+          <table style="margin-left: 150px">
+            <tr>
+              <td>
+                <div class="text-center">
+                  <h5>Publishers</h5>
+                  <p>Our network of publishers loves to get their message out. <bR>
+                  Commanding a following of greater than 300,000, <br>
+                  we can help you monetize it with content your fans will love.</p>
+                    
+                  <h5>Drive Traffic, Earn Cash</h5>
+                  <p>We custom pick content from our trusted publishers for your following. <br>
+                  Post it on your page, and get paid for its performance. <br>
+                  We offer extremely competitive PPC (Pay Per Click) rates. <br>
+                  Contact us today and get an offer on your page within 24 hours!</p>
+                  
+                  <h5>Analytics</h5>
+                  <p>We monitor the performance of content so you can rest easy<br>
+                  knowing we are doing the optimization on your behalf. <br>
+                  Additionally, we keep you informed on the health of your community.</p>
+                </div>
+              </td>
+              <td>
+                <div class="text-right">
+                  <img src="/assets/graph.png">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td style="text-align:center"><i>Traffic over time display</i></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div style="margin-top: 150px">
+  <p style="text-align:center">________________________________________________________________________________________________</p>
+</div>
+
+<div style="margin-top: 150px"></div>
+
+<div class='row'>
+  <div class='col-sm-16'>
+    <div class='box'>
+      <div class='box-header'>
+        <div class='title'>
+          External Monetization Services
+        </div>
+      </div>
+      <div class='box-content'>
+          <table style="margin-left: 150px">
+            <tr>
+              <td>
+                <div class="text-right">
+                  <img src="/assets/graph.png">
+                </div>
+              </td>
+              <td>
+                <div class="text-center">
+                  <h5>Custom External Monetization Site</h5>
+                  <p>Command a following of multiple millions? <br>
+                  For those influencers who need additional control of Brand identity,<br>
+                  our custom external site provides a great flexible option.</p>
+                  
+                  <h5>Branded and Effective</h5>
+                  <p>Drive traffic from your existing Social Media sources <br>
+                  to a site branded just for you. We pack the site full <br>
+                  of interesting, fun, and engaging content your following will enjoy. </p>
+                  
+                  <h5>Revenue Split</h5>
+                  <p>Using your large following, and our social media expertise, <br>
+                  our custom external site option provides an excellent revenue sharing platform. <bR>
+                  Simply put, we manage, run, and curate content, <br>
+                  and we share the revenue generated from on page advertisements.</p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align:center"><i>Traffic over time display</i></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
