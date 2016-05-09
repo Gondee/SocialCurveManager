@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    #@user.activated = true;
+    @user.activated = true; #comment to force users to verify with their email
     @publisher = 0
     if(@user.publisher)
       @publisher = Publisher.new
