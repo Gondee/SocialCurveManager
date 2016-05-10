@@ -20,8 +20,25 @@
     </div>
   </div>
   <% end %>
-  <% @clearing_houses.each do |clearing_house| %>
-  <% @content = Link.where("publisher_id =?",clearing_house.publisher_id).limit(9) %>
+  <div class='box-content box-double-padding'>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <div class='alert alert-info alert-dismissable'>
+          <h4>
+            <i class='icon-info-sign'></i>
+           What does adding content mean?
+          </h4>
+            By hovering over a piece of content and selecting "Add to My Links" you are effectivly checking out the piece of content. Using the link provided, we will be able to track all statistics 
+            for payment and optimization. You will be able to see these statistics by looking at a specific link, or for an overview checkout the Dashboard.
+        </div>
+        </div>
+    </div>
+  </div>
+  
+  <% @permissions.each do |clearing_house| %>
+  <% @content = Link.where("publisher_id =?",clearing_house.publisher_id) %>
+  <% currentLinks = Generatedlink.where("user_id=?",current_user_id).pluck(:link_id) %>
+  <% @content = @content.where.not(id: currentLinks)%>
   <% if @content.count != 0 %>
   <div class='row'>
     <div class='col-sm-12'>
@@ -30,15 +47,6 @@
           <div class='gallery'>
             <ul class='list-unstyled list-inline'>
               <% @content.each do |c| %>
-        <!--<tr>
-          <td><%= clearing_house.publisher_id %></td>
-          <td><%= clearing_house.user_id %></td>
-          <td><%= clearing_house.note %></td>
-          <td><%= link_to 'Show', clearing_house %></td>
-          <td><%= link_to 'Edit', edit_clearing_house_path(clearing_house) %></td>
-          <%= link_to 'Destroy', {action: :destroy, id: clearing_house.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </tr>-->
-      
               <li>
                 <div class='picture'>
                   <div class='tags'>
@@ -66,6 +74,7 @@
                           <img width=250 height=150 src="<%= thumbnail %>" />
                         </a> 
                 </div>
+                <center><b><%= c.title %></b> </center>
               </li>
               <% end %>
             </ul>
@@ -83,8 +92,7 @@
   <% provide(:title, "Clearing Users For Publishers") %>
   <% provide(:headline, "Clearing Users For Publishers") %>
   <% provide(:icon, "certificate") %>
-
- <div class='row'>
+  <div class='row'>
     <div class='col-sm-12'>
       <div class='box bordered-box orange-border' style='margin-bottom:0;'>
         <div class='box-header purple-background'>

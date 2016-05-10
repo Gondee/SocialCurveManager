@@ -30,14 +30,14 @@
         <% # If logged in %>
         <%= nav_button_gen("/signout","remove-circle","Sign Out") %>
         <%= nav_folder_start("SocialCurve") %>
-          <%= nav_button_gen("/about","info-sign","About SocialCurve") %>
+          <%= nav_button_gen("/about","info-sign","About Us") %>
           <%= nav_button_gen("/help","question-sign","Help") %>
           <%= nav_button_gen("/contact","phone","Contact Us") %>
         <%= nav_folder_end %>
       <% else %>
         <% # If NOT logged in %>
         <%= nav_button_gen("/","home","Home") %>
-        <%= nav_button_gen("/about","info-sign","About SocialCurve") %>
+        <%= nav_button_gen("/about","info-sign","About Us") %>
         <%= nav_button_gen("/help","question-sign","Help") %>
         <%= nav_button_gen("/contact","phone","Contact Us") %>
         <%= nav_button_gen("/signin","ok-circle","Sign In") %>

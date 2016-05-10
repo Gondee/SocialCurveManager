@@ -99,6 +99,30 @@
                         </div>
                       </div>
                     </fieldset>
+                    <!--Adding the payment stuff-->
+                    <hr class='hr-normal'>
+                    <fieldset>
+                      <div class='col-sm-4'>
+                        <div class='lead'>
+                          <i class='icon-user text-contrast'></i>
+                          Payment Information
+                        </div>
+                        <small class='text-muted'>
+                          Enter your PayPal infromation here to begin recieving payments.
+                          If you would like to request another form of recieving payment, please contact us 
+                          via email. We offer ACH's and wires for large clients! 
+                        </small>
+                      </div>
+                      <div class='col-sm-7 col-sm-offset-1'>
+                        <div class='form-group'>
+                          <label>PayPal Email to Recieve Payments</label>
+                          <%= f.text_field :paypal , class: 'form-control' %>
+                        </div>
+                        
+                      </div>
+                    </fieldset>
+                    
+                    
                     <div class='form-actions form-actions-padding' style='margin-bottom: 0;'>
                       <div class='text-right'>
                         <%= f.submit "Save changes", class: "btn btn-primary btn-lg" %>

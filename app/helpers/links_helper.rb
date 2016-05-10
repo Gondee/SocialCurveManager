@@ -1,5 +1,5 @@
 module LinksHelper
-    
+    require 'uri'
     #
     # https://github.com/joshnesbitt/google_url_shortener
     # Documentation of the Gem
@@ -203,5 +203,15 @@ module LinksHelper
         
         return names, values
     end
+    
+    String.class_eval do
+    def is_valid_url?
+        uri = URI.parse self
+        uri.kind_of? URI::HTTP
+    rescue URI::InvalidURIError
+        false
+    end
+    
+end
     
 end

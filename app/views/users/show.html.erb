@@ -5,7 +5,7 @@
             <div class='col-sm-3 col-lg-2'>
               <div class='box'>
                 <div class='box-content'>
-                  <img class="img-responsive" width=230 height=230 src="assets/graph.png">
+                  <img class="img-responsive" width=230 height=230 src=<%= "#{gravatar_url(current_user)}" %> >
                 </div>
               </div>
             </div>
@@ -64,6 +64,27 @@
                         <div class='form-group'>
                           <label>Social Media URL:</label>
                           <%= @user.url %>
+                        </div>
+                        <!-- IF ADMIN SEE FLAGS -->
+                      </div>
+                    </fieldset>
+                     <hr class='hr-normal'>
+                    <fieldset>
+                      <div class='col-sm-4'>
+                        <div class='lead'>
+                          <i class='icon-user text-contrast'></i>
+                          Payment Information
+                        </div>
+                        <small class='text-muted'>
+                          PayPal infromation is needed to begin recieving payments.
+                          If you would like to request another form of recieving payment, please contact us 
+                          via email. We offer ACH's and wires for large clients! 
+                        </small>
+                      </div>
+                      <div class='col-sm-7 col-sm-offset-1'>
+                        <div class='form-group'>
+                          <label>PayPal:</label>
+                          <%= @user.paypal %>
                         </div>
                         <!-- IF ADMIN SEE FLAGS -->
                       </div>
