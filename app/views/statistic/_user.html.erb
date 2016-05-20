@@ -13,491 +13,494 @@
         </div>
     </div>
   </div>
-<div class='row'>
-  <div class='col-sm-12'>
-    <div class='box'>
-      <div class='box-header'>
-        <div class='title'>
-          Clicks on Active Links in the Past 7 Days
-        </div>
-        <div class='actions'>
-          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
-          </a>
-        </div>
-      </div>
-      <div class='box-content'>
-        <div id='stats-chart1' style='height:220px;'></div>
-        
-      </div>
-    </div>
-  </div>
-</div>
-<div class='row'>
-    <div class='col-sm-6'>
-      <div class='box'>
-        <div class='box-header'>
-          <div class='title'>
-            Clicks By Country on Highest Peforming Content
-          </div>
-          <div class='actions'>
-            <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
-            </a>
-          </div>
-        </div>
-        <div class='box-content'>
-          <div id='stats-chart7' style='height:273px;'></div>
-        </div>
-      </div>
-    </div>
-    <div class='col-sm-6 box'>
-      <div class='box-header'>
-        <div class='title'>
-          <div class='icon-inbox'></div>
-          Profit
-        </div>
-        <div class='actions'>
-          <!--<a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i></a>-->
-          
-          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
-          </a>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col-sm-12'>
-          <div class='box-content box-statistic'>
-            <h3 class='title text-error'>$<%= @hoursprofit %></h3>
-            <small>Last 2 Hours</small>
-            <div class='text-error icon-inbox align-right'></div>
-          </div>
-          <div class='box-content box-statistic'>
-            <h3 class='title text-error'>$<%= @todayprofit %></h3>
-            <small>Today</small>
-            <div class='text-error icon-inbox align-right'></div>
-          </div>
-          <div class='box-content box-statistic'>
-            <h3 class='title text-warning'>$<%= @weeklyprofit %></h3>
-            <small>This Week</small>
-            <div class='text-warning icon-check align-right'></div>
-          </div>
-          <div class='box-content box-statistic'>
-            <h3 class='title text-info'>$<%= @monthylprofit %></h3>
-            <small>This Month</small>
-            <div class='text-info icon-time align-right'></div>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
-<div class='row'>
-    <div class='col-sm-6'>
-      <div class='box'>
-        <div class='box-header'>
-          <div class='title'>
-            Clicks By Platform on Highest Peforming Content
-          </div>
-          <div class='actions'>
-            <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
-            </a>
-          </div>
-        </div>
-        <div class='box-content'>
-          <div id='stats-chart9' style='height:273px;'></div>
-        </div>
-      </div>
-    </div>
-    <div class='row'>
-  <div class='col-sm-6 box'>
-    <div class='box-header'>
-      <div class='title'>
-        <i class='icon-group'></i>
-        Traffic
-      </div>
-      <div class='actions'>
-        <!--<a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i></a>-->
-        
-        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
-        </a>
-      </div>
-    </div>
+  <% if @demographic != nil %>
+      
     <div class='row'>
       <div class='col-sm-12'>
-        <div class='box-content box-statistic text-right'>
-          <h3 class='title text-error'><%= @hoursclicks %></h3>
-          <small>Clicks in Last 2 Hours</small>
-          <div class='text-error icon-user align-left'></div>
-        </div>
-        <div class='box-content box-statistic text-right'>
-          <h3 class='title text-error'><%= @todaysclicks %></h3>
-          <small>Clicks Today</small>
-          <div class='text-error icon-user align-left'></div>
-        </div>
-        <div class='box-content box-statistic text-right'>
-          <h3 class='title text-warning'><%= @weeklyclicks %></h3>
-          <small>Clicks This Week</small>
-          <div class='text-warning icon-book align-left'></div>
-        </div>
-        <div class='box-content box-statistic text-right'>
-          <h3 class='title text-primary'><%= @monthyclicks %></h3>
-          <small>Clicks This Month</small>
-          <div class='text-primary icon-time align-left'></div>
+        <div class='box'>
+          <div class='box-header'>
+            <div class='title'>
+              Clicks on Active Links in the Past 7 Days
+            </div>
+            <div class='actions'>
+              <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+              </a>
+            </div>
+          </div>
+          <div class='box-content'>
+            <div id='stats-chart1' style='height:220px;'></div>
+            
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-</div>
-
-<div class='row'>
-    <div class='col-sm-12'>
-      <div class='box'>
+    <div class='row'>
+        <div class='col-sm-6'>
+          <div class='box'>
+            <div class='box-header'>
+              <div class='title'>
+                Clicks By Country on Highest Peforming Content
+              </div>
+              <div class='actions'>
+                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                </a>
+              </div>
+            </div>
+            <div class='box-content'>
+              <div id='stats-chart7' style='height:273px;'></div>
+            </div>
+          </div>
+        </div>
+        <div class='col-sm-6 box'>
+          <div class='box-header'>
+            <div class='title'>
+              <div class='icon-inbox'></div>
+              Profit
+            </div>
+            <div class='actions'>
+              <!--<a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i></a>-->
+              
+              <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+              </a>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-12'>
+              <div class='box-content box-statistic'>
+                <h3 class='title text-error'>$<%= @hoursprofit %></h3>
+                <small>Last 2 Hours</small>
+                <div class='text-error icon-inbox align-right'></div>
+              </div>
+              <div class='box-content box-statistic'>
+                <h3 class='title text-error'>$<%= @todayprofit %></h3>
+                <small>Today</small>
+                <div class='text-error icon-inbox align-right'></div>
+              </div>
+              <div class='box-content box-statistic'>
+                <h3 class='title text-warning'>$<%= @weeklyprofit %></h3>
+                <small>This Week</small>
+                <div class='text-warning icon-check align-right'></div>
+              </div>
+              <div class='box-content box-statistic'>
+                <h3 class='title text-info'>$<%= @monthylprofit %></h3>
+                <small>This Month</small>
+                <div class='text-info icon-time align-right'></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-sm-6'>
+          <div class='box'>
+            <div class='box-header'>
+              <div class='title'>
+                Clicks By Platform on Highest Peforming Content
+              </div>
+              <div class='actions'>
+                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                </a>
+              </div>
+            </div>
+            <div class='box-content'>
+              <div id='stats-chart9' style='height:273px;'></div>
+            </div>
+          </div>
+        </div>
+        <div class='row'>
+      <div class='col-sm-6 box'>
         <div class='box-header'>
           <div class='title'>
-            Clicks By Referrer on Highest Peforming Content
+            <i class='icon-group'></i>
+            Traffic
           </div>
           <div class='actions'>
+            <!--<a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i></a>-->
+            
             <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
             </a>
           </div>
         </div>
-        <div class='box-content'>
-          <div id='stats-chart10' style='height:220px;'></div>
+        <div class='row'>
+          <div class='col-sm-12'>
+            <div class='box-content box-statistic text-right'>
+              <h3 class='title text-error'><%= @hoursclicks %></h3>
+              <small>Clicks in Last 2 Hours</small>
+              <div class='text-error icon-user align-left'></div>
+            </div>
+            <div class='box-content box-statistic text-right'>
+              <h3 class='title text-error'><%= @todaysclicks %></h3>
+              <small>Clicks Today</small>
+              <div class='text-error icon-user align-left'></div>
+            </div>
+            <div class='box-content box-statistic text-right'>
+              <h3 class='title text-warning'><%= @weeklyclicks %></h3>
+              <small>Clicks This Week</small>
+              <div class='text-warning icon-book align-left'></div>
+            </div>
+            <div class='box-content box-statistic text-right'>
+              <h3 class='title text-primary'><%= @monthyclicks %></h3>
+              <small>Clicks This Month</small>
+              <div class='text-primary icon-time align-left'></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-</div>  
-
-
-
-<!-- Pie chart operator -->
-<script>
-      <% names, values = getCountryStatisticsForBarChart(@demographic.url) %>
-
-      gd = function(year, month, day) {
-        return new Date(year, month, day).getTime();
-      };
-      showTooltip = function(x, y, color, contents) {
-        return $("<div id=\"tooltip\">" + contents + "</div>").css({
-          position: "absolute",
-          display: "none",
-          top: y - 40,
-          left: x - 120,
-          border: "2px solid " + color,
-          padding: "3px",
-          "font-size": "9px",
-          "border-radius": "5px",
-          "background-color": "#fff",
-          "font-family": "Verdana, Arial, Helvetica, Tahoma, sans-serif",
-          opacity: 0.9
-        }).appendTo("body").fadeIn(200);
-      };
-      data = <%= raw values %>; //[[0, 11], [1, 15], [2, 25], [3, 24], [4, 13], [5, 18]];
-      
-      dataset = [
-        {
-          label: "Clicks By Country",
-          data: data,
-          color: "#5482FF"
-        }
-      ];
-      ticks = <%= raw names %>;//[[0, "London"], [1, "New York"], [2, "New Delhi"], [3, "Taipei"], [4, "Beijing"], [5, "Sydney"]];
-      options = {
-        series: {
-          bars: {
-            show: true
-          }
-        },
-        bars: {
-          align: "center",
-          barWidth: 0.5
-        },
-        xaxis: {
-          axisLabel: "Country",
-          axisLabelUseCanvas: true,
-          axisLabelFontSizePixels: 12,
-          axisLabelFontFamily: "Verdana, Arial",
-          axisLabelPadding: 10,
-          ticks: ticks
-        },
-        yaxis: {
-          axisLabel: "Clicks",
-          axisLabelUseCanvas: true,
-          axisLabelFontSizePixels: 12,
-          axisLabelFontFamily: "Verdana, Arial",
-          axisLabelPadding: 3,
-          tickFormatter: function(v, axis) {
-            return v;
-          }
-        },
-        legend: {
-          noColumns: 0,
-          labelBoxBorderColor: "#000000",
-          position: "nw"
-        },
-        grid: {
-          hoverable: true,
-          borderWidth: 2,
-          backgroundColor: {
-            colors: ["#ffffff", "#EDF5FF"]
-          }
-        }
-      };
-      $(document).ready(function() {
-        $.plot($("#stats-chart7"), dataset, options);
-        return $("#stats-chart7").UseTooltip();
-      });
-      previousPoint = null;
-      previousLabel = null;
-      $.fn.UseTooltip = function() {
-        return $(this).bind("plothover", function(event, pos, item) {
-          var color, x, y;
-          if (item) {
-            if ((previousLabel !== item.series.label) || (previousPoint !== item.dataIndex)) {
-              previousPoint = item.dataIndex;
-              previousLabel = item.series.label;
-              $("#tooltip").remove();
-              x = item.datapoint[0];
-              y = item.datapoint[1];
-              color = item.series.color;
-              return showTooltip(item.pageX, item.pageY, color, "<strong>" + item.series.label + "</strong><br>" + item.series.xaxis.ticks[x].label + " : <strong>" + y + "</strong>");
-            }
-          } else {
-            $("#tooltip").remove();
-            return previousPoint = null;
-          }
-        });
-      };
-    </script>
+    </div>
     
-  <script>
-      <% platforms, pvalues = getPlatformStatisticsForBarChart(@demographic.url) %>
-
-      gd = function(year, month, day) {
-        return new Date(year, month, day).getTime();
-      };
-      showTooltip2 = function(x, y, color, contents) {
-        return $("<div id=\"tooltip2\">" + contents + "</div>").css({
-          position: "absolute",
-          display: "none",
-          top: y - 40,
-          left: x - 120,
-          border: "2px solid " + color,
-          padding: "3px",
-          "font-size": "9px",
-          "border-radius": "5px",
-          "background-color": "#fff",
-          "font-family": "Verdana, Arial, Helvetica, Tahoma, sans-serif",
-          opacity: 0.9
-        }).appendTo("body").fadeIn(200);
-      };
-      data2 = <%= raw pvalues %>; //[[0, 11], [1, 15], [2, 25], [3, 24], [4, 13], [5, 18]];
-      
-      dataset2 = [
-        {
-          label: "Clicks By Platform",
-          data: data2,
-          color: "#ff7c54"
-        }
-      ];
-      ticks2 = <%= raw platforms %>;//[[0, "London"], [1, "New York"], [2, "New Delhi"], [3, "Taipei"], [4, "Beijing"], [5, "Sydney"]];
-      options2 = {
-        series: {
-          bars: {
-            show: true
-          }
-        },
-        bars: {
-          align: "center",
-          barWidth: 0.5
-        },
-        xaxis: {
-          axisLabel: "Platform",
-          axisLabelUseCanvas: true,
-          axisLabelFontSizePixels: 12,
-          axisLabelFontFamily: "Verdana, Arial",
-          axisLabelPadding: 10,
-          ticks: ticks2
-        },
-        yaxis: {
-          axisLabel: "Clicks",
-          axisLabelUseCanvas: true,
-          axisLabelFontSizePixels: 12,
-          axisLabelFontFamily: "Verdana, Arial",
-          axisLabelPadding: 3,
-          tickFormatter: function(v, axis) {
-            return v;
-          }
-        },
-        legend: {
-          noColumns: 0,
-          labelBoxBorderColor: "#000000",
-          position: "nw"
-        },
-        grid: {
-          hoverable: true,
-          borderWidth: 2,
-          backgroundColor: {
-            colors: ["#ffffff", "#EDF5FF"]
-          }
-        }
-      };
-      $(document).ready(function() {
-        $.plot($("#stats-chart9"), dataset2, options2);
-        return $("#stats-chart9").UseTooltip2();
-      });
-      previousPoint1 = null;
-      previousLabel1 = null;
-      $.fn.UseTooltip2 = function() {
-        return $(this).bind("plothover", function(event, pos, item) {
-          var color, x, y;
-          if (item) {
-            if ((previousLabel1 !== item.series.label) || (previousPoint1 !== item.dataIndex)) {
-              previousPoint1 = item.dataIndex;
-              previousLabel1 = item.series.label;
-              $("#tooltip2").remove();
-              x = item.datapoint[0];
-              y = item.datapoint[1];
-              color = item.series.color;
-              return showTooltip2(item.pageX, item.pageY, color, "<strong>" + item.series.label + "</strong><br>" + item.series.xaxis.ticks[x].label + " : <strong>" + y + "</strong>");
-            }
-          } else {
-            $("#tooltip2").remove();
-            return previousPoint1 = null;
-          }
-        });
-      };
-    </script>
+    <div class='row'>
+        <div class='col-sm-12'>
+          <div class='box'>
+            <div class='box-header'>
+              <div class='title'>
+                Clicks By Referrer on Highest Peforming Content
+              </div>
+              <div class='actions'>
+                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                </a>
+              </div>
+            </div>
+            <div class='box-content'>
+              <div id='stats-chart10' style='height:220px;'></div>
+            </div>
+          </div>
+        </div>
+    </div>  
+    
+    
+    
+    <!-- Pie chart operator -->
     <script>
-      <% platforms, pvalues = getReferrersStatisticsForBarChart(@demographic.url) %>
-
-      gd = function(year, month, day) {
-        return new Date(year, month, day).getTime();
-      };
-      showTooltip3 = function(x, y, color, contents) {
-        return $("<div id=\"tooltip3\">" + contents + "</div>").css({
-          position: "absolute",
-          display: "none",
-          top: y - 40,
-          left: x - 120,
-          border: "2px solid " + color,
-          padding: "3px",
-          "font-size": "9px",
-          "border-radius": "5px",
-          "background-color": "#fff",
-          "font-family": "Verdana, Arial, Helvetica, Tahoma, sans-serif",
-          opacity: 0.9
-        }).appendTo("body").fadeIn(200);
-      };
-      data3 = <%= raw pvalues %>; //[[0, 11], [1, 15], [2, 25], [3, 24], [4, 13], [5, 18]];
-      
-      dataset3 = [
-        {
-          label: "Clicks By Referrers",
-          data: data3,
-          color: "#ff5482"
-        }
-      ];
-      ticks3 = <%= raw platforms %>;//[[0, "London"], [1, "New York"], [2, "New Delhi"], [3, "Taipei"], [4, "Beijing"], [5, "Sydney"]];
-      options3 = {
-        series: {
-          bars: {
-            show: true
-          }
-        },
-        bars: {
-          align: "center",
-          barWidth: 0.5
-        },
-        xaxis: {
-          axisLabel: "Referrers",
-          axisLabelUseCanvas: true,
-          axisLabelFontSizePixels: 12,
-          axisLabelFontFamily: "Verdana, Arial",
-          axisLabelPadding: 10,
-          ticks: ticks3
-        },
-        yaxis: {
-          axisLabel: "Clicks",
-          axisLabelUseCanvas: true,
-          axisLabelFontSizePixels: 12,
-          axisLabelFontFamily: "Verdana, Arial",
-          axisLabelPadding: 3,
-          tickFormatter: function(v, axis) {
-            return v;
-          }
-        },
-        legend: {
-          noColumns: 0,
-          labelBoxBorderColor: "#000000",
-          position: "nw"
-        },
-        grid: {
-          hoverable: true,
-          borderWidth: 2,
-          backgroundColor: {
-            colors: ["#ffffff", "#EDF5FF"]
-          }
-        }
-      };
-      $(document).ready(function() {
-        $.plot($("#stats-chart10"), dataset3, options3);
-        return $("#stats-chart10").UseTooltip3();
-      });
-      previousPoint = null;
-      previousLabel = null;
-      $.fn.UseTooltip3 = function() {
-        return $(this).bind("plothover", function(event, pos, item) {
-          var color, x, y;
-          if (item) {
-            if ((previousLabel !== item.series.label) || (previousPoint !== item.dataIndex)) {
-              previousPoint = item.dataIndex;
-              previousLabel = item.series.label;
-              $("#tooltip3").remove();
-              x = item.datapoint[0];
-              y = item.datapoint[1];
-              color = item.series.color;
-              return showTooltip3(item.pageX, item.pageY, color, "<strong>" + item.series.label + "</strong><br>" + item.series.xaxis.ticks[x].label + " : <strong>" + y + "</strong>");
+          <% names, values = getCountryStatisticsForBarChart(@demographic.url) %>
+    
+          gd = function(year, month, day) {
+            return new Date(year, month, day).getTime();
+          };
+          showTooltip = function(x, y, color, contents) {
+            return $("<div id=\"tooltip\">" + contents + "</div>").css({
+              position: "absolute",
+              display: "none",
+              top: y - 40,
+              left: x - 120,
+              border: "2px solid " + color,
+              padding: "3px",
+              "font-size": "9px",
+              "border-radius": "5px",
+              "background-color": "#fff",
+              "font-family": "Verdana, Arial, Helvetica, Tahoma, sans-serif",
+              opacity: 0.9
+            }).appendTo("body").fadeIn(200);
+          };
+          data = <%= raw values %>; //[[0, 11], [1, 15], [2, 25], [3, 24], [4, 13], [5, 18]];
+          
+          dataset = [
+            {
+              label: "Clicks By Country",
+              data: data,
+              color: "#5482FF"
             }
-          } else {
-            $("#tooltip3").remove();
-            return previousPoint = null;
+          ];
+          ticks = <%= raw names %>;//[[0, "London"], [1, "New York"], [2, "New Delhi"], [3, "Taipei"], [4, "Beijing"], [5, "Sydney"]];
+          options = {
+            series: {
+              bars: {
+                show: true
+              }
+            },
+            bars: {
+              align: "center",
+              barWidth: 0.5
+            },
+            xaxis: {
+              axisLabel: "Country",
+              axisLabelUseCanvas: true,
+              axisLabelFontSizePixels: 12,
+              axisLabelFontFamily: "Verdana, Arial",
+              axisLabelPadding: 10,
+              ticks: ticks
+            },
+            yaxis: {
+              axisLabel: "Clicks",
+              axisLabelUseCanvas: true,
+              axisLabelFontSizePixels: 12,
+              axisLabelFontFamily: "Verdana, Arial",
+              axisLabelPadding: 3,
+              tickFormatter: function(v, axis) {
+                return v;
+              }
+            },
+            legend: {
+              noColumns: 0,
+              labelBoxBorderColor: "#000000",
+              position: "nw"
+            },
+            grid: {
+              hoverable: true,
+              borderWidth: 2,
+              backgroundColor: {
+                colors: ["#ffffff", "#EDF5FF"]
+              }
+            }
+          };
+          $(document).ready(function() {
+            $.plot($("#stats-chart7"), dataset, options);
+            return $("#stats-chart7").UseTooltip();
+          });
+          previousPoint = null;
+          previousLabel = null;
+          $.fn.UseTooltip = function() {
+            return $(this).bind("plothover", function(event, pos, item) {
+              var color, x, y;
+              if (item) {
+                if ((previousLabel !== item.series.label) || (previousPoint !== item.dataIndex)) {
+                  previousPoint = item.dataIndex;
+                  previousLabel = item.series.label;
+                  $("#tooltip").remove();
+                  x = item.datapoint[0];
+                  y = item.datapoint[1];
+                  color = item.series.color;
+                  return showTooltip(item.pageX, item.pageY, color, "<strong>" + item.series.label + "</strong><br>" + item.series.xaxis.ticks[x].label + " : <strong>" + y + "</strong>");
+                }
+              } else {
+                $("#tooltip").remove();
+                return previousPoint = null;
+              }
+            });
+          };
+        </script>
+        
+      <script>
+          <% platforms, pvalues = getPlatformStatisticsForBarChart(@demographic.url) %>
+    
+          gd = function(year, month, day) {
+            return new Date(year, month, day).getTime();
+          };
+          showTooltip2 = function(x, y, color, contents) {
+            return $("<div id=\"tooltip2\">" + contents + "</div>").css({
+              position: "absolute",
+              display: "none",
+              top: y - 40,
+              left: x - 120,
+              border: "2px solid " + color,
+              padding: "3px",
+              "font-size": "9px",
+              "border-radius": "5px",
+              "background-color": "#fff",
+              "font-family": "Verdana, Arial, Helvetica, Tahoma, sans-serif",
+              opacity: 0.9
+            }).appendTo("body").fadeIn(200);
+          };
+          data2 = <%= raw pvalues %>; //[[0, 11], [1, 15], [2, 25], [3, 24], [4, 13], [5, 18]];
+          
+          dataset2 = [
+            {
+              label: "Clicks By Platform",
+              data: data2,
+              color: "#ff7c54"
+            }
+          ];
+          ticks2 = <%= raw platforms %>;//[[0, "London"], [1, "New York"], [2, "New Delhi"], [3, "Taipei"], [4, "Beijing"], [5, "Sydney"]];
+          options2 = {
+            series: {
+              bars: {
+                show: true
+              }
+            },
+            bars: {
+              align: "center",
+              barWidth: 0.5
+            },
+            xaxis: {
+              axisLabel: "Platform",
+              axisLabelUseCanvas: true,
+              axisLabelFontSizePixels: 12,
+              axisLabelFontFamily: "Verdana, Arial",
+              axisLabelPadding: 10,
+              ticks: ticks2
+            },
+            yaxis: {
+              axisLabel: "Clicks",
+              axisLabelUseCanvas: true,
+              axisLabelFontSizePixels: 12,
+              axisLabelFontFamily: "Verdana, Arial",
+              axisLabelPadding: 3,
+              tickFormatter: function(v, axis) {
+                return v;
+              }
+            },
+            legend: {
+              noColumns: 0,
+              labelBoxBorderColor: "#000000",
+              position: "nw"
+            },
+            grid: {
+              hoverable: true,
+              borderWidth: 2,
+              backgroundColor: {
+                colors: ["#ffffff", "#EDF5FF"]
+              }
+            }
+          };
+          $(document).ready(function() {
+            $.plot($("#stats-chart9"), dataset2, options2);
+            return $("#stats-chart9").UseTooltip2();
+          });
+          previousPoint1 = null;
+          previousLabel1 = null;
+          $.fn.UseTooltip2 = function() {
+            return $(this).bind("plothover", function(event, pos, item) {
+              var color, x, y;
+              if (item) {
+                if ((previousLabel1 !== item.series.label) || (previousPoint1 !== item.dataIndex)) {
+                  previousPoint1 = item.dataIndex;
+                  previousLabel1 = item.series.label;
+                  $("#tooltip2").remove();
+                  x = item.datapoint[0];
+                  y = item.datapoint[1];
+                  color = item.series.color;
+                  return showTooltip2(item.pageX, item.pageY, color, "<strong>" + item.series.label + "</strong><br>" + item.series.xaxis.ticks[x].label + " : <strong>" + y + "</strong>");
+                }
+              } else {
+                $("#tooltip2").remove();
+                return previousPoint1 = null;
+              }
+            });
+          };
+        </script>
+        <script>
+          <% platforms, pvalues = getReferrersStatisticsForBarChart(@demographic.url) %>
+    
+          gd = function(year, month, day) {
+            return new Date(year, month, day).getTime();
+          };
+          showTooltip3 = function(x, y, color, contents) {
+            return $("<div id=\"tooltip3\">" + contents + "</div>").css({
+              position: "absolute",
+              display: "none",
+              top: y - 40,
+              left: x - 120,
+              border: "2px solid " + color,
+              padding: "3px",
+              "font-size": "9px",
+              "border-radius": "5px",
+              "background-color": "#fff",
+              "font-family": "Verdana, Arial, Helvetica, Tahoma, sans-serif",
+              opacity: 0.9
+            }).appendTo("body").fadeIn(200);
+          };
+          data3 = <%= raw pvalues %>; //[[0, 11], [1, 15], [2, 25], [3, 24], [4, 13], [5, 18]];
+          
+          dataset3 = [
+            {
+              label: "Clicks By Referrers",
+              data: data3,
+              color: "#ff5482"
+            }
+          ];
+          ticks3 = <%= raw platforms %>;//[[0, "London"], [1, "New York"], [2, "New Delhi"], [3, "Taipei"], [4, "Beijing"], [5, "Sydney"]];
+          options3 = {
+            series: {
+              bars: {
+                show: true
+              }
+            },
+            bars: {
+              align: "center",
+              barWidth: 0.5
+            },
+            xaxis: {
+              axisLabel: "Referrers",
+              axisLabelUseCanvas: true,
+              axisLabelFontSizePixels: 12,
+              axisLabelFontFamily: "Verdana, Arial",
+              axisLabelPadding: 10,
+              ticks: ticks3
+            },
+            yaxis: {
+              axisLabel: "Clicks",
+              axisLabelUseCanvas: true,
+              axisLabelFontSizePixels: 12,
+              axisLabelFontFamily: "Verdana, Arial",
+              axisLabelPadding: 3,
+              tickFormatter: function(v, axis) {
+                return v;
+              }
+            },
+            legend: {
+              noColumns: 0,
+              labelBoxBorderColor: "#000000",
+              position: "nw"
+            },
+            grid: {
+              hoverable: true,
+              borderWidth: 2,
+              backgroundColor: {
+                colors: ["#ffffff", "#EDF5FF"]
+              }
+            }
+          };
+          $(document).ready(function() {
+            $.plot($("#stats-chart10"), dataset3, options3);
+            return $("#stats-chart10").UseTooltip3();
+          });
+          previousPoint = null;
+          previousLabel = null;
+          $.fn.UseTooltip3 = function() {
+            return $(this).bind("plothover", function(event, pos, item) {
+              var color, x, y;
+              if (item) {
+                if ((previousLabel !== item.series.label) || (previousPoint !== item.dataIndex)) {
+                  previousPoint = item.dataIndex;
+                  previousLabel = item.series.label;
+                  $("#tooltip3").remove();
+                  x = item.datapoint[0];
+                  y = item.datapoint[1];
+                  color = item.series.color;
+                  return showTooltip3(item.pageX, item.pageY, color, "<strong>" + item.series.label + "</strong><br>" + item.series.xaxis.ticks[x].label + " : <strong>" + y + "</strong>");
+                }
+              } else {
+                $("#tooltip3").remove();
+                return previousPoint = null;
+              }
+            });
+          };
+        </script>
+     <script>
+      var data, dataset, gd, options, previousLabel, previousPoint, showTooltip, ticks;
+      var blue, data, datareal, getRandomData, green, i, newOrders, options, orange, orders, placeholder, plot, purple, randNumber, randSmallerNumber, red, series, totalPoints, update, updateInterval;
+      var red = "#f34541";
+      var orange = "#f8a326";
+      var blue = "#00acec";
+      var purple = "#9564e2";
+      var green = "#49bf67";
+    
+      if ($("#stats-chart1").length !== 0) {
+        testplot = <%=raw @dashstats %>
+        plot = $.plot($("#stats-chart1"), [
+          {
+            data: testplot,
+            label: "Orders"
           }
+        ], {
+          series: {
+            lines: {
+              show: true,
+              lineWidth: 3
+            },
+            shadowSize: 0
+          },
+          legend: {
+            show: false
+          },
+          grid: {
+            clickable: true,
+            hoverable: true,
+            borderWidth: 0,
+            tickColor: "#f4f7f9"
+          },
+          colors: ["#00acec", "#f8a326"]
         });
-      };
-    </script>
- <script>
-  var data, dataset, gd, options, previousLabel, previousPoint, showTooltip, ticks;
-  var blue, data, datareal, getRandomData, green, i, newOrders, options, orange, orders, placeholder, plot, purple, randNumber, randSmallerNumber, red, series, totalPoints, update, updateInterval;
-  var red = "#f34541";
-  var orange = "#f8a326";
-  var blue = "#00acec";
-  var purple = "#9564e2";
-  var green = "#49bf67";
-
-  if ($("#stats-chart1").length !== 0) {
-    testplot = <%=raw @dashstats %>
-    plot = $.plot($("#stats-chart1"), [
-      {
-        data: testplot,
-        label: "Orders"
       }
-    ], {
-      series: {
-        lines: {
-          show: true,
-          lineWidth: 3
-        },
-        shadowSize: 0
-      },
-      legend: {
-        show: false
-      },
-      grid: {
-        clickable: true,
-        hoverable: true,
-        borderWidth: 0,
-        tickColor: "#f4f7f9"
-      },
-      colors: ["#00acec", "#f8a326"]
-    });
-  }
-</script>
+    </script>
+<% end %>

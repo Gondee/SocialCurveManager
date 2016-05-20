@@ -168,8 +168,8 @@ class UsersController < ApplicationController
         @weeklyprofit += ((wclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
         @monthylprofit+= ((mclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
         
-        obj = LinkThumbnailer.generate('http://stackoverflow.com')
-        @linkimage = obj.images.first.src.to_s
+        #obj = LinkThumbnailer.generate('http://stackoverflow.com')
+        #@linkimage = obj.images.first.src.to_s
       end
     end 
     if(is_user_publisher?)
