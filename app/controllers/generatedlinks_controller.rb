@@ -30,10 +30,10 @@ class GeneratedlinksController < ApplicationController
       @monthyclicks = getMonthlyClicks(url)
       @allclicks = getTotalClicks(url)
       cpm = getlinkcpm(@generatedlink)
-      @todayprofit  = (@todaysclicks.to_d/1000) * cpm.to_d
-      @weeklyprofit = (@weeklyclicks.to_d/1000) * cpm.to_d
-      @monthylprofit= (@monthyclicks.to_d/1000) * cpm.to_d
-      @allprofit = (@allclicks.to_d/1000) * cpm.to_d
+      @todayprofit  = ((@todaysclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
+      @weeklyprofit = ((@weeklyclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
+      @monthylprofit= ((@monthyclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
+      @allprofit = ((@allclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
       
       thumbnails = LinkThumbnailer.generate(url)
       @flavicon = thumbnails.favicon

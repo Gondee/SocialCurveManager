@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509175036) do
+ActiveRecord::Schema.define(version: 20160510222947) do
 
   create_table "clearing_houses", force: :cascade do |t|
     t.integer  "publisher_id"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20160509175036) do
     t.boolean  "publisher"
     t.integer  "publisher_id"
     t.string   "paypal"
+    t.decimal  "cut",               default: 20.0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -120,6 +120,15 @@
                         </div>
                         
                       </div>
+                      <% if is_user_admin? %>
+                      <div class='col-sm-7 col-sm-offset-1'>
+                        <div class='form-group'>
+                          <label>Percentage Taken By Social Curve</label>
+                          <%= f.text_field :cut , class: 'form-control' %>
+                        </div>
+                        
+                      </div>
+                      <% end %>
                     </fieldset>
                     
                     

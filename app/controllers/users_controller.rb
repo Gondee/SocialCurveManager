@@ -119,10 +119,10 @@ class UsersController < ApplicationController
         @todaysclicks += tclicks
         @weeklyclicks += wclicks
         @monthyclicks += mclicks
-        @hoursprofit  += (hclicks.to_d/1000) * cpm.to_d
-        @todayprofit  += (tclicks.to_d/1000) * cpm.to_d
-        @weeklyprofit += (wclicks.to_d/1000) * cpm.to_d
-        @monthylprofit+= (mclicks.to_d/1000) * cpm.to_d
+        @hoursprofit  += ((hclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
+        @todayprofit  += ((tclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
+        @weeklyprofit += ((wclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
+        @monthylprofit+= ((mclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
       end
     
     
@@ -141,7 +141,7 @@ class UsersController < ApplicationController
     else 
       @dashstats = getDashboardGraphStats
       #STANDARD USER
-      @generatedlinks = Generatedlink.where("user_id = ?", current_user_id)
+      @generatedlinks = Generatedlink.where("user_id = ? AND created_at <= ?", current_user_id,30.days.ago)
       #Adding data for access in the view...
       @hoursclicks  = 0
       @todaysclicks = 0
@@ -163,10 +163,10 @@ class UsersController < ApplicationController
         @todaysclicks += tclicks
         @weeklyclicks += wclicks
         @monthyclicks += mclicks
-        @hoursprofit  += (hclicks.to_d/1000) * cpm.to_d
-        @todayprofit  += (tclicks.to_d/1000) * cpm.to_d
-        @weeklyprofit += (wclicks.to_d/1000) * cpm.to_d
-        @monthylprofit+= (mclicks.to_d/1000) * cpm.to_d
+        @hoursprofit  += ((hclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
+        @todayprofit  += ((tclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
+        @weeklyprofit += ((wclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
+        @monthylprofit+= ((mclicks.to_d/1000) * cpm.to_d) * ( (100 - getProfitCut() )/100)
         
         obj = LinkThumbnailer.generate('http://stackoverflow.com')
         @linkimage = obj.images.first.src.to_s
@@ -185,7 +185,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first, :last, :email, :address, :url, :publisher, :password, :password_confirmation, :paypal)
+      
+      params.require(:user).permit(:first, :last, :email, :address, :url, :publisher, :password, :password_confirmation, :paypal, :cut)
       #params.permit(:first, :last, :email, :address, :url, :password, :password_confirmation, :company, :position)
     end
     

@@ -188,6 +188,19 @@ module LinksHelper
         return names, values
     end
     
+    
+    def getProfitCut
+       cutt = User.find(current_user_id)
+       cut = cutt.cut
+       
+       if(cut == nil)
+           return 20
+       else
+           return cut
+       end
+        
+    end
+    
     def getReferrersStatisticsForBarChart(url)
         data = getReferrersClicks(url)
         

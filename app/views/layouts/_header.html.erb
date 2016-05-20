@@ -53,7 +53,7 @@
  
       <!-- dark dropdown & user menu -->
       <% if logged_in? %>
-      <li class="dropdown dark user-menu">
+      <li class="dropdown dark user-menu has-popover" data-content='This is where you can view you information, enter paypal data, and edit information about yourself' data-placement='bottom' data-title='About'>
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
           <img width="23" height="23" alt="Gravatar" src=<%= gravatar_url(current_user) %> />
           <span class="user-name"><%= current_user.first %> <%= current_user.last %></span>

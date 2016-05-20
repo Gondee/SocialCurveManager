@@ -4,35 +4,16 @@ class ClearingHousesController < ApplicationController
   # GET /clearing_houses
   # GET /clearing_houses.json
   def index
+    
     #To display the new Clearing house entry to admins
     if(is_user_admin?)
       @clearing_house = ClearingHouse.new
     end
-    #-------
-    
-    
+    #------
     #Only for admins, can be removed I believe
     @clearing_houses = ClearingHouse.all
-    
     @permissions = ClearingHouse.where("user_id =?", current_user_id)
-    
-     
-    
-    #for p in @permissions
-    #  currentLinks = Generatedlink.where("user_id=?",current_user_id).pluck(:link_id)
-    #  @uniqueLinks = Link.where("publisher_id =?",p.publisher_id)
-    #  @uniqueLinks.where.not(id: currentLinks)
-    #end
-    
-    
-    #@list = ClearingHouse.getContent(@permissions.first.publisher_id)
-    #currentLinks = Generatedlink.where("user_id=?",current_user_id).pluck(:link_id)
-    #@allLinks = Link.where("publisher_id =?",pub_id)
-    
-    
-    
-    #Eventually make sure they are unused
-    
+ 
     
   end
 
