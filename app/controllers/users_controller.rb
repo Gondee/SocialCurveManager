@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.activated = true; #comment to force users to verify with their email
-    @publisher = 0
+    #@publisher = 0
     if(@user.publisher)
       @publisher = Publisher.new
       @publisher.company = publisher_params[:company]
@@ -141,7 +141,8 @@ class UsersController < ApplicationController
     else 
       @dashstats = getDashboardGraphStats
       #STANDARD USER
-      @generatedlinks = Generatedlink.where("user_id = ? AND created_at <= ?", current_user_id,30.days.ago)
+      #@generatedlinks = Generatedlink.where("user_id = ? AND created_at <= ?", current_user_id,30.days.ago)
+      @generatedlinks = Generatedlink.where("user_id = ? AND created_at >= ?", current_user_id,30.days.ago)
       #Adding data for access in the view...
       @hoursclicks  = 0
       @todaysclicks = 0

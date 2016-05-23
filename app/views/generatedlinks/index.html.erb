@@ -79,7 +79,7 @@
                     </button>
                   </td>
                   <!--<td><%= getTotalClicks(link.url) %></td>-->
-                  <td>$<%= ((getTotalClicks(link.url).to_d)/1000) * getlinkcpm(link) %></td>
+                  <td>$<%= (((getTotalClicks(link.url).to_d)/1000) * getlinkcpm(link)) * ( (100 - getProfitCut() )/100) %></td>
                   <!--<td><%= link.paidout %></td>-->
                   <td><%= link_to 'Details', link %></td>
                   <td><%= link.date %></td>
@@ -180,7 +180,7 @@
                     </button>
                   </td>
                   <!--<td><%= getTotalClicks(link.url) %></td>-->
-                  <td>$<%= ((getTotalClicks(link.url).to_d)/1000) * getlinkcpm(link) %></td>
+                  <td>$<%= (((getTotalClicks(link.url).to_d)/1000) * getlinkcpm(link)) * ( (100 - getProfitCut() )/100) %> %></td>
                   <!--<td><%= link.paidout %></td>-->
                   <td><%= link_to 'Details', link %></td>
                   <td><%= link.date %></td>
